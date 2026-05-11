@@ -9,14 +9,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--s:'Playfair Display',Georgia,serif;--n:'Jost',sans-serif;--h:#1E1B2E;--a:#9B7FD4;--bg:#F5F4FA;--c:#fff;--t:#1E1B2E;--m:#7A7890;--b:#D4D0E8}
 body{font-family:var(--n);background:var(--bg);color:var(--t)}
+/* HEADER */
 .hdr{background:var(--h);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20}
-.nav a{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.08em;color:rgba(255,255,255,0.5);text-decoration:none;margin-left:20px;text-transform:uppercase}
-.nav a:hover{color:#fff}
+.nav a{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.08em;color:rgba(255,255,255,0.5);text-decoration:none;margin-left:20px;text-transform:uppercase;cursor:pointer;transition:color 0.15s}
+.nav a:hover,.nav a.on{color:#fff}
 .cart-btn{font-family:var(--n);background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.18);padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px}
 .cart-btn:hover{background:rgba(255,255,255,0.18)}
 .cbadge{background:var(--a);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:500;display:none;align-items:center;justify-content:center}
+/* TRUST BAR */
 .trust{background:var(--a);padding:7px 24px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .trust span{font-family:var(--n);color:#fff;font-size:11px;font-weight:300;letter-spacing:0.06em}
+/* HERO */
 .hero{background:var(--h);min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(155,127,212,0.07)}
 .hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(155,127,212,0.05)}
@@ -25,12 +28,14 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .hmacron{position:relative;display:inline-block}
 .hmacron::after{content:'';position:absolute;bottom:calc(100% + 5px);left:50%;width:42%;height:5px;background:var(--a);border-radius:3px}
 .hdesc{font-family:var(--n);color:rgba(255,255,255,0.6);font-size:13px;font-weight:300;line-height:1.8;max-width:380px;margin:14px auto 0}
+/* TABS TIENDA */
 .tabs-bar{background:var(--c);border-bottom:1px solid var(--b);padding:0 24px;position:sticky;top:60px;z-index:15;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
 .tabs{display:flex;max-width:1100px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.06em;color:var(--m);padding:14px 20px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;text-transform:uppercase;user-select:none}
+.tab{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.06em;color:var(--m);padding:14px 20px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;text-transform:uppercase}
 .tab:hover{color:var(--t)}
 .tab.on{color:var(--h);border-bottom-color:var(--a);font-weight:500}
+/* GRID */
 .wrap{padding:24px;max-width:1100px;margin:0 auto}
 .shophead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
 .shophead h2{font-family:var(--s);font-size:24px;font-weight:400;color:var(--h)}
@@ -39,16 +44,16 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
 .card{background:var(--c);border:0.5px solid var(--b);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(155,127,212,0.12)}
-.cimg{height:200px;position:relative;background:#EAE8F4;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.cimg img{width:100%;height:100%;object-fit:contain;display:block;padding:8px;transition:transform 0.3s;background:#fff}
+.cimg{height:200px;position:relative;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.cimg img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform 0.3s}
 .card:hover .cimg img{transform:scale(1.04)}
 .cbadge2{position:absolute;top:8px;left:8px;font-family:var(--n);font-size:9px;font-weight:500;padding:3px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.06em;z-index:2}
-.bs{background:var(--h);color:#fff}.bo{background:#C0392B;color:#fff}.bn{background:var(--a);color:#fff}
+.bo{background:#C0392B;color:#fff}
 .cstock{position:absolute;top:8px;right:8px;font-family:var(--n);background:rgba(255,243,224,0.96);color:#E65100;font-size:9px;padding:3px 7px;border-radius:3px;z-index:2}
 .cdel{position:absolute;bottom:7px;left:7px;background:rgba(30,27,46,0.88);color:#fff;font-family:var(--n);font-size:9px;padding:3px 8px;border-radius:3px;display:flex;align-items:center;gap:3px;z-index:2}
 .ddot{width:5px;height:5px;border-radius:50%;background:var(--a);display:inline-block}
 .cbody{padding:13px}
-.cname{font-family:var(--s);font-size:13px;font-weight:500;margin-bottom:4px;line-height:1.3;color:var(--t)}
+.cname{font-family:var(--s);font-size:13px;font-weight:500;margin-bottom:4px;line-height:1.3}
 .cdesc{font-family:var(--n);font-size:11px;font-weight:300;color:var(--m);line-height:1.5;margin-bottom:7px}
 .cstars{color:var(--a);font-size:11px}
 .cstars span{font-family:var(--n);color:var(--m);font-size:10px;margin-left:2px}
@@ -58,27 +63,62 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .ppct{font-family:var(--n);font-size:10px;color:#6B5FA0;font-weight:500;margin-left:2px}
 .addbtn{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:background 0.15s}
 .addbtn:hover{background:var(--a)}
+/* PÁGINAS INTERNAS */
+.page{display:none;max-width:720px;margin:0 auto;padding:40px 24px 60px}
+.page-hero{background:var(--h);padding:40px 24px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(155,127,212,0.08)}
+.page-hero h1{font-family:var(--s);font-style:italic;font-size:clamp(2rem,5vw,3rem);color:#fff;font-weight:400;margin-bottom:10px;position:relative;z-index:1}
+.page-hero p{font-family:var(--n);color:rgba(255,255,255,0.6);font-size:14px;font-weight:300;line-height:1.7;max-width:480px;margin:0 auto;position:relative;z-index:1}
+.page-body{padding:40px 24px 60px;max-width:720px;margin:0 auto}
+.section{margin-bottom:36px}
+.section h2{font-family:var(--s);font-size:20px;font-weight:400;color:var(--h);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--b)}
+.section p{font-family:var(--n);font-size:14px;font-weight:300;color:#3A3850;line-height:1.8;margin-bottom:10px}
+.section ul{list-style:none;padding:0}
+.section ul li{font-family:var(--n);font-size:14px;font-weight:300;color:#3A3850;line-height:1.8;padding:8px 0 8px 22px;border-bottom:0.5px solid var(--b);position:relative}
+.section ul li::before{content:'✦';position:absolute;left:0;color:var(--a);font-size:10px;top:11px}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:16px 0 24px}
+.info-card{background:var(--c);border:0.5px solid var(--b);border-radius:10px;padding:18px;text-align:center}
+.info-card .ico{font-size:26px;margin-bottom:8px}
+.info-card h4{font-family:var(--s);font-size:14px;font-weight:400;color:var(--h);margin-bottom:4px}
+.info-card p{font-family:var(--n);font-size:12px;font-weight:300;color:var(--m);line-height:1.5;margin:0}
+.highlight-box{background:var(--c);border:0.5px solid var(--b);border-left:3px solid var(--a);border-radius:8px;padding:16px 20px;margin:16px 0}
+.highlight-box p{margin:0;font-size:13px}
+/* FORMULARIO CONTACTO */
+.cf{display:flex;flex-direction:column;gap:14px}
+.cf-field label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:4px;text-transform:uppercase}
+.cf-field input,.cf-field textarea,.cf-field select{font-family:var(--n);width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;resize:vertical;transition:border-color 0.15s}
+.cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:var(--a)}
+.cf-field textarea{min-height:110px}
+.cf-submit{font-family:var(--n);padding:12px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.15s}
+.cf-submit:hover{background:var(--a)}
+.cf-submit:disabled{background:var(--m);cursor:wait}
+.cf-sent{display:none;text-align:center;padding:28px;background:var(--c);border:0.5px solid var(--b);border-radius:12px}
+.cf-sent h3{font-family:var(--s);font-size:20px;font-weight:400;font-style:italic;color:var(--h);margin:10px 0 6px}
+.cf-sent p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
+.cf-respuesta{background:#F0EDF9;border:1px solid var(--a);border-radius:8px;padding:14px 16px;margin-top:12px;font-family:var(--n);font-size:13px;font-weight:300;color:var(--h);line-height:1.7;white-space:pre-wrap;text-align:left}
+/* CARRITO */
 #cover{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:30}
 #drawer{display:none;position:fixed;top:0;right:0;bottom:0;width:340px;background:#fff;border-left:1px solid var(--b);z-index:31;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,0.1)}
 .drh{padding:14px 16px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center}
-.drh h3{font-family:var(--s);font-size:17px;font-weight:400;color:var(--t)}
+.drh h3{font-family:var(--s);font-size:17px;font-weight:400}
 .xb{background:none;border:none;font-size:18px;cursor:pointer;color:var(--m)}
 .dri{flex:1;overflow-y:auto;padding:12px 16px}
 .empty{text-align:center;padding:2.5rem;color:var(--m);font-family:var(--n);font-weight:300}
 .dit{display:flex;gap:10px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px}
-.dit img{width:56px;height:56px;object-fit:contain;border-radius:6px;flex-shrink:0;background:#fff;padding:4px;border:1px solid var(--b)}
-.din{font-family:var(--s);font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t)}
+.dit img{width:52px;height:52px;object-fit:contain;border-radius:6px;flex-shrink:0;background:#fff;padding:3px;border:1px solid var(--b)}
+.din{font-family:var(--s);font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dip{font-family:var(--s);font-size:13px;color:var(--a);font-weight:500}
 .qc{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
 .qb{width:22px;height:22px;border:1px solid var(--b);background:#fff;border-radius:4px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center}
-.qn{font-family:var(--n);font-size:12px;min-width:14px;text-align:center;color:var(--t)}
+.qn{font-family:var(--n);font-size:12px;min-width:14px;text-align:center}
 .db{font-family:var(--n);font-size:10px;color:#C0392B;background:none;border:none;cursor:pointer}
 .drf{padding:14px 16px;border-top:1px solid var(--b)}
 .drw{font-family:var(--n);display:flex;justify-content:space-between;font-size:12px;font-weight:300;margin-bottom:5px;color:var(--m)}
-.drt{font-family:var(--s);display:flex;justify-content:space-between;font-size:16px;padding-top:7px;border-top:1px solid var(--b);margin-top:6px;color:var(--t)}
-.gb{font-family:var(--n);width:100%;padding:11px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:9px;transition:background 0.15s}
+.drt{font-family:var(--s);display:flex;justify-content:space-between;font-size:16px;padding-top:7px;border-top:1px solid var(--b);margin-top:6px}
+.gb{font-family:var(--n);width:100%;padding:11px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:9px}
 .gb:hover{background:var(--a)}
 .sn{font-family:var(--n);text-align:center;font-size:10px;color:var(--m);margin-top:7px}
+/* CHECKOUT */
 #chk{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:32;align-items:flex-start;justify-content:center;padding:24px 12px;overflow-y:auto}
 .cm{background:#fff;border-radius:12px;width:min(460px,100%);overflow:hidden;margin-top:8px}
 .cmh{background:var(--h);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
@@ -91,36 +131,25 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .pb.on{background:var(--a)}
 .fi{margin-bottom:12px}
 .fi label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:3px;text-transform:uppercase}
-.fi input{font-family:var(--n);width:100%;padding:9px 11px;border:1px solid var(--b);border-radius:7px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;transition:border-color 0.15s}
+.fi input{font-family:var(--n);width:100%;padding:9px 11px;border:1px solid var(--b);border-radius:7px;font-size:13px;font-weight:300;outline:none;transition:border-color 0.15s}
 .fi input:focus{border-color:var(--a)}
 .r2{display:grid;grid-template-columns:2fr 1fr;gap:10px}
 .os{background:var(--bg);border-radius:8px;padding:11px 13px;margin-bottom:12px}
 .ost{font-family:var(--n);font-size:10px;color:var(--m);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px}
-.osl{font-family:var(--n);display:flex;justify-content:space-between;font-size:11px;font-weight:300;margin-bottom:3px;color:var(--t)}
+.osl{font-family:var(--n);display:flex;justify-content:space-between;font-size:11px;font-weight:300;margin-bottom:3px}
 .ostt{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid var(--b);margin-top:5px}
-.ostt span:first-child{font-family:var(--n);font-size:12px;color:var(--t)}
+.ostt span:first-child{font-family:var(--n);font-size:12px}
 .ostt span:last-child{font-family:var(--s);font-size:14px;font-weight:500;color:var(--h)}
-.cdb{border:1px solid var(--b);border-radius:8px;padding:12px;background:#FAFAFA;margin-bottom:12px}
-.cdbb{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.cbr{display:flex;gap:4px}
-.cbrr{font-family:var(--n);font-size:9px;border:1px solid var(--b);border-radius:3px;padding:2px 4px;color:var(--m)}
-.br{display:flex;gap:8px}
-.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer}
-.bp{font-family:var(--n);flex:1;padding:10px;background:var(--a);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer}
-.bp:disabled{background:var(--m);cursor:wait}
 .em{font-family:var(--n);font-size:11px;color:#C0392B;background:#fdf0ef;padding:8px 10px;border-radius:5px;margin-bottom:10px;display:none}
 .cb{font-family:var(--n);width:100%;padding:10px;background:var(--a);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;margin-top:8px}
-#succ{display:none;padding:4rem 24px;text-align:center;max-width:400px;margin:0 auto}
-#succ h2{font-family:var(--s);font-size:28px;font-weight:400;font-style:italic;color:var(--h);margin:12px 0 8px}
-#succ p{font-family:var(--n);color:var(--m);font-size:13px;font-weight:300;line-height:1.7;margin-bottom:1.5rem}
-.sb{display:flex;justify-content:center;gap:24px;background:#fff;border:1px solid var(--b);border-radius:10px;padding:14px;margin-bottom:1.5rem}
-.si{text-align:center;font-family:var(--n);font-size:11px;color:var(--m)}
-.si.on{color:var(--h);font-weight:500}
-.sico{font-size:18px;display:block;margin-bottom:3px}
-.rb{font-family:var(--n);padding:10px 24px;background:var(--h);color:#fff;border:none;border-radius:7px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer}
+.br{display:flex;gap:8px}
+.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;cursor:pointer}
+.bp{font-family:var(--n);flex:1;padding:10px;background:#635BFF;color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.bp:disabled{background:var(--m);cursor:wait}
+/* FOOTER */
 .footer{background:var(--h);padding:2rem 24px;margin-top:2rem}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-links a{font-family:var(--n);font-size:11px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;margin-left:20px}
+.footer-links a{font-family:var(--n);font-size:11px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;margin-left:20px;cursor:pointer}
 .footer-links a:hover{color:var(--a)}
 .footer-copy{font-family:var(--n);font-size:11px;font-weight:300;color:rgba(255,255,255,0.3);text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;max-width:1100px;margin:16px auto 0}
 #toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;font-weight:300;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid var(--a);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
@@ -129,7 +158,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 <body>
 
 <header class="hdr">
-  <div style="display:flex;align-items:center">
+  <div onclick="goPage('tienda')" style="cursor:pointer;display:flex;align-items:center">
     <svg width="40" height="40" viewBox="0 0 44 44">
       <rect x="11" y="10" width="7" height="27" rx="3.5" fill="#fff"/>
       <rect x="11" y="10" width="22" height="7" rx="3.5" fill="#fff"/>
@@ -138,12 +167,16 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     </svg>
   </div>
   <nav class="nav">
-    <a href="#">Inicio</a><a href="#">Envíos</a><a href="#">Devoluciones</a><a href="#">Contacto</a>
+    <a id="nav-tienda" onclick="goPage('tienda')" class="on">Inicio</a>
+    <a id="nav-envios" onclick="goPage('envios')">Envíos</a>
+    <a id="nav-devoluciones" onclick="goPage('devoluciones')">Devoluciones</a>
+    <a id="nav-contacto" onclick="goPage('contacto')">Contacto</a>
   </nav>
   <button class="cart-btn" onclick="oC()">🛒 Carrito <span class="cbadge" id="cb">0</span></button>
 </header>
 
-<div id="sv">
+<!-- ═══ TIENDA ═══ -->
+<div id="page-tienda">
   <div class="trust">
     <span>🔒 Pago seguro</span><span>📦 Envío 24-48h España</span><span>↩️ Devolución 14 días</span><span>🏆 +5.000 clientes</span>
   </div>
@@ -162,38 +195,133 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     </div>
     <div class="grid" id="pg"></div>
   </div>
-  <footer class="footer">
-    <div class="footer-inner">
-      <div style="display:flex;align-items:center">
-        <svg width="22" height="22" viewBox="0 0 44 44">
-          <rect x="11" y="10" width="7" height="27" rx="3.5" fill="#fff"/>
-          <rect x="11" y="10" width="22" height="7" rx="3.5" fill="#fff"/>
-          <rect x="11" y="21" width="16" height="6" rx="3" fill="#9B7FD4"/>
-          <rect x="23" y="3" width="12" height="5" rx="2.5" fill="#9B7FD4"/>
-        </svg>
-        <span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span>
-      </div>
-      <div class="footer-links">
-        <a href="#">Tienda</a><a href="#">Envíos</a><a href="#">Devoluciones</a><a href="#">Contacto</a>
-      </div>
-      <div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div>
-    </div>
-    <p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p>
-  </footer>
+  <div id="footer-tienda"></div>
 </div>
 
-<div id="succ">
-  <div style="font-size:52px">🎉</div>
-  <h2>¡Pedido confirmado!</h2>
-  <p>Tu pedido está en camino. Entrega estimada: <strong>2-4 días hábiles.</strong></p>
-  <div class="sb">
-    <div class="si on"><span class="sico">📦</span>Preparando</div>
-    <div class="si"><span class="sico">🚚</span>En camino</div>
-    <div class="si"><span class="sico">✅</span>Entregado</div>
+<!-- ═══ ENVÍOS ═══ -->
+<div id="page-envios" style="display:none">
+  <div class="page-hero">
+    <h1>Envíos</h1>
+    <p>Hacemos todo lo posible para que tu pedido llegue rápido y en perfecto estado.</p>
   </div>
-  <button class="rb" onclick="rS()">Seguir comprando</button>
+  <div class="page-body">
+    <div class="section">
+      <h2>¿Cuándo llega mi pedido?</h2>
+      <p>Una vez confirmado el pago, preparamos y enviamos tu pedido en un plazo de <strong>24 a 72 horas hábiles</strong>. A partir de ahí, el tiempo de entrega depende de tu zona:</p>
+      <div class="info-grid">
+        <div class="info-card"><div class="ico">🏙️</div><h4>Península</h4><p>2 — 4 días hábiles</p></div>
+        <div class="info-card"><div class="ico">🏝️</div><h4>Islas Canarias</h4><p>4 — 7 días hábiles</p></div>
+        <div class="info-card"><div class="ico">🌍</div><h4>Europa</h4><p>5 — 10 días hábiles</p></div>
+      </div>
+      <p>Estos plazos son orientativos. En épocas de alta demanda puede haber algún día de retraso — siempre te avisamos.</p>
+    </div>
+    <div class="section">
+      <h2>Gastos de envío</h2>
+      <ul>
+        <li>Envío gratuito en pedidos superiores a <strong>€25</strong> dentro de la Península</li>
+        <li>Para pedidos inferiores o destinos fuera de la Península, el coste se calcula al momento del checkout</li>
+        <li>Número de seguimiento incluido — te lo enviamos por email en cuanto salga tu paquete</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>¿Qué pasa si no estoy en casa?</h2>
+      <p>El transportista intentará la entrega hasta dos veces. Si no te encuentra, dejará el paquete en un punto de recogida cercano y te avisará por SMS o email. Tendrás varios días para recogerlo.</p>
+    </div>
+    <div class="section">
+      <h2>¿Puedo cambiar la dirección de entrega?</h2>
+      <p>Si acabas de hacer el pedido y necesitas cambiar la dirección, escríbenos cuanto antes a través del formulario de <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none">Contacto</a>. Una vez el paquete está en camino no siempre es posible modificarlo.</p>
+    </div>
+  </div>
+  <div id="footer-envios"></div>
 </div>
 
+<!-- ═══ DEVOLUCIONES ═══ -->
+<div id="page-devoluciones" style="display:none">
+  <div class="page-hero">
+    <h1>Devoluciones</h1>
+    <p>Comprar online requiere confianza. Si algo no es lo que esperabas, lo solucionamos sin complicaciones.</p>
+  </div>
+  <div class="page-body">
+    <div class="section">
+      <h2>Política de devoluciones</h2>
+      <p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para devolver cualquier producto, sin necesidad de dar explicaciones. Es tu derecho y lo respetamos al 100%.</p>
+      <div class="highlight-box">
+        <p>El producto debe estar en su estado original: sin usar, con su embalaje intacto y todos sus accesorios. Los productos usados o dañados no pueden ser devueltos por razones de higiene y seguridad.</p>
+      </div>
+    </div>
+    <div class="section">
+      <h2>¿Cómo hago una devolución?</h2>
+      <ul>
+        <li>Escríbenos a través del formulario de <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none">Contacto</a> indicando tu número de pedido y el motivo</li>
+        <li>Te enviamos las instrucciones para devolver el paquete</li>
+        <li>Una vez lo recibamos y revisemos, procesamos el reembolso en <strong>5 a 10 días hábiles</strong></li>
+        <li>El reembolso se hace por el mismo método de pago que usaste</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>¿Y si el producto llega defectuoso?</h2>
+      <p>Si recibes un producto dañado o que no funciona, lo resolvemos nosotros. En estos casos cubrimos los gastos de devolución y te enviamos un producto nuevo o te hacemos el reembolso completo — tú eliges.</p>
+      <p>Solo necesitamos que nos escribas con unas fotos del producto y tu número de pedido.</p>
+    </div>
+    <div class="section">
+      <h2>Resumen rápido</h2>
+      <div class="info-grid">
+        <div class="info-card"><div class="ico">📅</div><h4>Plazo</h4><p>14 días desde la recepción</p></div>
+        <div class="info-card"><div class="ico">💳</div><h4>Reembolso</h4><p>En 5-10 días hábiles</p></div>
+        <div class="info-card"><div class="ico">🔧</div><h4>Defectuoso</h4><p>Devolución gratuita</p></div>
+        <div class="info-card"><div class="ico">🤝</div><h4>Sin preguntas</h4><p>Tu satisfacción primero</p></div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-devoluciones"></div>
+</div>
+
+<!-- ═══ CONTACTO ═══ -->
+<div id="page-contacto" style="display:none">
+  <div class="page-hero">
+    <h1>Hablemos</h1>
+    <p>¿Tienes una duda o una sugerencia? Estamos aquí para escucharte.</p>
+  </div>
+  <div class="page-body">
+    <div class="info-grid" style="margin-bottom:32px">
+      <div class="info-card"><div class="ico">📧</div><h4>Email</h4><p>Respondemos en menos de 24h</p></div>
+      <div class="info-card"><div class="ico">⏰</div><h4>Horario</h4><p>Lunes a viernes<br>9:00 — 18:00h</p></div>
+      <div class="info-card"><div class="ico">🤖</div><h4>Respuesta IA</h4><p>Respuesta automática inmediata</p></div>
+    </div>
+    <div class="section">
+      <h2>Escríbenos</h2>
+      <p style="margin-bottom:20px">Rellena el formulario y recibirás una respuesta automática en segundos. También lo revisamos personalmente.</p>
+      <div id="cf-wrap">
+        <div class="cf">
+          <div class="cf-field"><label>Tu nombre</label><input id="cf-nombre" placeholder="Ana García"></div>
+          <div class="cf-field"><label>Email</label><input id="cf-email" type="email" placeholder="ana@ejemplo.com"></div>
+          <div class="cf-field">
+            <label>Motivo</label>
+            <select id="cf-motivo">
+              <option value="">Selecciona un motivo...</option>
+              <option>Consulta sobre un producto</option>
+              <option>Estado de mi pedido</option>
+              <option>Devolución o cambio</option>
+              <option>Problema con mi pedido</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="cf-field"><label>Mensaje</label><textarea id="cf-msg" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
+          <button class="cf-submit" id="cf-btn" onclick="enviarContacto()">Enviar mensaje</button>
+        </div>
+      </div>
+      <div class="cf-sent" id="cf-sent">
+        <div style="font-size:40px;margin-bottom:10px">💌</div>
+        <h3>¡Mensaje recibido!</h3>
+        <p>Hemos generado una respuesta automática para ti:</p>
+        <div class="cf-respuesta" id="cf-respuesta"></div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-contacto"></div>
+</div>
+
+<!-- CARRITO -->
 <div id="cover" onclick="cC()"></div>
 <div id="drawer">
   <div class="drh"><h3 id="dt">Tu carrito</h3><button class="xb" onclick="cC()">✕</button></div>
@@ -201,6 +329,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div class="drf" id="df"></div>
 </div>
 
+<!-- CHECKOUT -->
 <div id="chk">
   <div class="cm">
     <div class="cmh">
@@ -217,34 +346,29 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 <div id="toast" style="display:none;align-items:center">✦ <span id="tm"></span></div>
 
 <script>
-// Todas las imágenes son fotos reales de producto obtenidas de Chewy.com
-const CDN = "https://image.chewy.com/catalog/general/images/";
-const IMG = {
-  // Fotos directas del objeto — sin mascotas
-  cama:    CDN + "moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
-  feeder:  CDN + "petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
-  ball:    CDN + "moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
-  snack:   CDN + "brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
-  gps:     CDN + "tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
-  cattoy:  CDN + "moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
-  fuente:  CDN + "moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
-  cueva:   CDN + "petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
-  arbol:   CDN + "yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
-  tunel:   CDN + "feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
-  arnes:   CDN + "frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
-  mochila: CDN + "petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
-  collar:  CDN + "illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
-  correa:  CDN + "frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
-  chaleco: CDN + "frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
-  cepillo: CDN + "furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
-  unas:    CDN + "pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
-  masaje:  CDN + "furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
-  patas:   CDN + "dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
-  champu:  CDN + "4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
+const CDN="https://image.chewy.com/catalog/general/images/";
+const IMG={
+  cama:CDN+"moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
+  feeder:CDN+"petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
+  ball:CDN+"moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
+  snack:CDN+"brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
+  gps:CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
+  cattoy:CDN+"moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
+  fuente:CDN+"moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
+  cueva:CDN+"petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
+  arbol:CDN+"yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
+  tunel:CDN+"feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
+  arnes:CDN+"frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
+  mochila:CDN+"petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
+  collar:CDN+"illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
+  correa:CDN+"frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
+  chaleco:CDN+"frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
+  cepillo:CDN+"furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
+  unas:CDN+"pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
+  masaje:CDN+"furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
+  patas:CDN+"dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
+  champu:CDN+"4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
 };
-
-const K="NzAyMzFkMmQyNDZkN2ExNTkyYThkYjQ0MTRlMzFhNjZhMWVlMjQ0OGI3N2Q2MWU5MDMyMjBmNThhNDcwZjEzZg";
-const BU="https://api.bigbuy.eu/rest";
 
 const CATS=[
   {id:'todos',lbl:'✦ Todos',title:'Todos los productos',desc:'Selección completa para perros y gatos'},
@@ -255,74 +379,65 @@ const CATS=[
 ];
 
 const P=[
-  // PERROS — fotos del producto en sí
-  {id:1,n:'Cama Ortopédica de Lujo',p:43.19,o:47.99,t:null,c:'perros',i:IMG.cama,
-   d:'Espuma viscoelástica. Alivia articulaciones.',r:4.8,rv:312,st:8,s:'BB-2847',dl:'24-48h'},
-  {id:2,n:'Comedero Automático Smart',p:50.39,o:null,t:null,c:'perros',i:IMG.feeder,
-   d:'App programmable. 6 comidas al día.',r:4.7,rv:187,st:5,s:'BB-3391',dl:'24-48h'},
-  {id:3,n:'Pelota Interactiva Sensor',p:19.79,o:null,t:null,c:'perros',i:IMG.ball,
-   d:'Se mueve sola. Sensor automático.',r:4.6,rv:98,st:15,s:'BB-4801',dl:'24-48h'},
-  {id:4,n:'Dispensador de Snacks',p:26.99,o:null,t:null,c:'perros',i:IMG.snack,
-   d:'Puzzle antiaburrimiento. Premio por esfuerzo.',r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
-  {id:5,n:'GPS Localizador Collar',p:44.99,o:null,t:null,c:'perros',i:IMG.gps,
-   d:'Seguimiento en tiempo real. App incluida.',r:4.7,rv:224,st:7,s:'BB-5201',dl:'48h'},
-  // GATOS
-  {id:6,n:'Juguete Interactivo Gatos',p:20.69,o:null,t:null,c:'gatos',i:IMG.cattoy,
-   d:'Mariposa + pluma. Sensor de presencia.',r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
-  {id:7,n:'Bebedero Fuente Silencioso',p:33.29,o:36.99,t:'Oferta',c:'gatos',i:IMG.fuente,
-   d:'Filtración triple. Motor <25dB. 2.5L.',r:4.9,rv:456,st:9,s:'BB-7784',dl:'24-48h'},
-  {id:8,n:'Cama Cueva Sherpa',p:31.49,o:null,t:null,c:'gatos',i:IMG.cueva,
-   d:'Interior Sherpa. Cálida y acogedora.',r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
-  {id:9,n:'Árbol Rascador Premium',p:52.19,o:null,t:null,c:'gatos',i:IMG.arbol,
-   d:'Sisal natural. 3 niveles + cama.',r:4.7,rv:189,st:6,s:'BB-6310',dl:'48h'},
-  {id:10,n:'Túnel de Juego 3 en 1',p:22.49,o:null,t:null,c:'gatos',i:IMG.tunel,
-   d:'Plegable. Pelota interior incluida.',r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
-  // PASEO
-  {id:11,n:'Arnés Antipull Premium',p:28.79,o:null,t:null,c:'paseo',i:IMG.arnes,
-   d:'Tallas XS-XL. Tejido reflectante.',r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
-  {id:12,n:'Mochila Transportadora',p:44.99,o:null,t:null,c:'paseo',i:IMG.mochila,
-   d:'Hasta 8kg. Aprobada cabina avión.',r:4.8,rv:274,st:7,s:'BB-5519',dl:'48h'},
-  {id:13,n:'Collar LED Seguridad',p:14.39,o:15.99,t:'Oferta',c:'paseo',i:IMG.collar,
-   d:'Visible 500m. USB recargable. 3 modos.',r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
-  {id:14,n:'Correa Retráctil 5m',p:16.19,o:null,t:null,c:'paseo',i:IMG.correa,
-   d:'Bloqueo instantáneo. Cinta reflectante.',r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
-  {id:15,n:'Chaleco Salvavidas',p:35.99,o:null,t:null,c:'paseo',i:IMG.chaleco,
-   d:'Flotabilidad alta. Asa de rescate. S-XL.',r:4.6,rv:76,st:9,s:'BB-5890',dl:'48h'},
-  // HIGIENE
-  {id:16,n:'Cepillo Deslanador Pro',p:17.99,o:null,t:null,c:'higiene',i:IMG.cepillo,
-   d:'Reduce pelo suelto 90%. Auto-limpieza.',r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
-  {id:17,n:'Cortaúñas LED Seguro',p:10.79,o:null,t:null,c:'higiene',i:IMG.unas,
-   d:'Luz LED para ver el nervio. Sin errores.',r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
-  {id:18,n:'Cepillo Masaje 2 en 1',p:20.69,o:null,t:null,c:'higiene',i:IMG.masaje,
-   d:'Limpieza y masaje en el baño.',r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
-  {id:19,n:'Limpiador de Patas',p:11.69,o:null,t:null,c:'higiene',i:IMG.patas,
-   d:'Silicona suave. Limpia en segundos.',r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
-  {id:20,n:'Champú Natural Premium',p:13.49,o:null,t:null,c:'higiene',i:IMG.champu,
-   d:'Fórmula orgánica. Sin sulfatos.',r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'},
+  {id:1,n:'Cama Ortopédica de Lujo',p:43.19,o:null,t:null,c:'perros',i:IMG.cama,d:'Espuma viscoelástica. Alivia articulaciones.',r:4.8,rv:312,st:8,s:'BB-2847',dl:'24-48h'},
+  {id:2,n:'Comedero Automático Smart',p:50.39,o:null,t:null,c:'perros',i:IMG.feeder,d:'App programmable. 6 comidas al día.',r:4.7,rv:187,st:5,s:'BB-3391',dl:'24-48h'},
+  {id:3,n:'Pelota Interactiva Sensor',p:19.79,o:null,t:null,c:'perros',i:IMG.ball,d:'Se mueve sola. Sensor automático.',r:4.6,rv:98,st:15,s:'BB-4801',dl:'24-48h'},
+  {id:4,n:'Dispensador de Snacks',p:26.99,o:null,t:null,c:'perros',i:IMG.snack,d:'Puzzle antiaburrimiento. Premio por esfuerzo.',r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
+  {id:5,n:'GPS Localizador Collar',p:44.99,o:null,t:null,c:'perros',i:IMG.gps,d:'Seguimiento en tiempo real. App incluida.',r:4.7,rv:224,st:7,s:'BB-5201',dl:'48h'},
+  {id:6,n:'Juguete Interactivo Gatos',p:20.69,o:null,t:null,c:'gatos',i:IMG.cattoy,d:'Mariposa + pluma. Sensor de presencia.',r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
+  {id:7,n:'Bebedero Fuente Silencioso',p:33.29,o:36.99,t:'Oferta',c:'gatos',i:IMG.fuente,d:'Filtración triple. Motor <25dB. 2.5L.',r:4.9,rv:456,st:9,s:'BB-7784',dl:'24-48h'},
+  {id:8,n:'Cama Cueva Sherpa',p:31.49,o:null,t:null,c:'gatos',i:IMG.cueva,d:'Interior Sherpa. Cálida y acogedora.',r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
+  {id:9,n:'Árbol Rascador Premium',p:52.19,o:null,t:null,c:'gatos',i:IMG.arbol,d:'Sisal natural. 3 niveles + cama.',r:4.7,rv:189,st:6,s:'BB-6310',dl:'48h'},
+  {id:10,n:'Túnel de Juego 3 en 1',p:22.49,o:null,t:null,c:'gatos',i:IMG.tunel,d:'Plegable. Pelota interior incluida.',r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
+  {id:11,n:'Arnés Antipull Premium',p:28.79,o:null,t:null,c:'paseo',i:IMG.arnes,d:'Tallas XS-XL. Tejido reflectante.',r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
+  {id:12,n:'Mochila Transportadora',p:44.99,o:null,t:null,c:'paseo',i:IMG.mochila,d:'Hasta 8kg. Aprobada cabina avión.',r:4.8,rv:274,st:7,s:'BB-5519',dl:'48h'},
+  {id:13,n:'Collar LED Seguridad',p:14.39,o:15.99,t:'Oferta',c:'paseo',i:IMG.collar,d:'Visible 500m. USB recargable. 3 modos.',r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
+  {id:14,n:'Correa Retráctil 5m',p:16.19,o:null,t:null,c:'paseo',i:IMG.correa,d:'Bloqueo instantáneo. Cinta reflectante.',r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
+  {id:15,n:'Chaleco Salvavidas',p:35.99,o:null,t:null,c:'paseo',i:IMG.chaleco,d:'Flotabilidad alta. Asa de rescate. S-XL.',r:4.6,rv:76,st:9,s:'BB-5890',dl:'48h'},
+  {id:16,n:'Cepillo Deslanador Pro',p:17.99,o:null,t:null,c:'higiene',i:IMG.cepillo,d:'Reduce pelo suelto 90%. Auto-limpieza.',r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
+  {id:17,n:'Cortaúñas LED Seguro',p:10.79,o:null,t:null,c:'higiene',i:IMG.unas,d:'Luz LED para ver el nervio. Sin errores.',r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
+  {id:18,n:'Cepillo Masaje 2 en 1',p:20.69,o:null,t:null,c:'higiene',i:IMG.masaje,d:'Limpieza y masaje en el baño.',r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
+  {id:19,n:'Limpiador de Patas',p:11.69,o:null,t:null,c:'higiene',i:IMG.patas,d:'Silicona suave. Limpia en segundos.',r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
+  {id:20,n:'Champú Natural Premium',p:13.49,o:null,t:null,c:'higiene',i:IMG.champu,d:'Fórmula orgánica. Sin sulfatos.',r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'},
 ];
 
+// ─── NAVEGACIÓN ───
+const PAGES=['tienda','envios','devoluciones','contacto'];
+const FOOTER=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center"><svg width="22" height="22" viewBox="0 0 44 44"><rect x="11" y="10" width="7" height="27" rx="3.5" fill="#fff"/><rect x="11" y="10" width="22" height="7" rx="3.5" fill="#fff"/><rect x="11" y="21" width="16" height="6" rx="3" fill="#9B7FD4"/><rect x="23" y="3" width="12" height="5" rx="2.5" fill="#9B7FD4"/></svg><span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
+PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER;});
+
+function goPage(pg){
+  PAGES.forEach(p=>{
+    const el=document.getElementById('page-'+p);
+    if(el)el.style.display=p===pg?'block':'none';
+    const nav=document.getElementById('nav-'+p);
+    if(nav)nav.className=p===pg?'on':'';
+  });
+  window.scrollTo(0,0);
+  if(pg==='tienda')renderTabs();
+}
+
+// ─── TIENDA ───
 let cart=[],aC='todos',stp=1,frm={},tT=null;
 const $=id=>document.getElementById(id);
 const st=r=>"★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r));
 const pc=(p,o)=>Math.round((1-p/o)*100);
 
-function rTabs(){
+function renderTabs(){
   $("tabs").innerHTML=CATS.map(c=>`<div class="tab${aC===c.id?' on':''}" onclick="sT('${c.id}')">${c.lbl}</div>`).join("");
 }
 function sT(id){
-  aC=id;
-  const c=CATS.find(x=>x.id===id);
+  aC=id;const c=CATS.find(x=>x.id===id);
   $("ct").textContent=c.title;$("cd").textContent=c.desc;
-  rTabs();rGrid();
+  renderTabs();rGrid();
 }
 function rGrid(){
   const l=aC==='todos'?P:P.filter(x=>x.c===aC);
   $("pc").textContent=l.length+" productos";
   $("pg").innerHTML=l.map(p=>`<div class="card">
     <div class="cimg">
-      <img src="${p.i}" alt="${p.n}" loading="lazy"
-           onerror="this.style.display='none';this.parentElement.style.background='#EAE8F4'">
-      ${p.t?`<div class="cbadge2 ${p.t==='Más vendido'?'bs':p.t==='Oferta'?'bo':'bn'}">${p.t}</div>`:''}
+      <img src="${p.i}" alt="${p.n}" loading="lazy" onerror="this.style.display='none'">
+      ${p.t?`<div class="cbadge2 bo">${p.t}</div>`:''}
       ${p.st<=8?`<div class="cstock">Últimas ${p.st}</div>`:''}
       <div class="cdel"><span class="ddot"></span>${p.dl}</div>
     </div>
@@ -337,6 +452,7 @@ function rGrid(){
     </div>
   </div>`).join("");
 }
+
 function aCart(id){
   const p=P.find(x=>x.id===id),e=cart.find(x=>x.id===id);
   if(e)e.qty++;else cart.push({...p,qty:1});
@@ -350,85 +466,68 @@ function rD(){
   const n=cart.reduce((s,i)=>s+i.qty,0);
   $("dt").textContent="Tu carrito ("+n+")";
   if(!cart.length){$("di").innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:8px">🛒</div><p>Tu carrito está vacío</p></div>';$("df").innerHTML="";return}
-  $("di").innerHTML=cart.map(i=>`<div class="dit">
-    <img src="${i.i}" alt="${i.n}" onerror="this.style.display='none'">
-    <div style="flex:1;min-width:0">
-      <div class="din">${i.n}</div>
-      <div class="dip">€${i.p.toFixed(2)}</div>
-    </div>
-    <div class="qc">
-      <button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button>
-      <span class="qn">${i.qty}</span>
-      <button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button>
-      <button class="db" onclick="cQ(${i.id},0)">Quitar</button>
-    </div>
-  </div>`).join("");
+  $("di").innerHTML=cart.map(i=>`<div class="dit"><img src="${i.i}" onerror="this.style.display='none'"><div style="flex:1;min-width:0"><div class="din">${i.n}</div><div class="dip">€${i.p.toFixed(2)}</div></div><div class="qc"><button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button><span class="qn">${i.qty}</span><button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button><button class="db" onclick="cQ(${i.id},0)">Quitar</button></div></div>`).join("");
   const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-  $("df").innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div>
-    <div class="drw"><span>Envío</span><span style="color:var(--a)">Gratis</span></div>
-    <div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div>
-    <button class="gb" onclick="oK()">Finalizar compra →</button>
-    <p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
+  $("df").innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div><div class="drw"><span>Envío</span><span style="color:var(--a)">Gratis</span></div><div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div><button class="gb" onclick="oK()">Finalizar compra →</button><p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
 }
 function cQ(id,q){if(q<=0)cart=cart.filter(i=>i.id!==id);else cart=cart.map(i=>i.id===id?{...i,qty:q}:i);uB();rD()}
 function oK(){cC();stp=1;frm={};rChk();$("chk").style.display="flex"}
 function cK(){$("chk").style.display="none"}
 function rChk(){
-  $("ct2").textContent=stp===1?"Datos de envío":"Pago seguro";
+  $("ct2").textContent=stp===1?"Datos de envío":"Confirmar pedido";
   $("cs").textContent="Paso "+stp+" de 2";
   $("p1").className="pb on";$("p2").className=stp===2?"pb on":"pb";
   if(stp===1){
     $("st1").style.display="block";$("st2").style.display="none";
-    $("st1").innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div>
-      <div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div>
-      <div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div>
-      <div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div>
-      <div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div>
-      <button class="cb" onclick="gS2()">Continuar al pago →</button>`;
+    $("st1").innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div><div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div><div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div><div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div><div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div><button class="cb" onclick="gS2()">Continuar →</button>`;
   }else{
     $("st1").style.display="none";$("st2").style.display="block";
     const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    $("st2").innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>
-      ${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join("")}
-      <div class="ostt"><span>Total</span><span>€${sub.toFixed(2)}</span></div></div>
-      <div class="cdb"><div class="cdbb"><span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.08em;color:#7A7890;text-transform:uppercase">🔒 Pago seguro</span>
-      <div class="cbr"><span class="cbrr">VISA</span><span class="cbrr">MC</span><span class="cbrr">AMEX</span></div></div>
-      <div class="fi"><label>Número de tarjeta</label><input id="fcd" placeholder="1234 5678 9012 3456" maxlength="19"></div>
-      <div class="r2"><div class="fi"><label>Caducidad</label><input id="fex" placeholder="MM/AA" maxlength="5"></div>
-      <div class="fi"><label>CVV</label><input id="fcv" type="password" placeholder="123" maxlength="3"></div></div></div>
-      <div id="em" class="em"></div>
-      <div class="br"><button class="bb" onclick="gS1()">← Volver</button>
-      <button class="bp" id="pbtn" onclick="dPay()" style="background:#635BFF;display:flex;align-items:center;justify-content:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar €${sub.toFixed(2)}</button></div>`;
+    $("st2").innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join("")}<div class="ostt"><span>Total</span><span>€${sub.toFixed(2)}</span></div></div><div id="em" class="em"></div><div class="br"><button class="bb" onclick="gS1()">← Volver</button><button class="bp" id="pbtn" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}</button></div>`;
   }
 }
 function gS2(){frm={n:$("fn").value,e:$("fe").value,a:$("fa").value,c:$("fc").value,z:$("fz").value};stp=2;rChk()}
 function gS1(){stp=1;rChk()}
 async function dPay(){
   const btn=$("pbtn"),em=$("em");
-  btn.disabled=true;btn.textContent="Redirigiendo a pago seguro...";em.style.display="none";
+  btn.disabled=true;btn.innerHTML="Redirigiendo...";em.style.display="none";
   try{
-    const r=await fetch('/api/create-checkout',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({items:cart, origin:window.location.origin})
-    });
+    const r=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,origin:window.location.origin})});
     const data=await r.json();
-    if(data.url){
-      window.location.href=data.url;
-    }else{
-      throw new Error(data.error||'Error al crear el pago');
-    }
+    if(data.url)window.location.href=data.url;
+    else throw new Error(data.error||'Error');
   }catch(e){
     em.textContent="⚠️ Error al procesar el pago. Inténtalo de nuevo.";
     em.style.display="block";
     btn.disabled=false;
     const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    btn.textContent="Pagar €"+sub.toFixed(2);
+    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}`;
   }
 }
-function fin(){cK();$("sv").style.display="none";$("succ").style.display="block";cart=[];uB()}
-function rS(){$("sv").style.display="block";$("succ").style.display="none";sT('todos')}
-rTabs();rGrid();
+
+// ─── CONTACTO CON IA ───
+async function enviarContacto(){
+  const btn=$("cf-btn");
+  const nombre=$("cf-nombre").value.trim();
+  const email=$("cf-email").value.trim();
+  const motivo=$("cf-motivo").value;
+  const msg=$("cf-msg").value.trim();
+  if(!nombre||!email||!motivo||!msg){alert("Por favor rellena todos los campos.");return}
+  btn.disabled=true;btn.textContent="Enviando...";
+  try{
+    const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,email,motivo,mensaje:msg})});
+    const data=await r.json();
+    $("cf-wrap").style.display="none";
+    $("cf-sent").style.display="block";
+    $("cf-respuesta").textContent=data.respuesta||"Gracias por tu mensaje. Te responderemos pronto.";
+  }catch(e){
+    btn.disabled=false;btn.textContent="Enviar mensaje";
+    alert("Error al enviar. Inténtalo de nuevo.");
+  }
+}
+
+// ─── INIT ───
+renderTabs();rGrid();
 </script>
 </body>
 </html>

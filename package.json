@@ -2,6 +2,7 @@
   "name": "furo-tienda",
   "version": "1.0.0",
   "dependencies": {
-    "stripe": "^14.0.0"
+    "stripe": "^14.0.0",
+    "@anthropic-ai/sdk": "^0.24.0"
   }
 }
