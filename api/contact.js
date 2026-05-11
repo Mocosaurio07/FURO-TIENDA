@@ -1,3 +1,6 @@
+
+Copiar
+
 const Anthropic = require('@anthropic-ai/sdk');
  
 module.exports = async (req, res) => {
@@ -75,3 +78,4 @@ Empieza siempre con "Hola [nombre]," y termina con "Un saludo,\nEl equipo de Fur
     res.status(500).json({ error: err.message });
   }
 };
+ 
