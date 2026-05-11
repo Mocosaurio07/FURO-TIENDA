@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido confirmado — Furō</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',sans-serif;background:#F5F4FA;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+.card{background:#fff;border-radius:16px;padding:48px 40px;max-width:440px;width:100%;text-align:center;box-shadow:0 8px 32px rgba(155,127,212,0.12)}
+.check{width:72px;height:72px;background:#9B7FD4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px}
+h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;font-style:italic;color:#1E1B2E;margin-bottom:12px}
+p{font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:#7A7890;line-height:1.7;margin-bottom:8px}
+.steps{display:flex;justify-content:center;gap:24px;background:#F5F4FA;border-radius:10px;padding:16px;margin:24px 0}
+.step{text-align:center;font-size:11px;color:#7A7890}
+.step span{font-size:20px;display:block;margin-bottom:4px}
+.step.on{color:#1E1B2E;font-weight:500}
+.btn{display:inline-block;margin-top:8px;padding:12px 28px;background:#1E1B2E;color:#fff;border-radius:8px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.15s}
+.btn:hover{background:#9B7FD4}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:#1E1B2E;letter-spacing:0.06em;margin-bottom:32px}
+</style>
+</head>
+<body>
+  <div class="logo">Furō</div>
+  <div class="card">
+    <div class="check">✓</div>
+    <h1>¡Pedido confirmado!</h1>
+    <p>Gracias por tu compra. Hemos recibido tu pedido y lo estamos preparando.</p>
+    <p>Recibirás un email de confirmación en breve.</p>
+    <div class="steps">
+      <div class="step on"><span>📦</span>Preparando</div>
+      <div class="step"><span>🚚</span>En camino</div>
+      <div class="step"><span>✅</span>Entregado</div>
+    </div>
+    <p style="font-size:12px">Entrega estimada: <strong>2-4 días hábiles</strong></p>
+    <a href="/" class="btn">Seguir comprando</a>
+  </div>
+</body>
+</html>

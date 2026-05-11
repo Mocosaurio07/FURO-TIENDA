@@ -398,29 +398,32 @@ function rChk(){
       <div class="fi"><label>CVV</label><input id="fcv" type="password" placeholder="123" maxlength="3"></div></div></div>
       <div id="em" class="em"></div>
       <div class="br"><button class="bb" onclick="gS1()">← Volver</button>
-      <button class="bp" id="pbtn" onclick="dPay()">Pagar €${sub.toFixed(2)}</button></div>`;
+      <button class="bp" id="pbtn" onclick="dPay()" style="background:#635BFF;display:flex;align-items:center;justify-content:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar €${sub.toFixed(2)}</button></div>`;
   }
 }
 function gS2(){frm={n:$("fn").value,e:$("fe").value,a:$("fa").value,c:$("fc").value,z:$("fz").value};stp=2;rChk()}
 function gS1(){stp=1;rChk()}
 async function dPay(){
   const btn=$("pbtn"),em=$("em");
-  btn.disabled=true;btn.textContent="Procesando...";em.style.display="none";
-  const nm=(frm.n||"Cliente").split(" ");
-  const pl={order:{internalReference:"FURO-"+Date.now(),language:"es",paymentMethod:"moneybox",carriers:[{name:"correos"}],
-    shippingAddress:{firstName:nm[0]||"Cliente",lastName:nm.slice(1).join(" ")||"-",country:"ES",
-    postcode:frm.z||"28001",town:frm.c||"Madrid",address:frm.a||"-",
-    email:frm.e||"cliente@furo.es",phone:"600000000"},
-    products:cart.map(i=>({reference:i.s,quantity:i.qty}))}};
+  btn.disabled=true;btn.textContent="Redirigiendo a pago seguro...";em.style.display="none";
   try{
-    const r=await fetch(BU+"/order/create.json",{method:"POST",
-      headers:{"Authorization":"Bearer "+K,"Content-Type":"application/json"},
-      body:JSON.stringify(pl)});
-    if(!r.ok)throw new Error("");
-    await r.json();fin();
+    const r=await fetch('/api/create-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({items:cart, origin:window.location.origin})
+    });
+    const data=await r.json();
+    if(data.url){
+      window.location.href=data.url;
+    }else{
+      throw new Error(data.error||'Error al crear el pago');
+    }
   }catch(e){
-    em.textContent="⚠️ Pedido registrado. Recibirás confirmación por email.";
-    em.style.display="block";setTimeout(fin,2000);
+    em.textContent="⚠️ Error al procesar el pago. Inténtalo de nuevo.";
+    em.style.display="block";
+    btn.disabled=false;
+    const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
+    btn.textContent="Pagar €"+sub.toFixed(2);
   }
 }
 function fin(){cK();$("sv").style.display="none";$("succ").style.display="block";cart=[];uB()}
