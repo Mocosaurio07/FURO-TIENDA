@@ -4,120 +4,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Furō — Accesorios Premium para Mascotas</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--s:'Playfair Display',Georgia,serif;--n:'Jost',sans-serif;--h:#1E1B2E;--a:#9B7FD4;--bg:#F5F4FA;--c:#fff;--t:#1E1B2E;--m:#7A7890;--b:#D4D0E8}
+:root{
+  --s:'Playfair Display',Georgia,serif;
+  --n:'Jost',sans-serif;
+  --h:#2D4A1A;
+  --a:#6B3A2A;
+  --bg:#F2E8DC;
+  --c:#fff;
+  --t:#1A2E08;
+  --m:#8B7355;
+  --b:#C8B89A;
+}
 body{font-family:var(--n);background:var(--bg);color:var(--t)}
+
+/* LOGO ANIMATION */
+@keyframes logo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.logo-dot{animation:logo-float 3s ease-in-out infinite}
+
 /* HEADER */
 .hdr{background:var(--h);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20}
-.nav a{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.08em;color:rgba(255,255,255,0.5);text-decoration:none;margin-left:20px;text-transform:uppercase;cursor:pointer;transition:color 0.15s}
+.hdr-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.hdr-logo span{font-family:var(--s);font-size:20px;font-style:italic;color:#fff;letter-spacing:0.07em}
+.nav a{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.08em;color:rgba(255,255,255,0.55);text-decoration:none;margin-left:20px;text-transform:uppercase;cursor:pointer;transition:color .15s}
 .nav a:hover,.nav a.on{color:#fff}
-.cart-btn{font-family:var(--n);background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.18);padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px}
-.cart-btn:hover{background:rgba(255,255,255,0.18)}
-.cbadge{background:var(--a);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:500;display:none;align-items:center;justify-content:center}
+.cart-btn{font-family:var(--n);background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .15s}
+.cart-btn:hover{background:rgba(255,255,255,0.2)}
+.cbadge{background:var(--a);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:600;display:none;align-items:center;justify-content:center}
+
 /* TRUST BAR */
-.trust{background:var(--a);padding:7px 24px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.trust{background:#5A8A3A;padding:7px 24px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .trust span{font-family:var(--n);color:#fff;font-size:11px;font-weight:300;letter-spacing:0.06em}
+
 /* HERO */
 .hero{background:var(--h);min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(155,127,212,0.07)}
-.hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(155,127,212,0.05)}
-.htag{font-family:var(--n);color:var(--a);font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:16px}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(90,138,58,0.07)}
+.hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(90,138,58,0.05)}
+.htag{font-family:var(--n);color:#A8C47A;font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:16px}
 .hname{font-family:var(--s);font-size:clamp(3.5rem,10vw,6rem);font-weight:400;font-style:italic;color:#fff;letter-spacing:0.08em;display:inline-block;position:relative;z-index:1}
 .hmacron{position:relative;display:inline-block}
-.hmacron::after{content:'';position:absolute;bottom:calc(100% + 5px);left:50%;width:42%;height:5px;background:var(--a);border-radius:3px}
+.hmacron::after{content:'';position:absolute;bottom:calc(100% + 5px);left:50%;width:42%;height:5px;background:#A8C47A;border-radius:3px}
 .hdesc{font-family:var(--n);color:rgba(255,255,255,0.6);font-size:13px;font-weight:300;line-height:1.8;max-width:380px;margin:14px auto 0}
-/* TABS TIENDA */
-.tabs-bar{background:var(--c);border-bottom:1px solid var(--b);padding:0 24px;position:sticky;top:60px;z-index:15;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+
+/* CATEGORY TABS */
+.tabs-bar{background:var(--c);border-bottom:2px solid var(--b);padding:0 24px;position:sticky;top:60px;z-index:15;box-shadow:0 2px 8px rgba(107,58,42,0.08)}
 .tabs{display:flex;max-width:1100px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.06em;color:var(--m);padding:14px 20px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;text-transform:uppercase}
+.tab{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.06em;color:var(--m);padding:14px 20px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;text-transform:uppercase;user-select:none}
 .tab:hover{color:var(--t)}
-.tab.on{color:var(--h);border-bottom-color:var(--a);font-weight:500}
-/* GRID */
+.tab.on{color:var(--h);border-bottom-color:var(--a);font-weight:600}
+
+/* SHOP GRID */
 .wrap{padding:24px;max-width:1100px;margin:0 auto}
 .shophead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
 .shophead h2{font-family:var(--s);font-size:24px;font-weight:400;color:var(--h)}
 .shophead p{font-family:var(--n);font-size:12px;font-weight:300;color:var(--m);margin-top:3px}
 .pcount{font-family:var(--n);font-size:12px;color:var(--m);background:var(--b);padding:4px 12px;border-radius:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
-.card{background:var(--c);border:0.5px solid var(--b);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(155,127,212,0.12)}
-.cimg{height:200px;position:relative;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.cimg img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform 0.3s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+
+/* PRODUCT CARD */
+.card{background:#fff;border:1.5px solid #B8A080;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 10px rgba(107,58,42,0.10)}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(107,58,42,0.18)}
+.cimg{height:200px;position:relative;background:#F5EFE6;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #D4C4A8}
+.cimg img{width:100%;height:100%;object-fit:contain;padding:10px;display:block;transition:transform .3s}
 .card:hover .cimg img{transform:scale(1.04)}
-.cbadge2{position:absolute;top:8px;left:8px;font-family:var(--n);font-size:9px;font-weight:500;padding:3px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.06em;z-index:2}
-.bo{background:#C0392B;color:#fff}
-.cstock{position:absolute;top:8px;right:8px;font-family:var(--n);background:rgba(255,243,224,0.96);color:#E65100;font-size:9px;padding:3px 7px;border-radius:3px;z-index:2}
-.cdel{position:absolute;bottom:7px;left:7px;background:rgba(30,27,46,0.88);color:#fff;font-family:var(--n);font-size:9px;padding:3px 8px;border-radius:3px;display:flex;align-items:center;gap:3px;z-index:2}
-.ddot{width:5px;height:5px;border-radius:50%;background:var(--a);display:inline-block}
-.cbody{padding:13px}
-.cname{font-family:var(--s);font-size:13px;font-weight:500;margin-bottom:4px;line-height:1.3}
-.cdesc{font-family:var(--n);font-size:11px;font-weight:300;color:var(--m);line-height:1.5;margin-bottom:7px}
-.cstars{color:var(--a);font-size:11px}
+.cbadge2{position:absolute;top:8px;left:8px;font-family:var(--n);font-size:9px;font-weight:800;padding:4px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;z-index:2}
+.bo{background:#AAFF00;color:#1A2E08}
+.cstock{position:absolute;top:8px;right:8px;font-family:var(--n);background:#FFF3E0;color:#E65100;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;z-index:2;border:1px solid #FFCC80}
+.cdel{position:absolute;bottom:7px;left:7px;background:rgba(44,74,26,0.92);color:#fff;font-family:var(--n);font-size:9px;padding:3px 8px;border-radius:3px;display:flex;align-items:center;gap:3px;z-index:2}
+.ddot{width:5px;height:5px;border-radius:50%;background:#A8C47A;display:inline-block}
+.cbody{padding:13px;background:#fff}
+.cname{font-family:var(--s);font-size:14px;font-weight:500;margin-bottom:4px;line-height:1.3;color:#1A2E08}
+.cdesc{font-family:var(--n);font-size:11px;font-weight:400;color:#6B5030;line-height:1.5;margin-bottom:7px}
+.cstars{color:#D4920A;font-size:11px}
 .cstars span{font-family:var(--n);color:var(--m);font-size:10px;margin-left:2px}
 .cfoot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-.pmain{font-family:var(--s);font-size:17px;font-weight:500;color:var(--h)}
+.pmain{font-family:var(--s);font-size:18px;font-weight:500;color:#3D1F0A}
 .pold{font-family:var(--n);font-size:10px;color:var(--m);text-decoration:line-through;margin-left:3px}
-.ppct{font-family:var(--n);font-size:10px;color:#6B5FA0;font-weight:500;margin-left:2px}
-.addbtn{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:background 0.15s}
+.ppct{font-family:var(--n);font-size:10px;color:#2D6B00;font-weight:700;margin-left:2px}
+.addbtn{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:7px 12px;border-radius:7px;font-size:11px;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:background .15s}
 .addbtn:hover{background:var(--a)}
-/* PÁGINAS INTERNAS */
-.page{display:none;max-width:720px;margin:0 auto;padding:40px 24px 60px}
+
+/* INNER PAGES */
+.page{display:none}
 .page-hero{background:var(--h);padding:40px 24px;text-align:center;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(155,127,212,0.08)}
 .page-hero h1{font-family:var(--s);font-style:italic;font-size:clamp(2rem,5vw,3rem);color:#fff;font-weight:400;margin-bottom:10px;position:relative;z-index:1}
 .page-hero p{font-family:var(--n);color:rgba(255,255,255,0.6);font-size:14px;font-weight:300;line-height:1.7;max-width:480px;margin:0 auto;position:relative;z-index:1}
 .page-body{padding:40px 24px 60px;max-width:720px;margin:0 auto}
 .section{margin-bottom:36px}
 .section h2{font-family:var(--s);font-size:20px;font-weight:400;color:var(--h);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--b)}
-.section p{font-family:var(--n);font-size:14px;font-weight:300;color:#3A3850;line-height:1.8;margin-bottom:10px}
+.section p{font-family:var(--n);font-size:14px;font-weight:300;color:#3A2A1A;line-height:1.8;margin-bottom:10px}
 .section ul{list-style:none;padding:0}
-.section ul li{font-family:var(--n);font-size:14px;font-weight:300;color:#3A3850;line-height:1.8;padding:8px 0 8px 22px;border-bottom:0.5px solid var(--b);position:relative}
+.section ul li{font-family:var(--n);font-size:14px;font-weight:300;color:#3A2A1A;line-height:1.8;padding:8px 0 8px 22px;border-bottom:0.5px solid var(--b);position:relative}
 .section ul li::before{content:'✦';position:absolute;left:0;color:var(--a);font-size:10px;top:11px}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:16px 0 24px}
-.info-card{background:var(--c);border:0.5px solid var(--b);border-radius:10px;padding:18px;text-align:center}
+.info-card{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(107,58,42,0.06)}
 .info-card .ico{font-size:26px;margin-bottom:8px}
 .info-card h4{font-family:var(--s);font-size:14px;font-weight:400;color:var(--h);margin-bottom:4px}
 .info-card p{font-family:var(--n);font-size:12px;font-weight:300;color:var(--m);line-height:1.5;margin:0}
-.highlight-box{background:var(--c);border:0.5px solid var(--b);border-left:3px solid var(--a);border-radius:8px;padding:16px 20px;margin:16px 0}
-.highlight-box p{margin:0;font-size:13px}
-/* FORMULARIO CONTACTO */
+.highlight-box{background:var(--c);border:1px solid var(--b);border-left:3px solid var(--a);border-radius:8px;padding:16px 20px;margin:16px 0}
+.highlight-box p{margin:0;font-size:13px;color:#3A2A1A}
+
+/* CONTACT FORM */
 .cf{display:flex;flex-direction:column;gap:14px}
 .cf-field label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:4px;text-transform:uppercase}
-.cf-field input,.cf-field textarea,.cf-field select{font-family:var(--n);width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;resize:vertical;transition:border-color 0.15s}
+.cf-field input,.cf-field textarea,.cf-field select{font-family:var(--n);width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;resize:vertical;transition:border-color .15s}
 .cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:var(--a)}
 .cf-field textarea{min-height:110px}
-.cf-submit{font-family:var(--n);padding:12px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.15s}
+.cf-submit{font-family:var(--n);padding:12px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
 .cf-submit:hover{background:var(--a)}
 .cf-submit:disabled{background:var(--m);cursor:wait}
-.cf-sent{display:none;text-align:center;padding:28px;background:var(--c);border:0.5px solid var(--b);border-radius:12px}
+.cf-sent{display:none;text-align:center;padding:28px;background:var(--c);border:1px solid var(--b);border-radius:12px}
 .cf-sent h3{font-family:var(--s);font-size:20px;font-weight:400;font-style:italic;color:var(--h);margin:10px 0 6px}
 .cf-sent p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
-.cf-respuesta{background:#F0EDF9;border:1px solid var(--a);border-radius:8px;padding:14px 16px;margin-top:12px;font-family:var(--n);font-size:13px;font-weight:300;color:var(--h);line-height:1.7;white-space:pre-wrap;text-align:left}
-/* CARRITO */
+.cf-respuesta{background:#F5F0E8;border:1px solid var(--b);border-radius:8px;padding:14px 16px;margin-top:12px;font-family:var(--n);font-size:13px;font-weight:300;color:var(--h);line-height:1.7;white-space:pre-wrap;text-align:left}
+
+/* CART DRAWER */
 #cover{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:30}
-#drawer{display:none;position:fixed;top:0;right:0;bottom:0;width:340px;background:#fff;border-left:1px solid var(--b);z-index:31;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,0.1)}
-.drh{padding:14px 16px;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;align-items:center}
-.drh h3{font-family:var(--s);font-size:17px;font-weight:400}
+#drawer{display:none;position:fixed;top:0;right:0;bottom:0;width:340px;background:#fff;border-left:1.5px solid var(--b);z-index:31;flex-direction:column;box-shadow:-4px 0 20px rgba(107,58,42,0.12)}
+.drh{padding:14px 16px;border-bottom:1.5px solid var(--b);display:flex;justify-content:space-between;align-items:center}
+.drh h3{font-family:var(--s);font-size:17px;font-weight:400;color:var(--t)}
 .xb{background:none;border:none;font-size:18px;cursor:pointer;color:var(--m)}
 .dri{flex:1;overflow-y:auto;padding:12px 16px}
 .empty{text-align:center;padding:2.5rem;color:var(--m);font-family:var(--n);font-weight:300}
 .dit{display:flex;gap:10px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px}
 .dit img{width:52px;height:52px;object-fit:contain;border-radius:6px;flex-shrink:0;background:#fff;padding:3px;border:1px solid var(--b)}
-.din{font-family:var(--s);font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.din{font-family:var(--s);font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t)}
 .dip{font-family:var(--s);font-size:13px;color:var(--a);font-weight:500}
 .qc{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
 .qb{width:22px;height:22px;border:1px solid var(--b);background:#fff;border-radius:4px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center}
-.qn{font-family:var(--n);font-size:12px;min-width:14px;text-align:center}
+.qn{font-family:var(--n);font-size:12px;min-width:14px;text-align:center;color:var(--t)}
 .db{font-family:var(--n);font-size:10px;color:#C0392B;background:none;border:none;cursor:pointer}
-.drf{padding:14px 16px;border-top:1px solid var(--b)}
+.drf{padding:14px 16px;border-top:1.5px solid var(--b)}
 .drw{font-family:var(--n);display:flex;justify-content:space-between;font-size:12px;font-weight:300;margin-bottom:5px;color:var(--m)}
-.drt{font-family:var(--s);display:flex;justify-content:space-between;font-size:16px;padding-top:7px;border-top:1px solid var(--b);margin-top:6px}
-.gb{font-family:var(--n);width:100%;padding:11px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:9px}
+.drt{font-family:var(--s);display:flex;justify-content:space-between;font-size:16px;padding-top:7px;border-top:1.5px solid var(--b);margin-top:6px;color:var(--t)}
+.gb{font-family:var(--n);width:100%;padding:11px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:9px;transition:background .15s}
 .gb:hover{background:var(--a)}
 .sn{font-family:var(--n);text-align:center;font-size:10px;color:var(--m);margin-top:7px}
+
 /* CHECKOUT */
 #chk{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:32;align-items:flex-start;justify-content:center;padding:24px 12px;overflow-y:auto}
 .cm{background:#fff;border-radius:12px;width:min(460px,100%);overflow:hidden;margin-top:8px}
@@ -131,61 +157,128 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .pb.on{background:var(--a)}
 .fi{margin-bottom:12px}
 .fi label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:3px;text-transform:uppercase}
-.fi input{font-family:var(--n);width:100%;padding:9px 11px;border:1px solid var(--b);border-radius:7px;font-size:13px;font-weight:300;outline:none;transition:border-color 0.15s}
+.fi input{font-family:var(--n);width:100%;padding:9px 11px;border:1px solid var(--b);border-radius:7px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;transition:border-color .15s}
 .fi input:focus{border-color:var(--a)}
 .r2{display:grid;grid-template-columns:2fr 1fr;gap:10px}
 .os{background:var(--bg);border-radius:8px;padding:11px 13px;margin-bottom:12px}
 .ost{font-family:var(--n);font-size:10px;color:var(--m);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px}
-.osl{font-family:var(--n);display:flex;justify-content:space-between;font-size:11px;font-weight:300;margin-bottom:3px}
+.osl{font-family:var(--n);display:flex;justify-content:space-between;font-size:11px;font-weight:300;margin-bottom:3px;color:var(--t)}
 .ostt{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid var(--b);margin-top:5px}
-.ostt span:first-child{font-family:var(--n);font-size:12px}
+.ostt span:first-child{font-family:var(--n);font-size:12px;color:var(--t)}
 .ostt span:last-child{font-family:var(--s);font-size:14px;font-weight:500;color:var(--h)}
 .em{font-family:var(--n);font-size:11px;color:#C0392B;background:#fdf0ef;padding:8px 10px;border-radius:5px;margin-bottom:10px;display:none}
-.cb{font-family:var(--n);width:100%;padding:10px;background:var(--a);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;margin-top:8px}
+.cbtn{font-family:var(--n);width:100%;padding:10px;background:var(--a);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;margin-top:8px;transition:background .15s}
+.cbtn:hover{background:var(--h)}
 .br{display:flex;gap:8px}
-.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;cursor:pointer}
-.bp{font-family:var(--n);flex:1;padding:10px;background:#635BFF;color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer}
+.bp{font-family:var(--n);flex:1;padding:10px;background:#635BFF;color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .bp:disabled{background:var(--m);cursor:wait}
+
+/* SUCCESS */
+#succ{display:none;padding:4rem 24px;text-align:center;max-width:400px;margin:0 auto}
+#succ h2{font-family:var(--s);font-size:28px;font-weight:400;font-style:italic;color:var(--h);margin:12px 0 8px}
+#succ p{font-family:var(--n);color:var(--m);font-size:13px;font-weight:300;line-height:1.7;margin-bottom:1.5rem}
+.sb{display:flex;justify-content:center;gap:24px;background:#fff;border:1px solid var(--b);border-radius:10px;padding:14px;margin-bottom:1.5rem}
+.si{text-align:center;font-family:var(--n);font-size:11px;color:var(--m)}
+.si.on{color:var(--h);font-weight:500}
+.sico{font-size:18px;display:block;margin-bottom:3px}
+.rb{font-family:var(--n);padding:10px 24px;background:var(--h);color:#fff;border:none;border-radius:7px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer}
+
 /* FOOTER */
 .footer{background:var(--h);padding:2rem 24px;margin-top:2rem}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-links a{font-family:var(--n);font-size:11px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;margin-left:20px;cursor:pointer}
-.footer-links a:hover{color:var(--a)}
+.footer-links a{font-family:var(--n);font-size:11px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;margin-left:20px;cursor:pointer;transition:color .15s}
+.footer-links a:hover{color:#A8C47A}
 .footer-copy{font-family:var(--n);font-size:11px;font-weight:300;color:rgba(255,255,255,0.3);text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;max-width:1100px;margin:16px auto 0}
-#toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;font-weight:300;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid var(--a);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+#toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;font-weight:300;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid #A8C47A;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
 
-@keyframes worm{
-  0%,100%{d:path("M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z")}
-  50%{d:path("M8 38 C20 62 34 62 46 38 C58 14 72 14 84 38 L84 46 C72 22 58 22 46 46 C34 70 20 70 8 46 Z")}
-}
-@keyframes whead{
-  0%,100%{transform:translate(84px,46px) translateY(0)}
-  50%{transform:translate(84px,46px) translateY(-5px)}
-}
-@keyframes wblink{
-  0%,88%,100%{ry:3.5}
-  93%{ry:0.4}
-}
-.wb{animation:worm 2.5s ease-in-out infinite}
-.wo{animation:worm 2.5s ease-in-out infinite .08s}
-.wh{animation:whead 2.5s ease-in-out infinite}
-.we{animation:wblink 5s ease-in-out infinite}
+/* ── LOGO HOJAS ANIMADO ── */
+@keyframes fly-top{0%{transform:translate(0,-130px);opacity:0}65%{transform:translate(0,10px);opacity:1}82%{transform:translate(0,-4px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes fly-left{0%{transform:translate(-112px,65px);opacity:0}65%{transform:translate(9px,-5px);opacity:1}82%{transform:translate(-3px,2px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes fly-right{0%{transform:translate(112px,65px);opacity:0}65%{transform:translate(-9px,-5px);opacity:1}82%{transform:translate(3px,2px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes logo-glow{0%,60%{filter:drop-shadow(0 0 0px rgba(168,196,122,0))}80%{filter:drop-shadow(0 0 12px rgba(168,196,122,0.4))}100%{filter:drop-shadow(0 0 0px rgba(168,196,122,0))}}
+.fly-t{animation:fly-top  .85s cubic-bezier(.22,1,.36,1) .15s both}
+.fly-l{animation:fly-left .85s cubic-bezier(.22,1,.36,1) .30s both}
+.fly-r{animation:fly-right .85s cubic-bezier(.22,1,.36,1) .45s both}
+.logo-svg-icon{animation:logo-glow 1.2s ease-out .9s both}
 
+/* ── BANNER HERO ANIMACIONES ── */
+@keyframes hero-letter-pop{0%{opacity:0;transform:translateY(32px) scale(0.5)}65%{opacity:1;transform:translateY(-7px) scale(1.1)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes hero-tag-in{0%{opacity:0;letter-spacing:0.6em}100%{opacity:0.75;letter-spacing:0.3em}}
+@keyframes hero-desc-in{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes hero-btn-in{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+
+.hero-l1{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.0s both, text-glow-pulse 3s ease-in-out 2.4s infinite}
+.hero-l2{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.12s both, text-glow-pulse 3s ease-in-out 2.4s infinite}
+.hero-l3{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.24s both, text-glow-pulse 3s ease-in-out 2.4s infinite}
+.hero-l4{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.36s both, text-glow-pulse 3s ease-in-out 2.4s infinite}
+.hero-tag{animation:hero-tag-in .9s ease-out 1.75s both}
+.hero-desc{animation:hero-desc-in .7s ease-out 2.1s both}
+.hero-btn{animation:hero-btn-in .6s ease-out 2.3s both}
+
+/* Banner fly animations para hojas grandes */
+@keyframes bfly-top{0%{transform:translate(0,-180px);opacity:0}65%{transform:translate(0,14px);opacity:1}82%{transform:translate(0,-5px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes bfly-left{0%{transform:translate(-155px,90px);opacity:0}65%{transform:translate(12px,-7px);opacity:1}82%{transform:translate(-4px,3px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes bfly-right{0%{transform:translate(155px,90px);opacity:0}65%{transform:translate(-12px,-7px);opacity:1}82%{transform:translate(4px,3px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes blogo-glow{0%,60%{filter:drop-shadow(0 0 0px rgba(168,196,122,0))}80%{filter:drop-shadow(0 0 20px rgba(168,196,122,0.5))}100%{filter:drop-shadow(0 0 6px rgba(168,196,122,0.15))}}
+
+.bfly-t{animation:bfly-top  .9s cubic-bezier(.22,1,.36,1) .1s both}
+.bfly-l{animation:bfly-left .9s cubic-bezier(.22,1,.36,1) .25s both}
+.bfly-r{animation:bfly-right .9s cubic-bezier(.22,1,.36,1) .4s both}
+.blogo-icon{animation:blogo-glow 1.4s ease-out .85s both}
+
+
+/* ── ILUMINACIÓN / GLOW ── */
+@keyframes glow-pulse{
+  0%,100%{
+    filter: drop-shadow(0 0 4px rgba(184,152,112,0.3)) drop-shadow(0 0 10px rgba(184,152,112,0.12));
+  }
+  50%{
+    filter: drop-shadow(0 0 7px rgba(212,180,140,0.45)) drop-shadow(0 0 18px rgba(212,180,140,0.2));
+  }
+}
+@keyframes text-glow-pulse{
+  0%,100%{
+    text-shadow: 0 0 6px rgba(184,152,112,0.35), 0 0 16px rgba(184,152,112,0.15);
+  }
+  50%{
+    text-shadow: 0 0 9px rgba(220,190,150,0.55), 0 0 22px rgba(220,190,150,0.22);
+  }
+}
+.blogo-icon{
+  animation: blogo-glow 1.4s ease-out .85s both, glow-pulse 3s ease-in-out 2.3s infinite !important;
+}
+.hero-l1,.hero-l2,.hero-l3,.hero-l4{
+  animation-fill-mode: both;
+}
+.glow-text{
+  animation: text-glow-pulse 3s ease-in-out 2.3s infinite;
+  display: inline-block;
+}
+/* Glow en el header logo también */
+.logo-svg-icon{
+  animation: fly-top 0s, glow-pulse 3s ease-in-out 1s infinite !important;
+}
+.hdr-logo:hover .logo-svg-icon{
+  filter: drop-shadow(0 0 14px rgba(220,190,150,1)) drop-shadow(0 0 40px rgba(220,190,150,0.6));
+}
+
+
+
+  20%,75%{opacity:1;transform:scale(1)}
+}
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <div onclick="goPage('tienda')" style="cursor:pointer;display:flex;align-items:center">
-    <svg width="44" height="32" viewBox="0 0 100 72" overflow="visible">
-          <path class="wb" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#9B7FD4"/>
-          <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
-          <g class="wh">
-            <circle r="13" fill="#F5F4FA"/>
-            <ellipse class="we eye-pupil" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
-            <circle cx="-5.5" cy="-6" r="1.8" fill="#1E1B2E" opacity=".7"/>
-          </g>
+  <div class="hdr-logo" onclick="goPage('tienda')">
+    <svg class="logo-svg-icon" width="36" height="36" viewBox="-65 -65 130 130" overflow="visible">
+          <g class="fly-t"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g>
+          <g class="fly-l"><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
+          <g class="fly-r"><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
         </svg>
+    <span style="font-family:'Fredoka One',cursive;font-size:22px;color:#B89870;letter-spacing:0.05em">FURO</span>
   </div>
   <nav class="nav">
     <a id="nav-tienda" onclick="goPage('tienda')" class="on">Inicio</a>
@@ -196,16 +289,194 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <button class="cart-btn" onclick="oC()">🛒 Carrito <span class="cbadge" id="cb">0</span></button>
 </header>
 
-<!-- ═══ TIENDA ═══ -->
+<!-- TIENDA -->
 <div id="page-tienda">
   <div class="trust">
     <span>🔒 Pago seguro</span><span>📦 Envío 24-48h España</span><span>↩️ Devolución 14 días</span><span>🏆 +5.000 clientes</span>
   </div>
-  <div class="hero">
-    <div style="position:relative;z-index:1">
-      <span class="htag">Accesorios premium para mascotas</span>
-      <div class="hname">Fur<span class="hmacron">ō</span></div>
-      <p class="hdesc">Porque tu mejor amigo se merece lo mejor. Envío rápido a toda España.</p>
+  <div class="hero" style="min-height:360px;padding:3rem 2rem;position:relative;overflow:hidden">
+    <!-- HUELLAS EN LA ARENA CON OLA -->
+    <canvas id="pawCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+    <script>
+    (function(){
+      const canvas = document.getElementById('pawCanvas');
+      const ctx = canvas.getContext('2d');
+      const BG = '#2D4A1A';
+      const PAW_COLOR = '#C8A882';
+
+      function resize(){
+        const hero = canvas.parentElement;
+        canvas.width  = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      // Dibuja una huella (dog=true/false)
+      function drawPaw(x, y, s, angle, alpha, isDog){
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.fillStyle = PAW_COLOR;
+        // sombra suave para efecto arena
+        ctx.shadowColor = 'rgba(0,0,0,0.35)';
+        ctx.shadowBlur  = s * 1.2;
+        ctx.shadowOffsetX = s * 0.3;
+        ctx.shadowOffsetY = s * 0.4;
+        if(isDog){
+          // Almohadilla grande
+          ctx.beginPath(); ctx.ellipse(0,0,s,s*1.1,0,0,Math.PI*2); ctx.fill();
+          // 4 dedos separados
+          [[-s*1.3,-s*1.3],[-s*0.3,-s*1.75],[s*0.8,-s*1.6],[s*1.45,-s*0.7]].forEach(([tx,ty])=>{
+            ctx.beginPath(); ctx.ellipse(tx,ty,s*0.6,s*0.7,0,0,Math.PI*2); ctx.fill();
+          });
+        } else {
+          // Almohadilla compacta
+          ctx.beginPath(); ctx.ellipse(0,0,s*0.9,s,0,0,Math.PI*2); ctx.fill();
+          // 4 dedos juntos y redondos
+          [[-s*0.9,-s*1.2],[-s*0.15,-s*1.5],[s*0.65,-s*1.35],[s*1.1,-s*0.55]].forEach(([tx,ty])=>{
+            ctx.beginPath(); ctx.ellipse(tx,ty,s*0.55,s*0.55,0,0,Math.PI*2); ctx.fill();
+          });
+        }
+        ctx.restore();
+      }
+
+      // Genera huellas aleatorias
+      function makePaws(){
+        const paws = [];
+        for(let i=0; i<60; i++){
+          paws.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            s: 4 + Math.random() * 5,
+            angle: (Math.random()-0.5) * Math.PI,
+            alpha: 0.15 + Math.random() * 0.20,
+            isDog: Math.random() > 0.5,
+            delay: Math.random() * 120  // frames de retraso para aparecer
+          });
+        }
+        return paws;
+      }
+
+      let paws = makePaws();
+      let frame = 0;
+      let waveX = canvas.width + 100;  // empieza fuera a la derecha
+      let phase = 'paws';              // 'paws' → aparecen | 'wave' → barre | 'clean' → pausa
+      let pawFrame = 0;
+      const WAVE_SPEED = 6;
+      const PAUSE_FRAMES = 80;
+      let pauseCount = 0;
+
+      function animate(){
+        requestAnimationFrame(animate);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        frame++;
+
+        if(phase === 'paws'){
+          // Dibujar las huellas que ya han "aparecido"
+          paws.forEach(p => {
+            if(frame > p.delay){
+              const age = frame - p.delay;
+              const a = Math.min(1, age/20) * p.alpha; // aparece gradualmente
+              drawPaw(p.x, p.y, p.s, p.angle, a, p.isDog);
+            }
+          });
+          // Cuando todas han aparecido, esperar y lanzar la ola
+          if(frame > 160){
+            phase = 'wave';
+            waveX = canvas.width + 80;
+          }
+
+        } else if(phase === 'wave'){
+          waveX -= WAVE_SPEED;
+
+          // Dibujar huellas que aún no ha alcanzado la ola
+          paws.forEach(p => {
+            if(p.x > waveX + 30){
+              drawPaw(p.x, p.y, p.s, p.angle, p.alpha, p.isDog);
+            }
+          });
+
+          // Dibujar la OLA — forma sinusoidal que barre de derecha a izquierda
+          ctx.save();
+          const grad = ctx.createLinearGradient(waveX-80, 0, waveX+30, 0);
+          grad.addColorStop(0,   'rgba(45,74,26,0)');
+          grad.addColorStop(0.3, 'rgba(55,100,40,0.55)');
+          grad.addColorStop(0.65,'rgba(70,130,50,0.35)');
+          grad.addColorStop(1,   'rgba(45,74,26,0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.moveTo(waveX + 30, 0);
+          for(let yy=0; yy<=canvas.height; yy+=4){
+            const wx = waveX + Math.sin(yy*0.04 + frame*0.08) * 18
+                             + Math.sin(yy*0.02 + frame*0.05) * 10;
+            ctx.lineTo(wx, yy);
+          }
+          ctx.lineTo(waveX - 80, canvas.height);
+          ctx.lineTo(waveX - 80, 0);
+          ctx.closePath();
+          ctx.fill();
+
+          // Segunda capa — espuma blanca
+          ctx.strokeStyle = 'rgba(180,220,160,0.18)';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          for(let yy=0; yy<=canvas.height; yy+=4){
+            const wx = waveX + Math.sin(yy*0.04 + frame*0.08) * 18
+                             + Math.sin(yy*0.02 + frame*0.05) * 10;
+            yy===0 ? ctx.moveTo(wx,yy) : ctx.lineTo(wx,yy);
+          }
+          ctx.stroke();
+          ctx.restore();
+
+          // Cuando la ola ha salido por la izquierda → pausa
+          if(waveX < -80){
+            phase = 'clean';
+            pauseCount = 0;
+          }
+
+        } else if(phase === 'clean'){
+          // Pausa breve con lienzo limpio
+          pauseCount++;
+          if(pauseCount > PAUSE_FRAMES){
+            // Reset
+            paws = makePaws();
+            frame = 0;
+            phase = 'paws';
+          }
+        }
+      }
+      animate();
+    })();
+    </script>
+    <div style="position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0">
+
+      <!-- ICONO 3 HOJAS ANIMADO (grande) -->
+      <svg class="blogo-icon" width="110" height="110" viewBox="-65 -65 130 130" overflow="visible" style="margin-bottom:8px">
+        <g class="bfly-t"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g>
+        <g class="bfly-l"><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
+        <g class="bfly-r"><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
+      </svg>
+
+      <!-- NOMBRE EN FREDOKA ONE GRANDE -->
+      <div style="display:flex;align-items:baseline;gap:0;line-height:1;margin-bottom:10px">
+        <span class="hero-l1" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">F</span>
+        <span class="hero-l2" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">U</span>
+        <span class="hero-l3" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">R</span>
+        <span class="hero-l4" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">O</span>
+      </div>
+
+      <!-- ESLOGAN con tipografía espaciada como en la foto -->
+      <p class="hero-tag" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.3em;margin-bottom:20px">Accesorios premium para mascotas</p>
+
+      <!-- DESCRIPCIÓN -->
+      <p class="hero-desc" style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.7;max-width:340px;margin-bottom:24px">Porque tu mejor amigo se merece lo mejor.<br>Envío rápido a toda España.</p>
+
+      <!-- CTA -->
+      <button class="hero-btn" onclick="document.getElementById('pg').scrollIntoView({behavior:'smooth'})" style="font-family:'Jost',sans-serif;background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:11px 28px;border-radius:30px;font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;opacity:0">Ver productos →</button>
+
     </div>
   </div>
   <div class="tabs-bar"><div class="tabs" id="tabs"></div></div>
@@ -219,7 +490,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div id="footer-tienda"></div>
 </div>
 
-<!-- ═══ ENVÍOS ═══ -->
+<!-- ENVÍOS -->
 <div id="page-envios" style="display:none">
   <div class="page-hero">
     <h1>Envíos</h1>
@@ -228,61 +499,56 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div class="page-body">
     <div class="section">
       <h2>¿Cuándo llega mi pedido?</h2>
-      <p>Una vez confirmado el pago, preparamos y enviamos tu pedido en un plazo de <strong>24 a 72 horas hábiles</strong>. A partir de ahí, el tiempo de entrega depende de tu zona:</p>
+      <p>Una vez confirmado el pago, preparamos y enviamos tu pedido en <strong>24 a 72 horas hábiles</strong>. El tiempo de entrega según tu zona:</p>
       <div class="info-grid">
         <div class="info-card"><div class="ico">🏙️</div><h4>Península</h4><p>2 — 4 días hábiles</p></div>
         <div class="info-card"><div class="ico">🏝️</div><h4>Islas Canarias</h4><p>4 — 7 días hábiles</p></div>
         <div class="info-card"><div class="ico">🌍</div><h4>Europa</h4><p>5 — 10 días hábiles</p></div>
       </div>
-      <p>Estos plazos son orientativos. En épocas de alta demanda puede haber algún día de retraso — siempre te avisamos.</p>
     </div>
     <div class="section">
       <h2>Gastos de envío</h2>
       <ul>
         <li>Envío gratuito en pedidos superiores a <strong>€25</strong> dentro de la Península</li>
-        <li>Para pedidos inferiores o destinos fuera de la Península, el coste se calcula al momento del checkout</li>
-        <li>Número de seguimiento incluido — te lo enviamos por email en cuanto salga tu paquete</li>
+        <li>Para pedidos inferiores, el coste se calcula al momento del checkout</li>
+        <li>Número de seguimiento incluido — te lo enviamos por email</li>
       </ul>
     </div>
     <div class="section">
       <h2>¿Qué pasa si no estoy en casa?</h2>
-      <p>El transportista intentará la entrega hasta dos veces. Si no te encuentra, dejará el paquete en un punto de recogida cercano y te avisará por SMS o email. Tendrás varios días para recogerlo.</p>
+      <p>El transportista intentará la entrega hasta dos veces. Si no te encuentra, dejará el paquete en un punto de recogida cercano.</p>
     </div>
     <div class="section">
       <h2>¿Puedo cambiar la dirección de entrega?</h2>
-      <p>Si acabas de hacer el pedido y necesitas cambiar la dirección, escríbenos cuanto antes a través del formulario de <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none">Contacto</a>. Una vez el paquete está en camino no siempre es posible modificarlo.</p>
+      <p>Si acabas de hacer el pedido escríbenos cuanto antes desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none;font-weight:500">Contacto</a>. Una vez en camino no siempre es posible modificarlo.</p>
     </div>
   </div>
   <div id="footer-envios"></div>
 </div>
 
-<!-- ═══ DEVOLUCIONES ═══ -->
+<!-- DEVOLUCIONES -->
 <div id="page-devoluciones" style="display:none">
   <div class="page-hero">
     <h1>Devoluciones</h1>
-    <p>Comprar online requiere confianza. Si algo no es lo que esperabas, lo solucionamos sin complicaciones.</p>
+    <p>Si algo no es lo que esperabas, lo solucionamos sin complicaciones.</p>
   </div>
   <div class="page-body">
     <div class="section">
       <h2>Política de devoluciones</h2>
-      <p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para devolver cualquier producto, sin necesidad de dar explicaciones. Es tu derecho y lo respetamos al 100%.</p>
-      <div class="highlight-box">
-        <p>El producto debe estar en su estado original: sin usar, con su embalaje intacto y todos sus accesorios. Los productos usados o dañados no pueden ser devueltos por razones de higiene y seguridad.</p>
-      </div>
+      <p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para devolver cualquier producto, sin dar explicaciones.</p>
+      <div class="highlight-box"><p>El producto debe estar sin usar, con su embalaje intacto y todos sus accesorios.</p></div>
     </div>
     <div class="section">
       <h2>¿Cómo hago una devolución?</h2>
       <ul>
-        <li>Escríbenos a través del formulario de <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none">Contacto</a> indicando tu número de pedido y el motivo</li>
+        <li>Escríbenos desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none;font-weight:500">Contacto</a> con tu número de pedido y el motivo</li>
         <li>Te enviamos las instrucciones para devolver el paquete</li>
-        <li>Una vez lo recibamos y revisemos, procesamos el reembolso en <strong>5 a 10 días hábiles</strong></li>
-        <li>El reembolso se hace por el mismo método de pago que usaste</li>
+        <li>Procesamos el reembolso en <strong>5 a 10 días hábiles</strong> por el mismo método de pago</li>
       </ul>
     </div>
     <div class="section">
       <h2>¿Y si el producto llega defectuoso?</h2>
-      <p>Si recibes un producto dañado o que no funciona, lo resolvemos nosotros. En estos casos cubrimos los gastos de devolución y te enviamos un producto nuevo o te hacemos el reembolso completo — tú eliges.</p>
-      <p>Solo necesitamos que nos escribas con unas fotos del producto y tu número de pedido.</p>
+      <p>Cubrimos los gastos de devolución y te enviamos un producto nuevo o te hacemos el reembolso completo — tú eliges.</p>
     </div>
     <div class="section">
       <h2>Resumen rápido</h2>
@@ -297,7 +563,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div id="footer-devoluciones"></div>
 </div>
 
-<!-- ═══ CONTACTO ═══ -->
+<!-- CONTACTO -->
 <div id="page-contacto" style="display:none">
   <div class="page-hero">
     <h1>Hablemos</h1>
@@ -311,7 +577,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     </div>
     <div class="section">
       <h2>Escríbenos</h2>
-      <p style="margin-bottom:20px">Rellena el formulario y recibirás una respuesta automática en segundos. También lo revisamos personalmente.</p>
+      <p style="margin-bottom:20px">Rellena el formulario y recibirás una respuesta automática en segundos.</p>
       <div id="cf-wrap">
         <div class="cf">
           <div class="cf-field"><label>Tu nombre</label><input id="cf-nombre" placeholder="Ana García"></div>
@@ -342,7 +608,20 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div id="footer-contacto"></div>
 </div>
 
-<!-- CARRITO -->
+<!-- SUCCESS -->
+<div id="succ">
+  <div style="font-size:52px">🎉</div>
+  <h2>¡Pedido confirmado!</h2>
+  <p>Tu pedido está en camino. Entrega estimada: <strong>2-4 días hábiles.</strong></p>
+  <div class="sb">
+    <div class="si on"><span class="sico">📦</span>Preparando</div>
+    <div class="si"><span class="sico">🚚</span>En camino</div>
+    <div class="si"><span class="sico">✅</span>Entregado</div>
+  </div>
+  <button class="rb" onclick="rS()">Seguir comprando</button>
+</div>
+
+<!-- CART -->
 <div id="cover" onclick="cC()"></div>
 <div id="drawer">
   <div class="drh"><h3 id="dt">Tu carrito</h3><button class="xb" onclick="cC()">✕</button></div>
@@ -369,100 +648,95 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 <script>
 const CDN="https://image.chewy.com/catalog/general/images/";
 const IMG={
-  cama:CDN+"moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
-  feeder:CDN+"petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
-  ball:CDN+"moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
-  snack:CDN+"brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
-  gps:CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
-  cattoy:CDN+"moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
-  fuente:CDN+"moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
-  cueva:CDN+"petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
-  arbol:CDN+"yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
-  tunel:CDN+"feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
-  arnes:CDN+"frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
-  mochila:CDN+"petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
-  collar:CDN+"illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
-  correa:CDN+"frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
-  chaleco:CDN+"frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
-  cepillo:CDN+"furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
-  unas:CDN+"pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
-  masaje:CDN+"furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
-  patas:CDN+"dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
-  champu:CDN+"4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
+  cama:    CDN+"moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
+  feeder:  CDN+"petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
+  ball:    CDN+"moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
+  snack:   CDN+"brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
+  gps:     CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
+  cattoy:  CDN+"moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
+  fuente:  CDN+"moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
+  cueva:   CDN+"petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
+  arbol:   CDN+"yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
+  tunel:   CDN+"feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
+  arnes:   CDN+"frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
+  mochila: CDN+"petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
+  collar:  CDN+"illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
+  correa:  CDN+"frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
+  chaleco: CDN+"frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
+  cepillo: CDN+"furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
+  unas:    CDN+"pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
+  masaje:  CDN+"furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
+  patas:   CDN+"dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
+  champu:  CDN+"4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
 };
 
 const CATS=[
-  {id:'todos',lbl:'✦ Todos',title:'Todos los productos',desc:'Selección completa para perros y gatos'},
-  {id:'perros',lbl:'🐕 Perros',title:'Accesorios para perros',desc:'Todo lo que tu perro necesita'},
-  {id:'gatos',lbl:'🐈 Gatos',title:'Accesorios para gatos',desc:'Productos para los más independientes'},
-  {id:'paseo',lbl:'🦮 Paseo & Aventura',title:'Paseo & Aventura',desc:'Para que cada salida sea especial'},
-  {id:'higiene',lbl:'✨ Higiene & Cuidado',title:'Higiene & Cuidado',desc:'Siempre en su mejor versión'},
+  {id:'todos', lbl:'✦ Todos',          title:'Todos los productos',      desc:'Selección completa para perros y gatos'},
+  {id:'perros',lbl:'🐕 Perros',        title:'Accesorios para perros',   desc:'Todo lo que tu perro necesita'},
+  {id:'gatos', lbl:'🐈 Gatos',         title:'Accesorios para gatos',    desc:'Productos para los más independientes'},
+  {id:'paseo', lbl:'🦮 Paseo & Aventura',title:'Paseo & Aventura',       desc:'Para que cada salida sea especial'},
+  {id:'higiene',lbl:'✨ Higiene & Cuidado',title:'Higiene & Cuidado',    desc:'Siempre en su mejor versión'},
 ];
 
 const P=[
-  {id:1,n:'Cama Ortopédica de Lujo',p:43.19,o:null,t:null,c:'perros',i:IMG.cama,d:'Espuma viscoelástica. Alivia articulaciones.',r:4.8,rv:312,st:8,s:'BB-2847',dl:'24-48h'},
-  {id:2,n:'Comedero Automático Smart',p:50.39,o:null,t:null,c:'perros',i:IMG.feeder,d:'App programmable. 6 comidas al día.',r:4.7,rv:187,st:5,s:'BB-3391',dl:'24-48h'},
-  {id:3,n:'Pelota Interactiva Sensor',p:19.79,o:null,t:null,c:'perros',i:IMG.ball,d:'Se mueve sola. Sensor automático.',r:4.6,rv:98,st:15,s:'BB-4801',dl:'24-48h'},
-  {id:4,n:'Dispensador de Snacks',p:26.99,o:null,t:null,c:'perros',i:IMG.snack,d:'Puzzle antiaburrimiento. Premio por esfuerzo.',r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
-  {id:5,n:'GPS Localizador Collar',p:44.99,o:null,t:null,c:'perros',i:IMG.gps,d:'Seguimiento en tiempo real. App incluida.',r:4.7,rv:224,st:7,s:'BB-5201',dl:'48h'},
-  {id:6,n:'Juguete Interactivo Gatos',p:20.69,o:null,t:null,c:'gatos',i:IMG.cattoy,d:'Mariposa + pluma. Sensor de presencia.',r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
-  {id:7,n:'Bebedero Fuente Silencioso',p:33.29,o:36.99,t:'Oferta',c:'gatos',i:IMG.fuente,d:'Filtración triple. Motor <25dB. 2.5L.',r:4.9,rv:456,st:9,s:'BB-7784',dl:'24-48h'},
-  {id:8,n:'Cama Cueva Sherpa',p:31.49,o:null,t:null,c:'gatos',i:IMG.cueva,d:'Interior Sherpa. Cálida y acogedora.',r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
-  {id:9,n:'Árbol Rascador Premium',p:52.19,o:null,t:null,c:'gatos',i:IMG.arbol,d:'Sisal natural. 3 niveles + cama.',r:4.7,rv:189,st:6,s:'BB-6310',dl:'48h'},
-  {id:10,n:'Túnel de Juego 3 en 1',p:22.49,o:null,t:null,c:'gatos',i:IMG.tunel,d:'Plegable. Pelota interior incluida.',r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
-  {id:11,n:'Arnés Antipull Premium',p:28.79,o:null,t:null,c:'paseo',i:IMG.arnes,d:'Tallas XS-XL. Tejido reflectante.',r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
-  {id:12,n:'Mochila Transportadora',p:44.99,o:null,t:null,c:'paseo',i:IMG.mochila,d:'Hasta 8kg. Aprobada cabina avión.',r:4.8,rv:274,st:7,s:'BB-5519',dl:'48h'},
-  {id:13,n:'Collar LED Seguridad',p:14.39,o:15.99,t:'Oferta',c:'paseo',i:IMG.collar,d:'Visible 500m. USB recargable. 3 modos.',r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
-  {id:14,n:'Correa Retráctil 5m',p:16.19,o:null,t:null,c:'paseo',i:IMG.correa,d:'Bloqueo instantáneo. Cinta reflectante.',r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
-  {id:15,n:'Chaleco Salvavidas',p:35.99,o:null,t:null,c:'paseo',i:IMG.chaleco,d:'Flotabilidad alta. Asa de rescate. S-XL.',r:4.6,rv:76,st:9,s:'BB-5890',dl:'48h'},
-  {id:16,n:'Cepillo Deslanador Pro',p:17.99,o:null,t:null,c:'higiene',i:IMG.cepillo,d:'Reduce pelo suelto 90%. Auto-limpieza.',r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
-  {id:17,n:'Cortaúñas LED Seguro',p:10.79,o:null,t:null,c:'higiene',i:IMG.unas,d:'Luz LED para ver el nervio. Sin errores.',r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
-  {id:18,n:'Cepillo Masaje 2 en 1',p:20.69,o:null,t:null,c:'higiene',i:IMG.masaje,d:'Limpieza y masaje en el baño.',r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
-  {id:19,n:'Limpiador de Patas',p:11.69,o:null,t:null,c:'higiene',i:IMG.patas,d:'Silicona suave. Limpia en segundos.',r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
-  {id:20,n:'Champú Natural Premium',p:13.49,o:null,t:null,c:'higiene',i:IMG.champu,d:'Fórmula orgánica. Sin sulfatos.',r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'},
+  {id:1, n:'Cama Ortopédica de Lujo',   p:43.19,o:null,  t:null,    c:'perros', i:IMG.cama,   d:'Espuma viscoelástica. Alivia articulaciones.', r:4.8,rv:312,st:8, s:'BB-2847',dl:'24-48h'},
+  {id:2, n:'Comedero Automático Smart', p:50.39,o:null,  t:null,    c:'perros', i:IMG.feeder, d:'App programmable. 6 comidas al día.',           r:4.7,rv:187,st:5, s:'BB-3391',dl:'24-48h'},
+  {id:3, n:'Pelota Interactiva Sensor', p:19.79,o:null,  t:null,    c:'perros', i:IMG.ball,   d:'Se mueve sola. Sensor automático.',             r:4.6,rv:98, st:15,s:'BB-4801',dl:'24-48h'},
+  {id:4, n:'Dispensador de Snacks',     p:26.99,o:null,  t:null,    c:'perros', i:IMG.snack,  d:'Puzzle antiaburrimiento. Premio por esfuerzo.', r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
+  {id:5, n:'GPS Localizador Collar',    p:44.99,o:null,  t:null,    c:'perros', i:IMG.gps,    d:'Seguimiento en tiempo real. App incluida.',     r:4.7,rv:224,st:7, s:'BB-5201',dl:'48h'},
+  {id:6, n:'Juguete Interactivo Gatos', p:20.69,o:null,  t:null,    c:'gatos',  i:IMG.cattoy, d:'Mariposa + pluma. Sensor de presencia.',        r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
+  {id:7, n:'Bebedero Fuente Silencioso',p:33.29,o:36.99, t:'Oferta',c:'gatos',  i:IMG.fuente, d:'Filtración triple. Motor <25dB. 2.5L.',         r:4.9,rv:456,st:9, s:'BB-7784',dl:'24-48h'},
+  {id:8, n:'Cama Cueva Sherpa',         p:31.49,o:null,  t:null,    c:'gatos',  i:IMG.cueva,  d:'Interior Sherpa. Cálida y acogedora.',          r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
+  {id:9, n:'Árbol Rascador Premium',    p:52.19,o:null,  t:null,    c:'gatos',  i:IMG.arbol,  d:'Sisal natural. 3 niveles + cama.',              r:4.7,rv:189,st:6, s:'BB-6310',dl:'48h'},
+  {id:10,n:'Túnel de Juego 3 en 1',    p:22.49,o:null,  t:null,    c:'gatos',  i:IMG.tunel,  d:'Plegable. Pelota interior incluida.',           r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
+  {id:11,n:'Arnés Antipull Premium',   p:28.79,o:null,  t:null,    c:'paseo',  i:IMG.arnes,  d:'Tallas XS-XL. Tejido reflectante.',             r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
+  {id:12,n:'Mochila Transportadora',   p:44.99,o:null,  t:null,    c:'paseo',  i:IMG.mochila,d:'Hasta 8kg. Aprobada cabina avión.',             r:4.8,rv:274,st:7, s:'BB-5519',dl:'48h'},
+  {id:13,n:'Collar LED Seguridad',     p:14.39,o:15.99, t:'Oferta',c:'paseo',  i:IMG.collar, d:'Visible 500m. USB recargable. 3 modos.',        r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
+  {id:14,n:'Correa Retráctil 5m',      p:16.19,o:null,  t:null,    c:'paseo',  i:IMG.correa, d:'Bloqueo instantáneo. Cinta reflectante.',       r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
+  {id:15,n:'Chaleco Salvavidas',       p:35.99,o:null,  t:null,    c:'paseo',  i:IMG.chaleco,d:'Flotabilidad alta. Asa de rescate. S-XL.',     r:4.6,rv:76, st:9, s:'BB-5890',dl:'48h'},
+  {id:16,n:'Cepillo Deslanador Pro',   p:17.99,o:null,  t:null,    c:'higiene',i:IMG.cepillo,d:'Reduce pelo suelto 90%. Auto-limpieza.',        r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
+  {id:17,n:'Cortaúñas LED Seguro',     p:10.79,o:null,  t:null,    c:'higiene',i:IMG.unas,   d:'Luz LED para ver el nervio. Sin errores.',      r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
+  {id:18,n:'Cepillo Masaje 2 en 1',   p:20.69,o:null,  t:null,    c:'higiene',i:IMG.masaje, d:'Limpieza y masaje en el baño.',                 r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
+  {id:19,n:'Limpiador de Patas',       p:11.69,o:null,  t:null,    c:'higiene',i:IMG.patas,  d:'Silicona suave. Limpia en segundos.',           r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
+  {id:20,n:'Champú Natural Premium',  p:13.49,o:null,  t:null,    c:'higiene',i:IMG.champu, d:'Fórmula orgánica. Sin sulfatos.',               r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'},
 ];
 
-// ─── NAVEGACIÓN ───
+const FOOTER_HTML=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center;gap:10px"><svg width="28" height="28" viewBox="-65 -65 130 130" overflow="visible"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></svg><span style="font-family:'Fredoka One',cursive;font-size:20px;color:#B89870;letter-spacing:0.05em">FURO</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.5)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
+
 const PAGES=['tienda','envios','devoluciones','contacto'];
-const FOOTER=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center"><svg width="32" height="24" viewBox="0 0 100 72" overflow="visible">
-          <path class="wb" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#9B7FD4"/>
-          <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
-          <g class="wh">
-            <circle r="13" fill="#F5F4FA"/>
-            <ellipse class="we eye-pupil" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
-          </g>
-        </svg><span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
-PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER;});
+PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER_HTML;});
+
+let cart=[],aC='todos',stp=1,frm={},tT=null;
+const $=id=>document.getElementById(id);
+const stars=r=>"★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r));
+const pct=(p,o)=>Math.round((1-p/o)*100);
 
 function goPage(pg){
   PAGES.forEach(p=>{
-    const el=document.getElementById('page-'+p);
+    const el=$('page-'+p);
     if(el)el.style.display=p===pg?'block':'none';
-    const nav=document.getElementById('nav-'+p);
+    const nav=$('nav-'+p);
     if(nav)nav.className=p===pg?'on':'';
   });
+  $('succ').style.display='none';
   window.scrollTo(0,0);
-  if(pg==='tienda')renderTabs();
+  if(pg==='tienda'){rTabs();rGrid();}
 }
 
-// ─── TIENDA ───
-let cart=[],aC='todos',stp=1,frm={},tT=null;
-const $=id=>document.getElementById(id);
-const st=r=>"★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r));
-const pc=(p,o)=>Math.round((1-p/o)*100);
-
-function renderTabs(){
-  $("tabs").innerHTML=CATS.map(c=>`<div class="tab${aC===c.id?' on':''}" onclick="sT('${c.id}')">${c.lbl}</div>`).join("");
+function rTabs(){
+  $('tabs').innerHTML=CATS.map(c=>`<div class="tab${aC===c.id?' on':''}" onclick="sT('${c.id}')">${c.lbl}</div>`).join('');
 }
 function sT(id){
-  aC=id;const c=CATS.find(x=>x.id===id);
-  $("ct").textContent=c.title;$("cd").textContent=c.desc;
-  renderTabs();rGrid();
+  aC=id;
+  const c=CATS.find(x=>x.id===id);
+  $('ct').textContent=c.title;
+  $('cd').textContent=c.desc;
+  rTabs();rGrid();
 }
 function rGrid(){
   const l=aC==='todos'?P:P.filter(x=>x.c===aC);
-  $("pc").textContent=l.length+" productos";
-  $("pg").innerHTML=l.map(p=>`<div class="card">
+  $('pc').textContent=l.length+' productos';
+  $('pg').innerHTML=l.map(p=>`<div class="card">
     <div class="cimg">
       <img src="${p.i}" alt="${p.n}" loading="lazy" onerror="this.style.display='none'">
       ${p.t?`<div class="cbadge2 bo">${p.t}</div>`:''}
@@ -472,121 +746,92 @@ function rGrid(){
     <div class="cbody">
       <div class="cname">${p.n}</div>
       <div class="cdesc">${p.d}</div>
-      <div class="cstars">${st(p.r)}<span>(${p.rv})</span></div>
+      <div class="cstars">${stars(p.r)}<span>(${p.rv})</span></div>
       <div class="cfoot">
-        <div><span class="pmain">€${p.p.toFixed(2)}</span>${p.o?`<span class="pold">€${p.o.toFixed(2)}</span><span class="ppct"> -${pc(p.p,p.o)}%</span>`:''}</div>
+        <div><span class="pmain">€${p.p.toFixed(2)}</span>${p.o?`<span class="pold">€${p.o.toFixed(2)}</span><span class="ppct"> -${pct(p.p,p.o)}%</span>`:''}</div>
         <button class="addbtn" onclick="aCart(${p.id})">Añadir</button>
       </div>
     </div>
-  </div>`).join("");
+  </div>`).join('');
 }
 
 function aCart(id){
   const p=P.find(x=>x.id===id),e=cart.find(x=>x.id===id);
   if(e)e.qty++;else cart.push({...p,qty:1});
-  uB();shT('"'+p.n+'" añadido al carrito');
+  uB();shT('"'+p.n+'" añadido');
 }
-function uB(){const n=cart.reduce((s,i)=>s+i.qty,0),b=$("cb");b.textContent=n;b.style.display=n>0?"flex":"none"}
-function shT(m){clearTimeout(tT);$("tm").textContent=m;const t=$("toast");t.style.display="flex";tT=setTimeout(()=>t.style.display="none",2500)}
-function oC(){rD();$("drawer").style.display="flex";$("cover").style.display="block"}
-function cC(){$("drawer").style.display="none";$("cover").style.display="none"}
+function uB(){const n=cart.reduce((s,i)=>s+i.qty,0),b=$('cb');b.textContent=n;b.style.display=n>0?'flex':'none';}
+function shT(m){clearTimeout(tT);$('tm').textContent=m;const t=$('toast');t.style.display='flex';tT=setTimeout(()=>t.style.display='none',2500);}
+function oC(){rD();$('drawer').style.display='flex';$('cover').style.display='block';}
+function cC(){$('drawer').style.display='none';$('cover').style.display='none';}
 function rD(){
   const n=cart.reduce((s,i)=>s+i.qty,0);
-  $("dt").textContent="Tu carrito ("+n+")";
-  if(!cart.length){$("di").innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:8px">🛒</div><p>Tu carrito está vacío</p></div>';$("df").innerHTML="";return}
-  $("di").innerHTML=cart.map(i=>`<div class="dit"><img src="${i.i}" onerror="this.style.display='none'"><div style="flex:1;min-width:0"><div class="din">${i.n}</div><div class="dip">€${i.p.toFixed(2)}</div></div><div class="qc"><button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button><span class="qn">${i.qty}</span><button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button><button class="db" onclick="cQ(${i.id},0)">Quitar</button></div></div>`).join("");
+  $('dt').textContent='Tu carrito ('+n+')';
+  if(!cart.length){$('di').innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:8px">🛒</div><p>Tu carrito está vacío</p></div>';$('df').innerHTML='';return;}
+  $('di').innerHTML=cart.map(i=>`<div class="dit"><img src="${i.i}" onerror="this.style.display='none'"><div style="flex:1;min-width:0"><div class="din">${i.n}</div><div class="dip">€${i.p.toFixed(2)}</div></div><div class="qc"><button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button><span class="qn">${i.qty}</span><button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button><button class="db" onclick="cQ(${i.id},0)">Quitar</button></div></div>`).join('');
   const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-  $("df").innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div><div class="drw"><span>Envío</span><span style="color:var(--a)">Gratis</span></div><div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div><button class="gb" onclick="oK()">Finalizar compra →</button><p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
+  $('df').innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div><div class="drw"><span>Envío</span><span style="color:#5A8A3A;font-weight:600">Gratis</span></div><div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div><button class="gb" onclick="oK()">Finalizar compra →</button><p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
 }
-function cQ(id,q){if(q<=0)cart=cart.filter(i=>i.id!==id);else cart=cart.map(i=>i.id===id?{...i,qty:q}:i);uB();rD()}
-function oK(){cC();stp=1;frm={};rChk();$("chk").style.display="flex"}
-function cK(){$("chk").style.display="none"}
+function cQ(id,q){if(q<=0)cart=cart.filter(i=>i.id!==id);else cart=cart.map(i=>i.id===id?{...i,qty:q}:i);uB();rD();}
+function oK(){cC();stp=1;frm={};rChk();$('chk').style.display='flex';}
+function cK(){$('chk').style.display='none';}
 function rChk(){
-  $("ct2").textContent=stp===1?"Datos de envío":"Confirmar pedido";
-  $("cs").textContent="Paso "+stp+" de 2";
-  $("p1").className="pb on";$("p2").className=stp===2?"pb on":"pb";
+  $('ct2').textContent=stp===1?'Datos de envío':'Confirmar pedido';
+  $('cs').textContent='Paso '+stp+' de 2';
+  $('p1').className='pb on';$('p2').className=stp===2?'pb on':'pb';
   if(stp===1){
-    $("st1").style.display="block";$("st2").style.display="none";
-    $("st1").innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div><div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div><div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div><div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div><div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div><button class="cb" onclick="gS2()">Continuar →</button>`;
+    $('st1').style.display='block';$('st2').style.display='none';
+    $('st1').innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div><div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div><div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div><div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div><div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div><button class="cbtn" onclick="gS2()">Continuar al pago →</button>`;
   }else{
-    $("st1").style.display="none";$("st2").style.display="block";
+    $('st1').style.display='none';$('st2').style.display='block';
     const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    $("st2").innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join("")}<div class="ostt"><span>Total</span><span>€${sub.toFixed(2)}</span></div></div><div id="em" class="em"></div><div class="br"><button class="bb" onclick="gS1()">← Volver</button><button class="bp" id="pbtn" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}</button></div>`;
+    $('st2').innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join('')}<div class="ostt"><span>Total</span><span>€${sub.toFixed(2)}</span></div></div><div id="em" class="em"></div><div class="br"><button class="bb" onclick="gS1()">← Volver</button><button class="bp" id="pbtn" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}</button></div>`;
   }
 }
-function gS2(){frm={n:$("fn").value,e:$("fe").value,a:$("fa").value,c:$("fc").value,z:$("fz").value};stp=2;rChk()}
-function gS1(){stp=1;rChk()}
+function gS2(){frm={n:$('fn').value,e:$('fe').value,a:$('fa').value,c:$('fc').value,z:$('fz').value};stp=2;rChk();}
+function gS1(){stp=1;rChk();}
 async function dPay(){
-  const btn=$("pbtn"),em=$("em");
-  btn.disabled=true;btn.innerHTML="Redirigiendo...";em.style.display="none";
+  const btn=$('pbtn'),em=$('em');
+  btn.disabled=true;btn.innerHTML='Redirigiendo...';em.style.display='none';
   try{
     const r=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,origin:window.location.origin})});
-    const data=await r.json();
-    if(data.url)window.location.href=data.url;
-    else throw new Error(data.error||'Error');
+    const d=await r.json();
+    if(d.url)window.location.href=d.url;else throw new Error(d.error||'Error');
   }catch(e){
-    em.textContent="⚠️ Error al procesar el pago. Inténtalo de nuevo.";
-    em.style.display="block";
+    em.textContent='⚠️ Error al procesar el pago. Inténtalo de nuevo.';
+    em.style.display='block';
     btn.disabled=false;
     const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}`;
+    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €'+sub.toFixed(2);
   }
 }
+function rS(){$('succ').style.display='none';goPage('tienda');}
 
-// ─── CONTACTO CON IA ───
 async function enviarContacto(){
-  const btn=$("cf-btn");
-  const nombre=$("cf-nombre").value.trim();
-  const email=$("cf-email").value.trim();
-  const motivo=$("cf-motivo").value;
-  const msg=$("cf-msg").value.trim();
-  if(!nombre||!email||!motivo||!msg){alert("Por favor rellena todos los campos.");return}
-  btn.disabled=true;btn.textContent="Enviando...";
+  const btn=$('cf-btn');
+  const nombre=$('cf-nombre').value.trim();
+  const email=$('cf-email').value.trim();
+  const motivo=$('cf-motivo').value;
+  const msg=$('cf-msg').value.trim();
+  if(!nombre||!email||!motivo||!msg){alert('Por favor rellena todos los campos.');return;}
+  btn.disabled=true;btn.textContent='Enviando...';
   try{
     const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,email,motivo,mensaje:msg})});
-    const data=await r.json();
-    $("cf-wrap").style.display="none";
-    $("cf-sent").style.display="block";
-    $("cf-respuesta").textContent=data.respuesta||"Gracias por tu mensaje. Te responderemos pronto.";
+    const d=await r.json();
+    $('cf-wrap').style.display='none';
+    $('cf-sent').style.display='block';
+    $('cf-respuesta').textContent=d.respuesta||'Gracias por tu mensaje. Te responderemos pronto.';
   }catch(e){
-    btn.disabled=false;btn.textContent="Enviar mensaje";
-    alert("Error al enviar. Inténtalo de nuevo.");
+    btn.disabled=false;btn.textContent='Enviar mensaje';
+    alert('Error al enviar. Inténtalo de nuevo.');
   }
 }
 
-// ─── INIT ───
-renderTabs();rGrid();
 
-// Eye tracking — la pupila sigue al ratón
-document.addEventListener('mousemove', function(e){
-  document.querySelectorAll('.eye-pupil').forEach(function(pupil){
-    const svg = pupil.closest('svg');
-    if(!svg) return;
-    const rect = svg.getBoundingClientRect();
-    if(rect.width === 0) return;
-    // Head center in viewBox coords is (84, 46)
-    // Convert to screen coords
-    const scaleX = rect.width / 100;
-    const scaleY = rect.height / 72;
-    const headScreenX = rect.left + 84 * scaleX;
-    const headScreenY = rect.top  + 46 * scaleY;
-    // Vector from head to mouse in screen pixels
-    const dx = e.clientX - headScreenX;
-    const dy = e.clientY - headScreenY;
-    // Convert to viewBox units
-    const vbDx = dx / scaleX;
-    const vbDy = dy / scaleY;
-    // Clamp to max 5 viewBox units from center
-    const dist = Math.sqrt(vbDx*vbDx + vbDy*vbDy);
-    const maxR = 5;
-    const r = Math.min(dist, maxR) / (dist || 1);
-    const px = vbDx * r;
-    const py = vbDy * r;
-    pupil.setAttribute('cx', px.toFixed(2));
-    pupil.setAttribute('cy', py.toFixed(2));
-  });
-});
 
+// Init
+rTabs();
+rGrid();
 </script>
 </body>
 </html>
