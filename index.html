@@ -352,6 +352,21 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .promo-err{font-family:var(--n);font-size:12px;color:#C0392B;background:#fdf0ef;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none}
 .discount-line{display:flex;justify-content:space-between;font-family:var(--n);font-size:12px;font-weight:400;margin-bottom:4px;color:#2D6B00}
 
+
+/* ── GALERÍA MODAL ── */
+.pm-gallery{position:relative;background:#F5EFE6;display:flex;flex-direction:column;border-right:1px solid #D4C4A8}
+.pm-main-img{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;min-height:280px}
+.pm-main-img img{max-width:100%;max-height:300px;object-fit:contain;border-radius:8px;transition:opacity .2s}
+.pm-thumbs{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #D4C4A8;background:#EDE8DF;overflow-x:auto}
+.pm-thumb{width:56px;height:56px;flex-shrink:0;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;background:#fff}
+.pm-thumb:hover{border-color:#B89870}
+.pm-thumb.active{border-color:#6B3A2A}
+.pm-thumb img{width:100%;height:100%;object-fit:contain;padding:3px}
+.pm-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:32px;height:32px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.12);transition:all .15s;z-index:2}
+.pm-arrow:hover{background:#fff;box-shadow:0 3px 12px rgba(0,0,0,0.2)}
+.pm-prev{left:10px}
+.pm-next{right:10px}
+
 </style>
 </head>
 <body>
@@ -912,12 +927,68 @@ function updateOrderSummary(){
   }
 }
 
-function openPM(id){
+
+const EXTRA_IMGS = {
+  1: ['https://image.chewy.com/catalog/general/images/moe/0692f215-10ba-7373-8000-650f1c89fc81._AC_SX500_SY400_QL75_V1_.jpg'],
+  5: ['https://image.chewy.com/catalog/general/images/tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-white/img-571119._AC_SX500_SY400_QL75_V1_.jpg'],
+  11:['https://image.chewy.com/catalog/general/images/frisco-padded-reflective-harness-red-medium/img-637836._AC_SX500_SY400_QL75_V1_.jpg'],
+};
+
+let pmImgs = [];
+let pmImgIdx = 0;
+
+function showPMImg(idx){
+  pmImgIdx = idx;
+  const img = $('pm-photo');
+  img.style.opacity='0';
+  setTimeout(()=>{ img.src=pmImgs[idx]; img.style.opacity='1'; },150);
+  document.querySelectorAll('.pm-thumb').forEach((t,i)=>t.className='pm-thumb'+(i===idx?' active':''));
+}
+
+function pmPrev(){ if(pmImgIdx>0) showPMImg(pmImgIdx-1); }
+function pmNext(){ if(pmImgIdx<pmImgs.length-1) showPMImg(pmImgIdx+1); }
+
+
+function renderThumbs(){
+  const thumbs = $('pm-thumbs');
+  if(!thumbs) return;
+  thumbs.innerHTML = pmImgs.length > 1 ? pmImgs.map((url,i)=>
+    `<div class="pm-thumb${i===pmImgIdx?' active':''}" onclick="showPMImg(${i})"><img src="${url}" alt="Vista ${i+1}" loading="lazy"></div>`
+  ).join('') : '';
+  const arrows = document.querySelectorAll('.pm-arrow');
+  arrows.forEach(a=>a.style.display=pmImgs.length>1?'flex':'none');
+}
+
+async function openPM(id){
   const p = P.find(x=>x.id===id);
   if(!p) return;
   currentPM = p;
+  // Mostrar modal inmediatamente con imagen principal
+  pmImgs = [p.i];
+  pmImgIdx = 0;
   $('pm-photo').src = p.i;
   $('pm-photo').alt = p.n;
+  renderThumbs();
+  $('prod-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Cargar imágenes extra de BigBuy en segundo plano
+  try {
+    const r = await fetch('/api/product-images?sku='+encodeURIComponent(p.s));
+    const data = await r.json();
+    if(data.images && data.images.length > 0){
+      // Combinar: imagen principal + extras de BigBuy (sin duplicar)
+      const extras = data.images.filter(u=>u && u!==p.i);
+      pmImgs = [p.i, ...extras, ...(EXTRA_IMGS[id]||[]).filter(u=>!extras.includes(u))];
+    } else {
+      pmImgs = [p.i, ...(EXTRA_IMGS[id]||[])];
+    }
+  } catch(e){
+    pmImgs = [p.i, ...(EXTRA_IMGS[id]||[])];
+  }
+  renderThumbs();
+  // Show/hide arrows
+  const arrows = document.querySelectorAll('.pm-arrow');
+  arrows.forEach(a=>a.style.display=pmImgs.length>1?'flex':'none');
   $('pm-cat').textContent = CAT_NAMES[p.c] || p.c;
   $('pm-name').textContent = p.n;
   $('pm-stars').innerHTML = '★'.repeat(Math.floor(p.r))+'☆'.repeat(5-Math.floor(p.r))+`<span>(${p.rv} valoraciones)</span>`;
@@ -931,8 +1002,7 @@ function openPM(id){
   $('pm-feats').innerHTML = feats.map(f=>`<li>${f}</li>`).join('');
   $('pm-del').innerHTML = `<span style="font-size:16px">📦</span> Envío ${p.dl} · Stock disponible`;
   $('pm-add').textContent = 'Añadir al carrito';
-  $('prod-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  // modal ya abierto en openPM
 }
 function closePM(){
   $('prod-modal').classList.remove('open');
@@ -1180,9 +1250,14 @@ applyLang(currentLang);
 <!-- MODAL PRODUCTO -->
 <div id="prod-modal" onclick="if(event.target===this)closePM()">
   <div class="pm-box" id="pm-box">
-    <div class="pm-img" id="pm-img">
-      <img id="pm-photo" src="" alt="">
-      <div id="pm-badge-img" class="pm-badge" style="display:none"></div>
+    <div class="pm-gallery" id="pm-img">
+      <div class="pm-main-img">
+        <img id="pm-photo" src="" alt="" style="transition:opacity .2s">
+        <div id="pm-badge-img" class="pm-badge" style="display:none"></div>
+      </div>
+      <button class="pm-arrow pm-prev" onclick="pmPrev()">‹</button>
+      <button class="pm-arrow pm-next" onclick="pmNext()">›</button>
+      <div class="pm-thumbs" id="pm-thumbs"></div>
     </div>
     <div class="pm-body">
       <button class="pm-close" onclick="closePM()">✕</button>
