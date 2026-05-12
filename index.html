@@ -153,18 +153,39 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .footer-links a:hover{color:var(--a)}
 .footer-copy{font-family:var(--n);font-size:11px;font-weight:300;color:rgba(255,255,255,0.3);text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;max-width:1100px;margin:16px auto 0}
 #toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;font-weight:300;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid var(--a);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+
+@keyframes worm{
+  0%,100%{d:path("M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z")}
+  50%{d:path("M8 38 C20 62 34 62 46 38 C58 14 72 14 84 38 L84 46 C72 22 58 22 46 46 C34 70 20 70 8 46 Z")}
+}
+@keyframes whead{
+  0%,100%{transform:translate(84px,46px) translateY(0)}
+  50%{transform:translate(84px,46px) translateY(-5px)}
+}
+@keyframes wblink{
+  0%,88%,100%{ry:3.5}
+  93%{ry:0.4}
+}
+.wb{animation:worm 2.5s ease-in-out infinite}
+.wo{animation:worm 2.5s ease-in-out infinite .08s}
+.wh{animation:whead 2.5s ease-in-out infinite}
+.we{animation:wblink 5s ease-in-out infinite}
+
 </style>
 </head>
 <body>
 
 <header class="hdr">
   <div onclick="goPage('tienda')" style="cursor:pointer;display:flex;align-items:center">
-    <svg width="40" height="40" viewBox="0 0 44 44">
-      <rect x="11" y="10" width="7" height="27" rx="3.5" fill="#fff"/>
-      <rect x="11" y="10" width="22" height="7" rx="3.5" fill="#fff"/>
-      <rect x="11" y="21" width="16" height="6" rx="3" fill="#9B7FD4"/>
-      <rect x="23" y="3" width="12" height="5" rx="2.5" fill="#9B7FD4"/>
-    </svg>
+    <svg width="44" height="32" viewBox="0 0 100 72" overflow="visible">
+          <path class="wb" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#9B7FD4"/>
+          <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
+          <g class="wh">
+            <circle r="13" fill="#F5F4FA"/>
+            <ellipse class="we" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
+            <circle cx="-5.5" cy="-6" r="1.8" fill="#1E1B2E" opacity=".7"/>
+          </g>
+        </svg>
   </div>
   <nav class="nav">
     <a id="nav-tienda" onclick="goPage('tienda')" class="on">Inicio</a>
@@ -403,7 +424,14 @@ const P=[
 
 // ─── NAVEGACIÓN ───
 const PAGES=['tienda','envios','devoluciones','contacto'];
-const FOOTER=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center"><svg width="22" height="22" viewBox="0 0 44 44"><rect x="11" y="10" width="7" height="27" rx="3.5" fill="#fff"/><rect x="11" y="10" width="22" height="7" rx="3.5" fill="#fff"/><rect x="11" y="21" width="16" height="6" rx="3" fill="#9B7FD4"/><rect x="23" y="3" width="12" height="5" rx="2.5" fill="#9B7FD4"/></svg><span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
+const FOOTER=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center"><svg width="32" height="24" viewBox="0 0 100 72" overflow="visible">
+          <path class="wb" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#9B7FD4"/>
+          <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
+          <g class="wh">
+            <circle r="13" fill="#F5F4FA"/>
+            <ellipse class="we" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
+          </g>
+        </svg><span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
 PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER;});
 
 function goPage(pg){
