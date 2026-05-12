@@ -182,7 +182,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
           <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
           <g class="wh">
             <circle r="13" fill="#F5F4FA"/>
-            <ellipse class="we" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
+            <ellipse class="we eye-pupil" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
             <circle cx="-5.5" cy="-6" r="1.8" fill="#1E1B2E" opacity=".7"/>
           </g>
         </svg>
@@ -429,7 +429,7 @@ const FOOTER=`<footer class="footer"><div class="footer-inner"><div style="displ
           <path class="wo" d="M8 42 C20 18 34 18 46 42 C58 66 72 66 84 42 L84 50 C72 74 58 74 46 50 C34 26 20 26 8 50 Z" fill="#F5F4FA" opacity=".12"/>
           <g class="wh">
             <circle r="13" fill="#F5F4FA"/>
-            <ellipse class="we" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
+            <ellipse class="we eye-pupil" cx="-4" cy="-4" rx="3.5" ry="3.5" fill="#9B7FD4"/>
           </g>
         </svg><span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;letter-spacing:0.06em;margin-left:10px">Furō</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.45)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
 PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER;});
@@ -556,6 +556,37 @@ async function enviarContacto(){
 
 // ─── INIT ───
 renderTabs();rGrid();
+
+// Eye tracking — la pupila sigue al ratón
+document.addEventListener('mousemove', function(e){
+  document.querySelectorAll('.eye-pupil').forEach(function(pupil){
+    const svg = pupil.closest('svg');
+    if(!svg) return;
+    const rect = svg.getBoundingClientRect();
+    if(rect.width === 0) return;
+    // Head center in viewBox coords is (84, 46)
+    // Convert to screen coords
+    const scaleX = rect.width / 100;
+    const scaleY = rect.height / 72;
+    const headScreenX = rect.left + 84 * scaleX;
+    const headScreenY = rect.top  + 46 * scaleY;
+    // Vector from head to mouse in screen pixels
+    const dx = e.clientX - headScreenX;
+    const dy = e.clientY - headScreenY;
+    // Convert to viewBox units
+    const vbDx = dx / scaleX;
+    const vbDy = dy / scaleY;
+    // Clamp to max 5 viewBox units from center
+    const dist = Math.sqrt(vbDx*vbDx + vbDy*vbDy);
+    const maxR = 5;
+    const r = Math.min(dist, maxR) / (dist || 1);
+    const px = vbDx * r;
+    const py = vbDy * r;
+    pupil.setAttribute('cx', px.toFixed(2));
+    pupil.setAttribute('cy', py.toFixed(2));
+  });
+});
+
 </script>
 </body>
 </html>
