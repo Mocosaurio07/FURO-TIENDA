@@ -267,6 +267,11 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 
   20%,75%{opacity:1;transform:scale(1)}
 }
+
+@keyframes leaf-float-1{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(12px,-18px) rotate(15deg)}50%{transform:translate(-8px,-35px) rotate(-10deg)}75%{transform:translate(15px,-52px) rotate(20deg)}100%{transform:translate(0,-70px) rotate(5deg);opacity:0}}
+@keyframes leaf-float-2{0%{transform:translate(0,0) rotate(0deg)}30%{transform:translate(-14px,-20px) rotate(-20deg)}60%{transform:translate(10px,-42px) rotate(12deg)}100%{transform:translate(-5px,-75px) rotate(-8deg);opacity:0}}
+@keyframes leaf-float-3{0%{transform:translate(0,0) rotate(0deg)}40%{transform:translate(18px,-25px) rotate(25deg)}70%{transform:translate(-6px,-50px) rotate(-15deg)}100%{transform:translate(8px,-80px) rotate(10deg);opacity:0}}
+.hero-leaf{position:absolute;opacity:0;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-fill-mode:both}
 </style>
 </head>
 <body>
@@ -295,162 +300,53 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     <span>🔒 Pago seguro</span><span>📦 Envío 24-48h España</span><span>↩️ Devolución 14 días</span><span>🏆 +5.000 clientes</span>
   </div>
   <div class="hero" style="min-height:360px;padding:3rem 2rem;position:relative;overflow:hidden">
-    <!-- HUELLAS EN LA ARENA CON OLA -->
-    <canvas id="pawCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
-    <script>
-    (function(){
-      const canvas = document.getElementById('pawCanvas');
-      const ctx = canvas.getContext('2d');
-      const BG = '#2D4A1A';
-      const PAW_COLOR = '#C8A882';
+    <!-- HOJAS FLOTANTES -->
+    <svg class="hero-leaf" style="left:51%;top:58%;width:13px;height:17px;opacity:0.19;animation-name:leaf-float-3;animation-duration:5.4s;animation-delay:1.6s" viewBox="-7 -19 14 21" overflow="visible"><path d="M0,0 C5.2,-5.9 5.2,-11.8 0,-16.9 C-5.2,-11.8 -5.2,-5.9 0,0" fill="#B89870" transform="rotate(-29)"/></svg>
+    <svg class="hero-leaf" style="left:87%;top:99%;width:18px;height:29px;opacity:0.18;animation-name:leaf-float-2;animation-duration:8.6s;animation-delay:2.4s" viewBox="-9 -31 18 33" overflow="visible"><path d="M0,0 C7.2,-10.2 7.2,-20.3 0,-29.0 C-7.2,-20.3 -7.2,-10.2 0,0" fill="#B89870" transform="rotate(2)"/></svg>
+    <svg class="hero-leaf" style="left:49%;top:97%;width:13px;height:21px;opacity:0.21;animation-name:leaf-float-3;animation-duration:6.7s;animation-delay:10.2s" viewBox="-7 -23 15 25" overflow="visible"><path d="M0,0 C5.3,-7.5 5.3,-15.0 0,-21.4 C-5.3,-15.0 -5.3,-7.5 0,0" fill="#B89870" transform="rotate(-38)"/></svg>
+    <svg class="hero-leaf" style="left:86%;top:21%;width:17px;height:20px;opacity:0.16;animation-name:leaf-float-3;animation-duration:7.1s;animation-delay:6.7s" viewBox="-9 -22 18 24" overflow="visible"><path d="M0,0 C6.8,-7.2 6.8,-14.3 0,-20.4 C-6.8,-14.3 -6.8,-7.2 0,0" fill="#B89870" transform="rotate(-26)"/></svg>
+    <svg class="hero-leaf" style="left:10%;top:69%;width:18px;height:17px;opacity:0.14;animation-name:leaf-float-3;animation-duration:6.8s;animation-delay:11.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.1,-6.0 7.1,-12.0 0,-17.2 C-7.1,-12.0 -7.1,-6.0 0,0" fill="#B89870" transform="rotate(-1)"/></svg>
+    <svg class="hero-leaf" style="left:20%;top:66%;width:19px;height:30px;opacity:0.13;animation-name:leaf-float-1;animation-duration:5.9s;animation-delay:6.0s" viewBox="-10 -32 19 34" overflow="visible"><path d="M0,0 C7.6,-10.4 7.6,-20.8 0,-29.7 C-7.6,-20.8 -7.6,-10.4 0,0" fill="#B89870" transform="rotate(60)"/></svg>
+    <svg class="hero-leaf" style="left:60%;top:97%;width:22px;height:15px;opacity:0.18;animation-name:leaf-float-2;animation-duration:5.7s;animation-delay:7.6s" viewBox="-11 -17 22 19" overflow="visible"><path d="M0,0 C8.9,-5.4 8.9,-10.7 0,-15.3 C-8.9,-10.7 -8.9,-5.4 0,0" fill="#B89870" transform="rotate(-6)"/></svg>
+    <svg class="hero-leaf" style="left:42%;top:27%;width:18px;height:17px;opacity:0.16;animation-name:leaf-float-3;animation-duration:8.2s;animation-delay:11.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.1,-6.0 7.1,-12.0 0,-17.2 C-7.1,-12.0 -7.1,-6.0 0,0" fill="#B89870" transform="rotate(40)"/></svg>
+    <svg class="hero-leaf" style="left:51%;top:26%;width:15px;height:25px;opacity:0.19;animation-name:leaf-float-3;animation-duration:8.7s;animation-delay:0.7s" viewBox="-8 -27 16 29" overflow="visible"><path d="M0,0 C6.1,-8.8 6.1,-17.6 0,-25.1 C-6.1,-17.6 -6.1,-8.8 0,0" fill="#B89870" transform="rotate(58)"/></svg>
+    <svg class="hero-leaf" style="left:19%;top:87%;width:24px;height:16px;opacity:0.14;animation-name:leaf-float-1;animation-duration:5.9s;animation-delay:1.7s" viewBox="-12 -18 23 20" overflow="visible"><path d="M0,0 C9.6,-5.6 9.6,-11.2 0,-16.0 C-9.6,-11.2 -9.6,-5.6 0,0" fill="#B89870" transform="rotate(-45)"/></svg>
+    <svg class="hero-leaf" style="left:26%;top:81%;width:15px;height:22px;opacity:0.2;animation-name:leaf-float-1;animation-duration:5.6s;animation-delay:10.2s" viewBox="-8 -24 16 26" overflow="visible"><path d="M0,0 C5.9,-7.7 5.9,-15.4 0,-22.0 C-5.9,-15.4 -5.9,-7.7 0,0" fill="#B89870" transform="rotate(-31)"/></svg>
+    <svg class="hero-leaf" style="left:86%;top:19%;width:18px;height:14px;opacity:0.16;animation-name:leaf-float-2;animation-duration:6.1s;animation-delay:0.6s" viewBox="-9 -16 18 18" overflow="visible"><path d="M0,0 C7.0,-5.0 7.0,-9.9 0,-14.2 C-7.0,-9.9 -7.0,-5.0 0,0" fill="#B89870" transform="rotate(46)"/></svg>
+    <svg class="hero-leaf" style="left:49%;top:63%;width:22px;height:23px;opacity:0.19;animation-name:leaf-float-2;animation-duration:9.6s;animation-delay:10.6s" viewBox="-11 -25 22 27" overflow="visible"><path d="M0,0 C8.9,-7.9 8.9,-15.8 0,-22.5 C-8.9,-15.8 -8.9,-7.9 0,0" fill="#B89870" transform="rotate(-37)"/></svg>
+    <svg class="hero-leaf" style="left:98%;top:66%;width:13px;height:28px;opacity:0.21;animation-name:leaf-float-3;animation-duration:6.6s;animation-delay:7.8s" viewBox="-7 -30 15 32" overflow="visible"><path d="M0,0 C5.4,-9.7 5.4,-19.4 0,-27.7 C-5.4,-19.4 -5.4,-9.7 0,0" fill="#B89870" transform="rotate(-32)"/></svg>
+    <svg class="hero-leaf" style="left:40%;top:37%;width:21px;height:25px;opacity:0.2;animation-name:leaf-float-1;animation-duration:6.5s;animation-delay:3.0s" viewBox="-11 -27 21 29" overflow="visible"><path d="M0,0 C8.6,-8.9 8.6,-17.8 0,-25.4 C-8.6,-17.8 -8.6,-8.9 0,0" fill="#B89870" transform="rotate(31)"/></svg>
+    <svg class="hero-leaf" style="left:56%;top:63%;width:24px;height:18px;opacity:0.15;animation-name:leaf-float-2;animation-duration:8.4s;animation-delay:3.5s" viewBox="-12 -20 24 22" overflow="visible"><path d="M0,0 C9.8,-6.3 9.8,-12.7 0,-18.1 C-9.8,-12.7 -9.8,-6.3 0,0" fill="#B89870" transform="rotate(4)"/></svg>
+    <svg class="hero-leaf" style="left:68%;top:26%;width:24px;height:18px;opacity:0.2;animation-name:leaf-float-1;animation-duration:9.8s;animation-delay:3.5s" viewBox="-12 -20 23 22" overflow="visible"><path d="M0,0 C9.6,-6.3 9.6,-12.7 0,-18.1 C-9.6,-12.7 -9.6,-6.3 0,0" fill="#B89870" transform="rotate(52)"/></svg>
+    <svg class="hero-leaf" style="left:36%;top:58%;width:20px;height:24px;opacity:0.16;animation-name:leaf-float-1;animation-duration:7.2s;animation-delay:8.0s" viewBox="-10 -26 20 28" overflow="visible"><path d="M0,0 C8.1,-8.3 8.1,-16.6 0,-23.7 C-8.1,-16.6 -8.1,-8.3 0,0" fill="#B89870" transform="rotate(19)"/></svg>
+    <svg class="hero-leaf" style="left:44%;top:10%;width:20px;height:25px;opacity:0.14;animation-name:leaf-float-3;animation-duration:8.3s;animation-delay:2.3s" viewBox="-10 -27 20 29" overflow="visible"><path d="M0,0 C8.0,-8.8 8.0,-17.6 0,-25.1 C-8.0,-17.6 -8.0,-8.8 0,0" fill="#B89870" transform="rotate(48)"/></svg>
+    <svg class="hero-leaf" style="left:33%;top:94%;width:16px;height:26px;opacity:0.15;animation-name:leaf-float-2;animation-duration:9.3s;animation-delay:2.8s" viewBox="-9 -28 17 30" overflow="visible"><path d="M0,0 C6.5,-9.1 6.5,-18.2 0,-26.0 C-6.5,-18.2 -6.5,-9.1 0,0" fill="#B89870" transform="rotate(30)"/></svg>
+    <svg class="hero-leaf" style="left:0%;top:24%;width:18px;height:17px;opacity:0.19;animation-name:leaf-float-1;animation-duration:8.4s;animation-delay:3.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.0,-6.0 7.0,-12.1 0,-17.2 C-7.0,-12.1 -7.0,-6.0 0,0" fill="#B89870" transform="rotate(6)"/></svg>
+    <svg class="hero-leaf" style="left:65%;top:66%;width:24px;height:18px;opacity:0.17;animation-name:leaf-float-3;animation-duration:7.3s;animation-delay:8.9s" viewBox="-12 -20 23 22" overflow="visible"><path d="M0,0 C9.6,-6.4 9.6,-12.8 0,-18.2 C-9.6,-12.8 -9.6,-6.4 0,0" fill="#B89870" transform="rotate(48)"/></svg>
+    <svg class="hero-leaf" style="left:98%;top:90%;width:22px;height:24px;opacity:0.13;animation-name:leaf-float-2;animation-duration:5.1s;animation-delay:2.4s" viewBox="-11 -26 22 28" overflow="visible"><path d="M0,0 C9.0,-8.3 9.0,-16.6 0,-23.7 C-9.0,-16.6 -9.0,-8.3 0,0" fill="#B89870" transform="rotate(-24)"/></svg>
+    <svg class="hero-leaf" style="left:9%;top:84%;width:10px;height:15px;opacity:0.21;animation-name:leaf-float-3;animation-duration:7.8s;animation-delay:4.4s" viewBox="-6 -17 12 19" overflow="visible"><path d="M0,0 C4.2,-5.2 4.2,-10.5 0,-14.9 C-4.2,-10.5 -4.2,-5.2 0,0" fill="#B89870" transform="rotate(-22)"/></svg>
+    <svg class="hero-leaf" style="left:73%;top:47%;width:13px;height:16px;opacity:0.14;animation-name:leaf-float-2;animation-duration:7.0s;animation-delay:9.5s" viewBox="-7 -18 14 20" overflow="visible"><path d="M0,0 C5.2,-5.5 5.2,-10.9 0,-15.6 C-5.2,-10.9 -5.2,-5.5 0,0" fill="#B89870" transform="rotate(50)"/></svg>
+    <svg class="hero-leaf" style="left:42%;top:26%;width:23px;height:28px;opacity:0.16;animation-name:leaf-float-3;animation-duration:8.5s;animation-delay:10.2s" viewBox="-11 -30 23 32" overflow="visible"><path d="M0,0 C9.3,-9.9 9.3,-19.9 0,-28.4 C-9.3,-19.9 -9.3,-9.9 0,0" fill="#B89870" transform="rotate(51)"/></svg>
+    <svg class="hero-leaf" style="left:22%;top:56%;width:14px;height:18px;opacity:0.14;animation-name:leaf-float-2;animation-duration:8.5s;animation-delay:10.1s" viewBox="-8 -20 15 22" overflow="visible"><path d="M0,0 C5.5,-6.4 5.5,-12.9 0,-18.4 C-5.5,-12.9 -5.5,-6.4 0,0" fill="#B89870" transform="rotate(13)"/></svg>
+    <svg class="hero-leaf" style="left:73%;top:90%;width:23px;height:22px;opacity:0.22;animation-name:leaf-float-3;animation-duration:7.7s;animation-delay:11.8s" viewBox="-11 -24 23 26" overflow="visible"><path d="M0,0 C9.3,-7.6 9.3,-15.1 0,-21.6 C-9.3,-15.1 -9.3,-7.6 0,0" fill="#B89870" transform="rotate(-39)"/></svg>
+    <svg class="hero-leaf" style="left:1%;top:24%;width:15px;height:22px;opacity:0.19;animation-name:leaf-float-2;animation-duration:5.0s;animation-delay:7.9s" viewBox="-8 -24 16 26" overflow="visible"><path d="M0,0 C6.0,-7.7 6.0,-15.3 0,-21.9 C-6.0,-15.3 -6.0,-7.7 0,0" fill="#B89870" transform="rotate(-18)"/></svg>
+    <svg class="hero-leaf" style="left:81%;top:11%;width:19px;height:21px;opacity:0.16;animation-name:leaf-float-1;animation-duration:9.6s;animation-delay:1.6s" viewBox="-9 -23 19 25" overflow="visible"><path d="M0,0 C7.5,-7.2 7.5,-14.4 0,-20.6 C-7.5,-14.4 -7.5,-7.2 0,0" fill="#B89870" transform="rotate(-39)"/></svg>
+    <svg class="hero-leaf" style="left:43%;top:75%;width:13px;height:26px;opacity:0.2;animation-name:leaf-float-1;animation-duration:5.3s;animation-delay:10.1s" viewBox="-7 -28 15 30" overflow="visible"><path d="M0,0 C5.4,-9.1 5.4,-18.3 0,-26.1 C-5.4,-18.3 -5.4,-9.1 0,0" fill="#B89870" transform="rotate(-40)"/></svg>
+    <svg class="hero-leaf" style="left:24%;top:24%;width:17px;height:18px;opacity:0.14;animation-name:leaf-float-3;animation-duration:7.8s;animation-delay:4.4s" viewBox="-9 -20 18 22" overflow="visible"><path d="M0,0 C6.9,-6.4 6.9,-12.9 0,-18.4 C-6.9,-12.9 -6.9,-6.4 0,0" fill="#B89870" transform="rotate(24)"/></svg>
+    <svg class="hero-leaf" style="left:22%;top:99%;width:15px;height:29px;opacity:0.19;animation-name:leaf-float-1;animation-duration:8.4s;animation-delay:1.0s" viewBox="-8 -31 16 33" overflow="visible"><path d="M0,0 C6.1,-10.3 6.1,-20.6 0,-29.4 C-6.1,-20.6 -6.1,-10.3 0,0" fill="#B89870" transform="rotate(8)"/></svg>
+    <svg class="hero-leaf" style="left:19%;top:79%;width:11px;height:26px;opacity:0.2;animation-name:leaf-float-1;animation-duration:6.8s;animation-delay:4.6s" viewBox="-7 -28 13 30" overflow="visible"><path d="M0,0 C4.5,-9.2 4.5,-18.3 0,-26.1 C-4.5,-18.3 -4.5,-9.2 0,0" fill="#B89870" transform="rotate(22)"/></svg>
+    <svg class="hero-leaf" style="left:78%;top:87%;width:21px;height:24px;opacity:0.2;animation-name:leaf-float-2;animation-duration:9.5s;animation-delay:9.3s" viewBox="-11 -26 21 28" overflow="visible"><path d="M0,0 C8.6,-8.3 8.6,-16.6 0,-23.8 C-8.6,-16.6 -8.6,-8.3 0,0" fill="#B89870" transform="rotate(-17)"/></svg>
+    <svg class="hero-leaf" style="left:24%;top:49%;width:13px;height:16px;opacity:0.21;animation-name:leaf-float-1;animation-duration:7.6s;animation-delay:7.7s" viewBox="-7 -18 14 20" overflow="visible"><path d="M0,0 C5.1,-5.5 5.1,-11.0 0,-15.8 C-5.1,-11.0 -5.1,-5.5 0,0" fill="#B89870" transform="rotate(3)"/></svg>
+    <svg class="hero-leaf" style="left:48%;top:97%;width:22px;height:27px;opacity:0.18;animation-name:leaf-float-1;animation-duration:8.7s;animation-delay:6.8s" viewBox="-11 -29 22 31" overflow="visible"><path d="M0,0 C8.8,-9.3 8.8,-18.6 0,-26.5 C-8.8,-18.6 -8.8,-9.3 0,0" fill="#B89870" transform="rotate(-30)"/></svg>
+    <svg class="hero-leaf" style="left:20%;top:31%;width:22px;height:20px;opacity:0.12;animation-name:leaf-float-1;animation-duration:7.9s;animation-delay:7.1s" viewBox="-11 -22 21 24" overflow="visible"><path d="M0,0 C8.6,-7.0 8.6,-14.0 0,-20.0 C-8.6,-14.0 -8.6,-7.0 0,0" fill="#B89870" transform="rotate(-20)"/></svg>
+    <svg class="hero-leaf" style="left:16%;top:11%;width:23px;height:27px;opacity:0.2;animation-name:leaf-float-1;animation-duration:7.5s;animation-delay:3.5s" viewBox="-11 -29 23 31" overflow="visible"><path d="M0,0 C9.3,-9.4 9.3,-18.9 0,-27.0 C-9.3,-18.9 -9.3,-9.4 0,0" fill="#B89870" transform="rotate(-23)"/></svg>
+    <svg class="hero-leaf" style="left:45%;top:30%;width:19px;height:19px;opacity:0.22;animation-name:leaf-float-2;animation-duration:9.0s;animation-delay:8.0s" viewBox="-10 -21 19 23" overflow="visible"><path d="M0,0 C7.6,-6.7 7.6,-13.4 0,-19.1 C-7.6,-13.4 -7.6,-6.7 0,0" fill="#B89870" transform="rotate(-18)"/></svg>
+    <svg class="hero-leaf" style="left:34%;top:88%;width:13px;height:16px;opacity:0.15;animation-name:leaf-float-2;animation-duration:9.3s;animation-delay:0.2s" viewBox="-7 -18 15 20" overflow="visible"><path d="M0,0 C5.4,-5.7 5.4,-11.5 0,-16.4 C-5.4,-11.5 -5.4,-5.7 0,0" fill="#B89870" transform="rotate(26)"/></svg>
+    <svg class="hero-leaf" style="left:53%;top:75%;width:21px;height:26px;opacity:0.14;animation-name:leaf-float-3;animation-duration:10.0s;animation-delay:6.3s" viewBox="-10 -28 21 30" overflow="visible"><path d="M0,0 C8.3,-9.2 8.3,-18.5 0,-26.4 C-8.3,-18.5 -8.3,-9.2 0,0" fill="#B89870" transform="rotate(-38)"/></svg>
+    <svg class="hero-leaf" style="left:33%;top:30%;width:23px;height:16px;opacity:0.14;animation-name:leaf-float-1;animation-duration:5.1s;animation-delay:6.8s" viewBox="-11 -18 22 20" overflow="visible"><path d="M0,0 C9.1,-5.4 9.1,-10.9 0,-15.5 C-9.1,-10.9 -9.1,-5.4 0,0" fill="#B89870" transform="rotate(-60)"/></svg>
+    <svg class="hero-leaf" style="left:80%;top:48%;width:11px;height:28px;opacity:0.12;animation-name:leaf-float-3;animation-duration:7.2s;animation-delay:7.0s" viewBox="-6 -30 13 32" overflow="visible"><path d="M0,0 C4.4,-9.8 4.4,-19.7 0,-28.1 C-4.4,-19.7 -4.4,-9.8 0,0" fill="#B89870" transform="rotate(-37)"/></svg>
+    <svg class="hero-leaf" style="left:4%;top:74%;width:16px;height:30px;opacity:0.15;animation-name:leaf-float-1;animation-duration:7.9s;animation-delay:0.9s" viewBox="-8 -32 17 34" overflow="visible"><path d="M0,0 C6.4,-10.5 6.4,-20.9 0,-29.9 C-6.4,-20.9 -6.4,-10.5 0,0" fill="#B89870" transform="rotate(-3)"/></svg>
 
-      function resize(){
-        const hero = canvas.parentElement;
-        canvas.width  = hero.offsetWidth;
-        canvas.height = hero.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      // Dibuja una huella (dog=true/false)
-      function drawPaw(x, y, s, angle, alpha, isDog){
-        ctx.save();
-        ctx.globalAlpha = alpha;
-        ctx.translate(x, y);
-        ctx.rotate(angle);
-        ctx.fillStyle = PAW_COLOR;
-        // sombra suave para efecto arena
-        ctx.shadowColor = 'rgba(0,0,0,0.35)';
-        ctx.shadowBlur  = s * 1.2;
-        ctx.shadowOffsetX = s * 0.3;
-        ctx.shadowOffsetY = s * 0.4;
-        if(isDog){
-          // Almohadilla grande
-          ctx.beginPath(); ctx.ellipse(0,0,s,s*1.1,0,0,Math.PI*2); ctx.fill();
-          // 4 dedos separados
-          [[-s*1.3,-s*1.3],[-s*0.3,-s*1.75],[s*0.8,-s*1.6],[s*1.45,-s*0.7]].forEach(([tx,ty])=>{
-            ctx.beginPath(); ctx.ellipse(tx,ty,s*0.6,s*0.7,0,0,Math.PI*2); ctx.fill();
-          });
-        } else {
-          // Almohadilla compacta
-          ctx.beginPath(); ctx.ellipse(0,0,s*0.9,s,0,0,Math.PI*2); ctx.fill();
-          // 4 dedos juntos y redondos
-          [[-s*0.9,-s*1.2],[-s*0.15,-s*1.5],[s*0.65,-s*1.35],[s*1.1,-s*0.55]].forEach(([tx,ty])=>{
-            ctx.beginPath(); ctx.ellipse(tx,ty,s*0.55,s*0.55,0,0,Math.PI*2); ctx.fill();
-          });
-        }
-        ctx.restore();
-      }
-
-      // Genera huellas aleatorias
-      function makePaws(){
-        const paws = [];
-        for(let i=0; i<60; i++){
-          paws.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            s: 4 + Math.random() * 5,
-            angle: (Math.random()-0.5) * Math.PI,
-            alpha: 0.15 + Math.random() * 0.20,
-            isDog: Math.random() > 0.5,
-            delay: Math.random() * 120  // frames de retraso para aparecer
-          });
-        }
-        return paws;
-      }
-
-      let paws = makePaws();
-      let frame = 0;
-      let waveX = canvas.width + 100;  // empieza fuera a la derecha
-      let phase = 'paws';              // 'paws' → aparecen | 'wave' → barre | 'clean' → pausa
-      let pawFrame = 0;
-      const WAVE_SPEED = 6;
-      const PAUSE_FRAMES = 80;
-      let pauseCount = 0;
-
-      function animate(){
-        requestAnimationFrame(animate);
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        frame++;
-
-        if(phase === 'paws'){
-          // Dibujar las huellas que ya han "aparecido"
-          paws.forEach(p => {
-            if(frame > p.delay){
-              const age = frame - p.delay;
-              const a = Math.min(1, age/20) * p.alpha; // aparece gradualmente
-              drawPaw(p.x, p.y, p.s, p.angle, a, p.isDog);
-            }
-          });
-          // Cuando todas han aparecido, esperar y lanzar la ola
-          if(frame > 160){
-            phase = 'wave';
-            waveX = canvas.width + 80;
-          }
-
-        } else if(phase === 'wave'){
-          waveX -= WAVE_SPEED;
-
-          // Dibujar huellas que aún no ha alcanzado la ola
-          paws.forEach(p => {
-            if(p.x > waveX + 30){
-              drawPaw(p.x, p.y, p.s, p.angle, p.alpha, p.isDog);
-            }
-          });
-
-          // Dibujar la OLA — forma sinusoidal que barre de derecha a izquierda
-          ctx.save();
-          const grad = ctx.createLinearGradient(waveX-80, 0, waveX+30, 0);
-          grad.addColorStop(0,   'rgba(45,74,26,0)');
-          grad.addColorStop(0.3, 'rgba(55,100,40,0.55)');
-          grad.addColorStop(0.65,'rgba(70,130,50,0.35)');
-          grad.addColorStop(1,   'rgba(45,74,26,0)');
-
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.moveTo(waveX + 30, 0);
-          for(let yy=0; yy<=canvas.height; yy+=4){
-            const wx = waveX + Math.sin(yy*0.04 + frame*0.08) * 18
-                             + Math.sin(yy*0.02 + frame*0.05) * 10;
-            ctx.lineTo(wx, yy);
-          }
-          ctx.lineTo(waveX - 80, canvas.height);
-          ctx.lineTo(waveX - 80, 0);
-          ctx.closePath();
-          ctx.fill();
-
-          // Segunda capa — espuma blanca
-          ctx.strokeStyle = 'rgba(180,220,160,0.18)';
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          for(let yy=0; yy<=canvas.height; yy+=4){
-            const wx = waveX + Math.sin(yy*0.04 + frame*0.08) * 18
-                             + Math.sin(yy*0.02 + frame*0.05) * 10;
-            yy===0 ? ctx.moveTo(wx,yy) : ctx.lineTo(wx,yy);
-          }
-          ctx.stroke();
-          ctx.restore();
-
-          // Cuando la ola ha salido por la izquierda → pausa
-          if(waveX < -80){
-            phase = 'clean';
-            pauseCount = 0;
-          }
-
-        } else if(phase === 'clean'){
-          // Pausa breve con lienzo limpio
-          pauseCount++;
-          if(pauseCount > PAUSE_FRAMES){
-            // Reset
-            paws = makePaws();
-            frame = 0;
-            phase = 'paws';
-          }
-        }
-      }
-      animate();
-    })();
-    </script>
     <div style="position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0">
 
       <!-- ICONO 3 HOJAS ANIMADO (grande) -->
