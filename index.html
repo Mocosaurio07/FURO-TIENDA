@@ -266,6 +266,34 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 @keyframes leaf-float-2{0%{transform:translate(0,0) rotate(0deg)}30%{transform:translate(-14px,-20px) rotate(-20deg)}60%{transform:translate(10px,-42px) rotate(12deg)}100%{transform:translate(-5px,-75px) rotate(-8deg);opacity:0}}
 @keyframes leaf-float-3{0%{transform:translate(0,0) rotate(0deg)}40%{transform:translate(18px,-25px) rotate(25deg)}70%{transform:translate(-6px,-50px) rotate(-15deg)}100%{transform:translate(8px,-80px) rotate(10deg);opacity:0}}
 .hero-leaf{position:absolute;opacity:0;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-fill-mode:both}
+
+/* ── MODAL PRODUCTO ── */
+#prod-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#prod-modal.open{display:flex}
+.pm-box{background:#fff;border-radius:16px;width:min(820px,100%);max-height:90vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:pm-in .3s cubic-bezier(.34,1.2,.64,1)}
+@keyframes pm-in{0%{opacity:0;transform:scale(0.92)}100%{opacity:1;transform:scale(1)}}
+.pm-img{background:#F5EFE6;display:flex;align-items:center;justify-content:center;padding:24px;border-right:1px solid #D4C4A8;position:relative}
+.pm-img img{max-width:100%;max-height:360px;object-fit:contain;border-radius:8px}
+.pm-badge{position:absolute;top:14px;left:14px;font-family:var(--n);font-size:10px;font-weight:800;padding:4px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;background:#AAFF00;color:#1A2E08}
+.pm-body{padding:28px;overflow-y:auto;display:flex;flex-direction:column;gap:14px}
+.pm-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.12);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.pm-close:hover{background:rgba(0,0,0,0.3)}
+.pm-cat{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--m)}
+.pm-name{font-family:var(--s);font-size:24px;font-weight:500;color:var(--h);line-height:1.2}
+.pm-stars{color:#D4920A;font-size:14px}
+.pm-stars span{font-family:var(--n);font-size:12px;color:var(--m);margin-left:4px}
+.pm-price-row{display:flex;align-items:baseline;gap:8px}
+.pm-price{font-family:var(--s);font-size:32px;font-weight:500;color:#3D1F0A}
+.pm-old{font-family:var(--n);font-size:14px;color:var(--m);text-decoration:line-through}
+.pm-pct{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:700;background:#AAFF00;padding:2px 8px;border-radius:4px}
+.pm-desc{font-family:var(--n);font-size:14px;font-weight:300;color:#3A2A1A;line-height:1.8}
+.pm-features{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+.pm-features li{font-family:var(--n);font-size:13px;font-weight:300;color:#3A2A1A;padding-left:18px;position:relative}
+.pm-features li::before{content:'✦';position:absolute;left:0;color:var(--a);font-size:9px;top:3px}
+.pm-del{font-family:var(--n);font-size:12px;color:#5A8A3A;font-weight:500;display:flex;align-items:center;gap:6px}
+.pm-add{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:14px;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-top:auto}
+.pm-add:hover{background:var(--a)}
+@media(max-width:600px){.pm-box{grid-template-columns:1fr}.pm-img{max-height:220px}}
 </style>
 </head>
 <body>
@@ -627,7 +655,7 @@ function rGrid(){
   const l=aC==='todos'?P:P.filter(x=>x.c===aC);
   $('pc').textContent=l.length+' productos';
   $('pg').innerHTML=l.map(p=>`<div class="card">
-    <div class="cimg">
+    <div class="cimg" style="cursor:zoom-in" onclick="openPM(${p.id})">
       <img src="${p.i}" alt="${p.n}" loading="lazy" onerror="this.style.display='none'">
       ${p.t?`<div class="cbadge2 bo">${p.t}</div>`:''}
       ${p.st<=8?`<div class="cstock">Últimas ${p.st}</div>`:''}
@@ -719,9 +747,92 @@ async function enviarContacto(){
 
 
 
+
+const FEATURES = {
+  1:['Espuma viscoelástica de alta densidad','Funda lavable a máquina','Disponible en 3 tamaños','Ideal para perros con artritis o displasia'],
+  2:['Programable desde la app para iOS y Android','Hasta 6 comidas al día con cantidades personalizadas','Capacidad 1.8kg de pienso','Wi-Fi 2.4GHz, sin necesidad de hub'],
+  3:['Sensor de movimiento por infrarrojos','Se activa al detectar al perro','Recargable por USB-C','Modo automático y manual'],
+  4:['Laberinto interior ajustable','Hace caer los snacks poco a poco','Estimulación mental y reducción de ansiedad','Apto para pienso y premios'],
+  5:['Seguimiento GPS en tiempo real','Radio ilimitado de cobertura','Historial de rutas y estadísticas','Resistente al agua IPX7'],
+  6:['Mariposa + pluma intercambiables','Sensor de presencia: se activa solo','Rotación 360° imprevisible','Recargable por USB'],
+  7:['Filtración en 3 etapas (carbón activo)','Motor silencioso <25 decibelios','Capacidad 2.5 litros','Apto para gatos y perros pequeños'],
+  8:['Interior de felpa tipo Sherpa extra suave','Borde elevado para mayor sensación de seguridad','Funda exterior lavable','Disponible en 3 colores'],
+  9:['Postes de sisal 100% natural','3 niveles + cama superior acolchada','Base estable antideslizante','Incluye juguete colgante'],
+  10:['3 entradas/salidas independientes','Se pliega en segundos','Pelota interior con cascabel','Material resistente a arañazos'],
+  11:['Sistema antipull en el pecho (no en el cuello)','Tejido reflectante para visibilidad nocturna','Doble argolla de enganche','Tallas XS a XL con guía de medidas'],
+  12:['Aprobada para cabina en las principales aerolíneas','Capacidad hasta 8kg','Ventilación lateral con malla','Bolsillo frontal para accesorios'],
+  13:['3 modos: fijo, parpadeo y pulso','Visible hasta 500m de distancia','Carga USB completa en 1 hora','Disponible en 8 colores'],
+  14:['Cinta de nylon resistente','Bloqueo instantáneo con un botón','Indicador de tensión de la correa','Apta para perros hasta 25kg'],
+  15:['Alta flotabilidad con relleno de espuma','Asa superior de rescate resistente','Cierre rápido con hebillas','Tallas S a XL con tabla de pesos'],
+  16:['Reduce el pelo suelto hasta un 90%','Botón de autolimpieza instantánea','Cuchilla de acero inoxidable','Apta para pelo corto y largo'],
+  17:['Luz LED ilumina el nervio (la vena del uñero)','Nunca más un corte accidental','Cuchilla ultrafina de acero','Apta para perros, gatos y conejos'],
+  18:['Un lado suave para el baño','Otro lado masajeador con púas de silicona','Mejora la circulación y reduce el estrés','Apta para usar con o sin champú'],
+  19:['Cerdas de silicona suave 360°','Limpia en segundos al volver del paseo','Sin necesidad de toallas','Apta para todas las razas'],
+  20:['Fórmula 100% orgánica y vegana','Sin sulfatos, parabenos ni colorantes','pH equilibrado para piel sensible','Aroma natural de lavanda y avena'],
+};
+const CAT_NAMES = {perros:'🐕 Perros', gatos:'🐈 Gatos', paseo:'🦮 Paseo & Aventura', higiene:'✨ Higiene & Cuidado'};
+let currentPM = null;
+
+
+function openPM(id){
+  const p = P.find(x=>x.id===id);
+  if(!p) return;
+  currentPM = p;
+  $('pm-photo').src = p.i;
+  $('pm-photo').alt = p.n;
+  $('pm-cat').textContent = CAT_NAMES[p.c] || p.c;
+  $('pm-name').textContent = p.n;
+  $('pm-stars').innerHTML = '★'.repeat(Math.floor(p.r))+'☆'.repeat(5-Math.floor(p.r))+`<span>(${p.rv} valoraciones)</span>`;
+  $('pm-price').textContent = '€'+p.p.toFixed(2);
+  if(p.o){ $('pm-old').textContent='€'+p.o.toFixed(2); $('pm-old').style.display='inline'; $('pm-pct').textContent='-'+Math.round((1-p.p/p.o)*100)+'%'; $('pm-pct').style.display='inline'; }
+  else { $('pm-old').style.display='none'; $('pm-pct').style.display='none'; }
+  if(p.t){ $('pm-badge-img').textContent=p.t; $('pm-badge-img').style.display='block'; }
+  else { $('pm-badge-img').style.display='none'; }
+  $('pm-desc').textContent = p.d;
+  const feats = FEATURES[id] || [];
+  $('pm-feats').innerHTML = feats.map(f=>`<li>${f}</li>`).join('');
+  $('pm-del').innerHTML = `<span style="font-size:16px">📦</span> Envío ${p.dl} · Stock disponible`;
+  $('pm-add').textContent = 'Añadir al carrito';
+  $('prod-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePM(){
+  $('prod-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function pmAddCart(){
+  if(currentPM){ aCart(currentPM.id); $('pm-add').textContent='✓ Añadido'; setTimeout(()=>{ $('pm-add').textContent='Añadir al carrito'; },1500); }
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePM(); });
+
 // Init
 rTabs();
 rGrid();
 </script>
+
+<!-- MODAL PRODUCTO -->
+<div id="prod-modal" onclick="if(event.target===this)closePM()">
+  <div class="pm-box" id="pm-box">
+    <div class="pm-img" id="pm-img">
+      <img id="pm-photo" src="" alt="">
+      <div id="pm-badge-img" class="pm-badge" style="display:none"></div>
+    </div>
+    <div class="pm-body">
+      <button class="pm-close" onclick="closePM()">✕</button>
+      <div class="pm-cat" id="pm-cat"></div>
+      <div class="pm-name" id="pm-name"></div>
+      <div class="pm-stars" id="pm-stars"></div>
+      <div class="pm-price-row">
+        <span class="pm-price" id="pm-price"></span>
+        <span class="pm-old" id="pm-old" style="display:none"></span>
+        <span class="pm-pct" id="pm-pct" style="display:none"></span>
+      </div>
+      <p class="pm-desc" id="pm-desc"></p>
+      <ul class="pm-features" id="pm-feats"></ul>
+      <div class="pm-del" id="pm-del"></div>
+      <button class="pm-add" id="pm-add" onclick="pmAddCart()">Añadir al carrito</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
