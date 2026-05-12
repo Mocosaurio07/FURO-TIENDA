@@ -294,6 +294,64 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .pm-add{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:14px;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-top:auto}
 .pm-add:hover{background:var(--a)}
 @media(max-width:600px){.pm-box{grid-template-columns:1fr}.pm-img{max-height:220px}}
+
+/* ── EMAIL POPUP ── */
+#email-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:60;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#email-popup.open{display:flex}
+.ep-box{background:#fff;border-radius:18px;width:min(480px,100%);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.25);animation:ep-in .4s cubic-bezier(.34,1.2,.64,1)}
+@keyframes ep-in{0%{opacity:0;transform:scale(0.88) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.ep-top{background:var(--h);padding:32px 28px 24px;text-align:center;position:relative}
+.ep-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:28px;height:28px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ep-close:hover{background:rgba(255,255,255,0.3)}
+.ep-pct{font-family:'Fredoka One',cursive;font-size:52px;color:#B89870;line-height:1}
+.ep-title{font-family:var(--s);font-size:22px;font-style:italic;color:#fff;margin:6px 0 4px}
+.ep-sub{font-family:var(--n);font-size:13px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.6}
+.ep-body{padding:24px 28px 28px}
+.ep-form{display:flex;flex-direction:column;gap:12px}
+.ep-input{font-family:var(--n);width:100%;padding:12px 14px;border:1.5px solid var(--b);border-radius:10px;font-size:14px;color:var(--t);outline:none;transition:border-color .15s}
+.ep-input:focus{border-color:var(--a)}
+.ep-btn{font-family:var(--n);padding:13px;background:var(--h);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.ep-btn:hover{background:var(--a)}
+.ep-skip{font-family:var(--n);font-size:11px;color:var(--m);background:none;border:none;cursor:pointer;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
+.ep-success{text-align:center;padding:12px 0}
+.ep-success h3{font-family:var(--s);font-size:22px;font-style:italic;color:var(--h);margin:10px 0 6px}
+.ep-success p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
+.ep-code{font-family:'Fredoka One',cursive;font-size:28px;color:var(--a);letter-spacing:0.1em;background:#F5EFE6;padding:10px 24px;border-radius:8px;margin:12px 0;display:inline-block}
+.ep-fine{font-family:var(--n);font-size:10px;color:var(--m);margin-top:8px;text-align:center;line-height:1.5}
+
+/* ── LANGUAGE SWITCHER ── */
+.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;cursor:pointer;transition:background .15s}
+.lang-btn:hover{background:rgba(255,255,255,0.2)}
+.lang-flag{font-size:16px;line-height:1}
+.lang-code{font-family:var(--n);font-size:11px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.8);text-transform:uppercase}
+
+
+/* ── LANGUAGE DROPDOWN ── */
+.lang-wrap{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;cursor:pointer;transition:background .15s;user-select:none}
+.lang-btn:hover{background:rgba(255,255,255,0.2)}
+.lang-flag{font-size:16px;line-height:1}
+.lang-code{font-family:var(--n);font-size:11px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.85);text-transform:uppercase}
+.lang-arrow{font-size:9px;color:rgba(255,255,255,0.6);transition:transform .2s}
+.lang-wrap.open .lang-arrow{transform:rotate(180deg)}
+.lang-drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.15);overflow:hidden;min-width:130px;z-index:25;border:1px solid var(--b)}
+.lang-wrap.open .lang-drop{display:block}
+.lang-option{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:background .15s;font-family:var(--n);font-size:13px;font-weight:400;color:var(--t)}
+.lang-option:hover{background:var(--bg)}
+.lang-option.active{background:#F5EFE6;font-weight:500;color:var(--h)}
+.lang-option .flag{font-size:18px}
+.lang-option .name{font-size:13px}
+
+
+.promo-row{display:flex;gap:8px;margin-bottom:12px}
+.promo-input{font-family:var(--n);flex:1;padding:9px 11px;border:1.5px solid var(--b);border-radius:7px;font-size:13px;font-weight:400;color:var(--t);background:#fff;outline:none;text-transform:uppercase;letter-spacing:0.06em;transition:border-color .15s}
+.promo-input:focus{border-color:var(--a)}
+.promo-btn{font-family:var(--n);padding:9px 14px;background:var(--h);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .15s}
+.promo-btn:hover{background:var(--a)}
+.promo-ok{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:500;background:#F0FFF0;border:1px solid #90EE90;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none;align-items:center;gap:6px}
+.promo-err{font-family:var(--n);font-size:12px;color:#C0392B;background:#fdf0ef;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none}
+.discount-line{display:flex;justify-content:space-between;font-family:var(--n);font-size:12px;font-weight:400;margin-bottom:4px;color:#2D6B00}
+
 </style>
 </head>
 <body>
@@ -313,7 +371,24 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     <a id="nav-devoluciones" onclick="goPage('devoluciones')">Devoluciones</a>
     <a id="nav-contacto" onclick="goPage('contacto')">Contacto</a>
   </nav>
-  <button class="cart-btn" onclick="oC()">🛒 Carrito <span class="cbadge" id="cb">0</span></button>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="lang-wrap" id="lang-wrap">
+      <div class="lang-btn" onclick="toggleDropdown()">
+        <span class="lang-flag" id="lang-flag">🇪🇸</span>
+        <span class="lang-code" id="lang-code">ES</span>
+        <span class="lang-arrow">▼</span>
+      </div>
+      <div class="lang-drop">
+        <div class="lang-option active" id="opt-es" onclick="selectLang('es')">
+          <span class="flag">🇪🇸</span><span class="name">Español</span>
+        </div>
+        <div class="lang-option" id="opt-en" onclick="selectLang('en')">
+          <span class="flag">🇬🇧</span><span class="name">English</span>
+        </div>
+      </div>
+    </div>
+    <button class="cart-btn" onclick="oC()">🛒 <span id="txt-cart">Carrito</span> <span class="cbadge" id="cb">0</span></button>
+  </div>
 </header>
 
 <!-- TIENDA -->
@@ -703,7 +778,26 @@ function rChk(){
   }else{
     $('st1').style.display='none';$('st2').style.display='block';
     const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    $('st2').innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join('')}<div class="ostt"><span>Total</span><span>€${sub.toFixed(2)}</span></div></div><div id="em" class="em"></div><div class="br"><button class="bb" onclick="gS1()">← Volver</button><button class="bp" id="pbtn" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €${sub.toFixed(2)}</button></div>`;
+    // Reset descuento al abrir paso 2
+  const disc = appliedDiscount > 0 ? sub*(appliedDiscount/100) : 0;
+  const final = sub - disc;
+  const promoLabel = currentLang==='en' ? 'Promo code' : 'Código de descuento';
+  const promoPlaceholder = currentLang==='en' ? 'E.g. FURO15' : 'Ej. FURO15';
+  const applyLabel = currentLang==='en' ? 'Apply' : 'Aplicar';
+  const backLabel = currentLang==='en' ? '← Back' : '← Volver';
+  const payLabel = currentLang==='en' ? 'Pay by card' : 'Pagar con tarjeta';
+  $('st2').innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join('')}<div id="summary-discount"></div><div class="ostt"><span>Total</span><span id="summary-total">€${sub.toFixed(2)}</span></div></div>
+    <div style="margin-bottom:12px">
+      <div style="font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);text-transform:uppercase;margin-bottom:6px">${promoLabel}</div>
+      <div class="promo-row">
+        <input class="promo-input" id="promo-input" placeholder="${promoPlaceholder}" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')applyPromo()">
+        <button class="promo-btn" id="promo-btn" onclick="applyPromo()">${applyLabel}</button>
+      </div>
+      <div class="promo-ok" id="promo-ok"></div>
+      <div class="promo-err" id="promo-err"></div>
+    </div>
+    <div id="em" class="em"></div>
+    <div class="br"><button class="bb" onclick="gS1()">${backLabel}</button><button class="bp" id="pbtn" data-base="${sub.toFixed(2)}" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>${payLabel} €${final.toFixed(2)}</button></div>`;
   }
 }
 function gS2(){frm={n:$('fn').value,e:$('fe').value,a:$('fa').value,c:$('fc').value,z:$('fz').value};stp=2;rChk();}
@@ -773,6 +867,50 @@ const FEATURES = {
 const CAT_NAMES = {perros:'🐕 Perros', gatos:'🐈 Gatos', paseo:'🦮 Paseo & Aventura', higiene:'✨ Higiene & Cuidado'};
 let currentPM = null;
 
+let appliedDiscount = 0; // porcentaje aplicado (0-100)
+let discountCode = '';
+const VALID_CODES = { 'FURO15': 15, 'FURO10': 10 };
+
+
+
+
+function applyPromo(){
+  const code = ($('promo-input').value || '').trim().toUpperCase();
+  const pct = VALID_CODES[code];
+  if(pct){
+    appliedDiscount = pct;
+    discountCode = code;
+    $('promo-ok').style.display='flex';
+    $('promo-ok').textContent = '✓ Código aplicado — ' + pct + '% de descuento';
+    $('promo-err').style.display='none';
+    $('promo-btn').textContent='✓';
+    $('promo-btn').style.background='#2D6B00';
+    updateOrderSummary();
+  } else {
+    $('promo-err').style.display='block';
+    $('promo-err').textContent = currentLang==='en' ? 'Invalid code. Try FURO15.' : 'Código no válido. Prueba FURO15.';
+    $('promo-ok').style.display='none';
+    appliedDiscount = 0;
+    updateOrderSummary();
+  }
+}
+function updateOrderSummary(){
+  const sub = cart.reduce((s,i)=>s+i.p*i.qty,0);
+  const disc = appliedDiscount > 0 ? sub * (appliedDiscount/100) : 0;
+  const final = sub - disc;
+  const discLine = appliedDiscount > 0
+    ? `<div class="discount-line"><span>🎉 Descuento ${appliedDiscount}% (${discountCode})</span><span>-€${disc.toFixed(2)}</span></div>`
+    : '';
+  const totalEl = $('summary-total');
+  const discEl = $('summary-discount');
+  const payEl = $('pbtn');
+  if(totalEl) totalEl.textContent = '€' + sub.toFixed(2);
+  if(discEl) discEl.innerHTML = discLine;
+  if(payEl && payEl.dataset.base) {
+    const label = currentLang==='en' ? 'Pay with Stripe' : 'Pagar con Stripe';
+    payEl.innerHTML = '💳 '+label+' €'+final.toFixed(2);
+  }
+}
 
 function openPM(id){
   const p = P.find(x=>x.id===id);
@@ -805,9 +943,238 @@ function pmAddCart(){
 }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePM(); });
 
+
+// ── IDIOMA ──
+let currentLang = localStorage.getItem('furo-lang') || 'es';
+
+const TRANS = {
+  es: {
+    cart:'Carrito', navHome:'Inicio', navShip:'Envíos', navRet:'Devoluciones', navContact:'Contacto',
+    trust:['🔒 Pago seguro','📦 Envío 24-48h España','↩️ Devolución 14 días','🏆 +5.000 clientes'],
+    heroTag:'Accesorios premium para mascotas',
+    heroDesc:'Porque tu mejor amigo se merece lo mejor. Envío rápido a toda España.',
+    heroBtn:'Ver productos →',
+    cats:['✦ Todos','🐕 Perros','🐈 Gatos','🦮 Paseo & Aventura','✨ Higiene & Cuidado'],
+    catTitles:['Todos los productos','Accesorios para perros','Accesorios para gatos','Paseo & Aventura','Higiene & Cuidado'],
+    catDescs:['Selección completa para perros y gatos','Todo lo que tu perro necesita','Productos para los más independientes','Para que cada salida sea especial','Siempre en su mejor versión'],
+    addBtn:'Añadir', addedBtn:'✓ Añadido',
+    cartTitle:'Tu carrito', emptyCart:'Tu carrito está vacío',
+    subtotal:'Subtotal', shipping:'Envío', free:'Gratis', total:'Total',
+    checkout:'Finalizar compra →',
+    secNote:'🔒 Pago seguro · Devolución 14 días',
+    step1:'Datos de envío', step2:'Confirmar pedido', stepOf:'Paso {n} de 2',
+    name:'Nombre', email:'Email', address:'Dirección', city:'Ciudad', zip:'C. Postal',
+    continue:'Continuar →', back:'← Volver', pay:'Pagar con Stripe',
+    successTitle:'¡Pedido confirmado!', successDesc:'Tu pedido está en camino. Entrega estimada: 2-4 días hábiles.',
+    keepShopping:'Seguir comprando',
+    ship1:'Preparando', ship2:'En camino', ship3:'Entregado',
+    // POPUP
+    popPct:'15%', popTitle:'de descuento en tu primer pedido',
+    popSub:'Únete a más de 5.000 amantes de los animales.<br>Solo necesitamos tu email.',
+    popBtn:'Quiero mi 15% de descuento', popSkip:'No, gracias',
+    popSuccessTitle:'¡Genial! Aquí tienes tu código',
+    popSuccessDesc:'Aplícalo en el checkout y tendrás un 15% de descuento en tu primer pedido.',
+    popFine:'Sin spam. Puedes darte de baja cuando quieras.',
+    // PAGES
+    shipPageTitle:'Envíos', shipPageSub:'Hacemos todo lo posible para que tu pedido llegue rápido.',
+    retPageTitle:'Devoluciones', retPageSub:'Si algo no es lo que esperabas, lo solucionamos.',
+    contactPageTitle:'Hablemos', contactPageSub:'¿Tienes una duda? Estamos aquí para escucharte.',
+    sendBtn:'Enviar mensaje', motivos:['Consulta sobre un producto','Estado de mi pedido','Devolución o cambio','Problema con mi pedido','Otro'],
+    motivoLabel:'Selecciona un motivo...',
+    // PRODUCT MODAL
+    pmAddCart:'Añadir al carrito', pmAdded:'✓ Añadido',
+  },
+  en: {
+    cart:'Cart', navHome:'Home', navShip:'Shipping', navRet:'Returns', navContact:'Contact',
+    trust:['🔒 Secure payment','📦 Shipping 24-48h Spain','↩️ 14-day returns','🏆 +5,000 customers'],
+    heroTag:'Premium pet accessories',
+    heroDesc:'Because your best friend deserves the best. Fast delivery across Spain.',
+    heroBtn:'Shop now →',
+    cats:['✦ All','🐕 Dogs','🐈 Cats','🦮 Walk & Adventure','✨ Hygiene & Care'],
+    catTitles:['All products','Dog accessories','Cat accessories','Walk & Adventure','Hygiene & Care'],
+    catDescs:['Complete selection for dogs and cats','Everything your dog needs','Products for the most independent','Make every outing special','Always at their best'],
+    addBtn:'Add', addedBtn:'✓ Added',
+    cartTitle:'Your cart', emptyCart:'Your cart is empty',
+    subtotal:'Subtotal', shipping:'Shipping', free:'Free', total:'Total',
+    checkout:'Checkout →',
+    secNote:'🔒 Secure payment · 14-day returns',
+    step1:'Shipping details', step2:'Confirm order', stepOf:'Step {n} of 2',
+    name:'Name', email:'Email', address:'Address', city:'City', zip:'Postcode',
+    continue:'Continue →', back:'← Back', pay:'Pay with Stripe',
+    successTitle:'Order confirmed!', successDesc:'Your order is on its way. Estimated delivery: 2-4 business days.',
+    keepShopping:'Keep shopping',
+    ship1:'Preparing', ship2:'On its way', ship3:'Delivered',
+    // POPUP
+    popPct:'15%', popTitle:'off your first order',
+    popSub:'Join over 5,000 pet lovers.<br>We just need your email.',
+    popBtn:'Get my 15% discount', popSkip:'No, thanks',
+    popSuccessTitle:'Great! Here is your code',
+    popSuccessDesc:'Apply it at checkout and get 15% off your first order.',
+    popFine:'No spam. Unsubscribe any time.',
+    // PAGES
+    shipPageTitle:'Shipping', shipPageSub:'We do our best to get your order there fast.',
+    retPageTitle:'Returns', retPageSub:'If something is not what you expected, we will sort it.',
+    contactPageTitle:'Get in touch', contactPageSub:'Got a question? We are here for you.',
+    sendBtn:'Send message', motivos:['Product enquiry','Order status','Return or exchange','Problem with my order','Other'],
+    motivoLabel:'Select a reason...',
+    // PRODUCT MODAL
+    pmAddCart:'Add to cart', pmAdded:'✓ Added',
+  }
+};
+
+// Nombres y descripciones de productos en inglés
+const P_EN = {
+  1:{n:'Luxury Orthopaedic Bed',d:'Memory foam. Relieves joints.'},
+  2:{n:'Smart Automatic Feeder',d:'App programmable. 6 meals/day.'},
+  3:{n:'Sensor Interactive Ball',d:'Moves on its own. Auto sensor.'},
+  4:{n:'Snack Dispenser',d:'Anti-boredom puzzle. Reward play.'},
+  5:{n:'GPS Collar Tracker',d:'Real-time tracking. App included.'},
+  6:{n:'Interactive Cat Toy',d:'Butterfly & feather. Motion sensor.'},
+  7:{n:'Silent Water Fountain',d:'Triple filter. Motor <25dB. 2.5L.'},
+  8:{n:'Sherpa Cave Bed',d:'Sherpa interior. Warm & cosy.'},
+  9:{n:'Premium Cat Tree',d:'Natural sisal. 3 levels + bed.'},
+  10:{n:'3-in-1 Play Tunnel',d:'Foldable. Ball included.'},
+  11:{n:'No-Pull Premium Harness',d:'XS-XL sizes. Reflective fabric.'},
+  12:{n:'Pet Carrier Backpack',d:'Up to 8kg. Cabin approved.'},
+  13:{n:'LED Safety Collar',d:'Visible 500m. USB rechargeable.'},
+  14:{n:'5m Retractable Lead',d:'Instant lock. Reflective tape.'},
+  15:{n:'Dog Life Jacket',d:'High buoyancy. Rescue handle. S-XL.'},
+  16:{n:'Pro Deshedding Brush',d:'Reduces loose fur 90%. Self-clean.'},
+  17:{n:'LED Safe Nail Clippers',d:'LED light to see the vein.'},
+  18:{n:'2-in-1 Massage Brush',d:'Clean and massage in the bath.'},
+  19:{n:'Paw Cleaner',d:'Soft silicone. Cleans in seconds.'},
+  20:{n:'Premium Natural Shampoo',d:'Organic formula. Sulphate-free.'},
+};
+
+function applyLang(lang) {
+  const t = TRANS[lang];
+  const isEN = lang === 'en';
+
+  // Header
+  document.getElementById('txt-cart').textContent = t.cart;
+  // Mostrar idioma ACTIVO en el botón
+  document.getElementById('lang-flag').textContent = isEN ? '🇬🇧' : '🇪🇸';
+  document.getElementById('lang-code').textContent = isEN ? 'EN' : 'ES';
+  // Marcar opción activa en el desplegable
+  document.getElementById('opt-es').className = 'lang-option' + (!isEN ? ' active' : '');
+  document.getElementById('opt-en').className = 'lang-option' + (isEN ? ' active' : '');
+  ['tienda','envios','devoluciones','contacto'].forEach((p,i)=>{
+    const el = document.getElementById('nav-'+p);
+    if(el) el.textContent = [t.navHome, t.navShip, t.navRet, t.navContact][i];
+  });
+
+  // Trust bar
+  const trustEls = document.querySelectorAll('.trust span');
+  trustEls.forEach((el,i)=>{ if(t.trust[i]) el.textContent = t.trust[i]; });
+
+  // Hero
+  const heroTag = document.querySelector('.htag');
+  if(heroTag) heroTag.textContent = t.heroTag;
+  const heroDesc = document.querySelector('.hero-desc');
+  if(heroDesc) heroDesc.textContent = t.heroDesc;
+  const heroBtn = document.querySelector('.hero-btn');
+  if(heroBtn) heroBtn.textContent = t.heroBtn;
+
+  // Tabs
+  CATS.forEach((c,i)=>{
+    c.lbl = t.cats[i];
+    c.title = t.catTitles[i];
+    c.desc = t.catDescs[i];
+  });
+
+  // Products names/desc
+  if(isEN) {
+    P.forEach(p=>{ if(P_EN[p.id]){ p._n=p.n; p._d=p.d; p.n=P_EN[p.id].n; p.d=P_EN[p.id].d; } });
+  } else {
+    P.forEach(p=>{ if(p._n){ p.n=p._n; p.d=p._d; delete p._n; delete p._d; } });
+  }
+
+  // Popup
+  const epPct = document.getElementById('ep-pct-txt');
+  const epTitle = document.getElementById('ep-title');
+  const epSub = document.getElementById('ep-sub');
+  const epBtn = document.getElementById('ep-btn-txt');
+  const epSkip = document.querySelector('.ep-skip span');
+  if(epPct) epPct.textContent = t.popPct;
+  if(epTitle) epTitle.textContent = t.popTitle;
+  if(epSub) epSub.innerHTML = t.popSub;
+  if(epBtn) epBtn.textContent = t.popBtn;
+  if(epSkip) epSkip.textContent = t.popSkip;
+
+  // Pages titles
+  const shipH = document.querySelector('#page-envios .page-hero h1');
+  const shipP = document.querySelector('#page-envios .page-hero p');
+  if(shipH) shipH.textContent = t.shipPageTitle;
+  if(shipP) shipP.textContent = t.shipPageSub;
+
+  const retH = document.querySelector('#page-devoluciones .page-hero h1');
+  const retP = document.querySelector('#page-devoluciones .page-hero p');
+  if(retH) retH.textContent = t.retPageTitle;
+  if(retP) retP.textContent = t.retPageSub;
+
+  const conH = document.querySelector('#page-contacto .page-hero h1');
+  const conP = document.querySelector('#page-contacto .page-hero p');
+  if(conH) conH.textContent = t.contactPageTitle;
+  if(conP) conP.textContent = t.contactPageSub;
+
+  // Contact form
+  const sendBtn = document.querySelector('.cf-submit');
+  if(sendBtn) sendBtn.textContent = t.sendBtn;
+
+  // Re-render grid and tabs with new language
+  rTabs(); rGrid();
+}
+
+function toggleDropdown(){
+  document.getElementById('lang-wrap').classList.toggle('open');
+}
+function selectLang(lang){
+  currentLang = lang;
+  localStorage.setItem('furo-lang', lang);
+  applyLang(lang);
+  document.getElementById('lang-wrap').classList.remove('open');
+}
+// Cerrar al hacer click fuera
+document.addEventListener('click', function(e){
+  const wrap = document.getElementById('lang-wrap');
+  if(wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+});
+function toggleLang(){ toggleDropdown(); }
+
+// ── EMAIL POPUP ──
+function openPopup() {
+  if(localStorage.getItem('furo-subscribed')) return;
+  document.getElementById('email-popup').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePopup() {
+  document.getElementById('email-popup').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitPopup() {
+  const email = document.getElementById('ep-email').value.trim();
+  const t = TRANS[currentLang];
+  if(!email || !email.includes('@')) {
+    document.getElementById('ep-email').style.borderColor='#C0392B';
+    return;
+  }
+  localStorage.setItem('furo-subscribed', email);
+  document.getElementById('ep-form-wrap').style.display='none';
+  document.getElementById('ep-success').style.display='block';
+  const sTitle = document.getElementById('ep-success-title');
+  const sDesc = document.querySelector('#ep-success p');
+  if(sTitle) sTitle.textContent = t.popSuccessTitle;
+  if(sDesc) sDesc.textContent = t.popSuccessDesc;
+  setTimeout(closePopup, 4000);
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closePM(); closePopup(); } });
+// Show popup after 2.5s
+setTimeout(openPopup, 2500);
+
 // Init
 rTabs();
 rGrid();
+applyLang(currentLang);
 </script>
 
 <!-- MODAL PRODUCTO -->
@@ -834,5 +1201,34 @@ rGrid();
     </div>
   </div>
 </div>
+
+<!-- EMAIL POPUP -->
+<div id="email-popup">
+  <div class="ep-box">
+    <div class="ep-top">
+      <button class="ep-close" onclick="closePopup()">✕</button>
+      <div class="ep-pct" id="ep-pct-txt">15%</div>
+      <div class="ep-title" id="ep-title">de descuento en tu primer pedido</div>
+      <p class="ep-sub" id="ep-sub">Únete a más de 5.000 amantes de los animales.<br>Solo necesitamos tu email.</p>
+    </div>
+    <div class="ep-body">
+      <div id="ep-form-wrap">
+        <div class="ep-form">
+          <input class="ep-input" id="ep-email" type="email" placeholder="tu@email.com">
+          <button class="ep-btn" id="ep-submit-btn" onclick="submitPopup()"><span id="ep-btn-txt">Quiero mi 15% de descuento</span></button>
+          <button class="ep-skip" onclick="closePopup()"><span id="ep-skip-txt">No, gracias</span></button>
+        </div>
+      </div>
+      <div id="ep-success" class="ep-success" style="display:none">
+        <div style="font-size:40px">🎉</div>
+        <h3 id="ep-success-title">¡Genial! Aquí tienes tu código</h3>
+        <div class="ep-code">FURO15</div>
+        <p id="ep-success-desc">Aplícalo en el checkout y tendrás un 15% de descuento en tu primer pedido.</p>
+      </div>
+      <p class="ep-fine" id="ep-fine">Sin spam. Puedes darte de baja cuando quieras.</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
