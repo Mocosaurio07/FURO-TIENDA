@@ -7,48 +7,74 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --s:'Playfair Display',Georgia,serif;
-  --n:'Jost',sans-serif;
-  --h:#2D4A1A;
-  --a:#6B3A2A;
-  --bg:#F2E8DC;
-  --c:#fff;
-  --t:#1A2E08;
-  --m:#8B7355;
-  --b:#C8B89A;
-}
+:root{--s:'Playfair Display',Georgia,serif;--n:'Jost',sans-serif;--h:#2D4A1A;--a:#6B3A2A;--bg:#F2E8DC;--c:#fff;--t:#1A2E08;--m:#8B7355;--b:#C8B89A}
 body{font-family:var(--n);background:var(--bg);color:var(--t)}
 
-/* LOGO ANIMATION */
+/* LOGO */
+@keyframes fly-top{0%{transform:translate(0,-130px);opacity:0}65%{transform:translate(0,10px);opacity:1}82%{transform:translate(0,-4px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes fly-left{0%{transform:translate(-112px,65px);opacity:0}65%{transform:translate(9px,-5px);opacity:1}82%{transform:translate(-3px,2px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes fly-right{0%{transform:translate(112px,65px);opacity:0}65%{transform:translate(-9px,-5px);opacity:1}82%{transform:translate(3px,2px)}100%{transform:translate(0,0);opacity:1}}
 @keyframes logo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.logo-dot{animation:logo-float 3s ease-in-out infinite}
+@keyframes hero-letter-pop{0%{opacity:0;transform:translateY(32px) scale(0.5)}65%{opacity:1;transform:translateY(-7px) scale(1.1)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes hero-tag-in{0%{opacity:0;letter-spacing:0.6em}100%{opacity:0.75;letter-spacing:0.3em}}
+@keyframes hero-desc-in{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes hero-btn-in{0%{opacity:0}100%{opacity:1}}
+@keyframes bfly-top{0%{transform:translate(0,-180px);opacity:0}65%{transform:translate(0,14px);opacity:1}82%{transform:translate(0,-5px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes bfly-left{0%{transform:translate(-155px,90px);opacity:0}65%{transform:translate(12px,-7px);opacity:1}82%{transform:translate(-4px,3px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes bfly-right{0%{transform:translate(155px,90px);opacity:0}65%{transform:translate(-12px,-7px);opacity:1}82%{transform:translate(4px,3px)}100%{transform:translate(0,0);opacity:1}}
+@keyframes leaf-float-1{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(12px,-35px) rotate(15deg)}100%{transform:translate(0,-70px) rotate(5deg);opacity:0}}
+@keyframes leaf-float-2{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-14px,-40px) rotate(-20deg)}100%{transform:translate(-5px,-75px) rotate(-8deg);opacity:0}}
+@keyframes leaf-float-3{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(18px,-45px) rotate(25deg)}100%{transform:translate(8px,-80px) rotate(10deg);opacity:0}}
+@keyframes paw-fade{0%,100%{opacity:0;transform:scale(0.6)}20%,75%{opacity:1;transform:scale(1)}}
+.fly-t{animation:fly-top .85s cubic-bezier(.22,1,.36,1) .15s both}
+.fly-l{animation:fly-left .85s cubic-bezier(.22,1,.36,1) .30s both}
+.fly-r{animation:fly-right .85s cubic-bezier(.22,1,.36,1) .45s both}
+.bfly-t{animation:bfly-top .9s cubic-bezier(.22,1,.36,1) .1s both}
+.bfly-l{animation:bfly-left .9s cubic-bezier(.22,1,.36,1) .25s both}
+.bfly-r{animation:bfly-right .9s cubic-bezier(.22,1,.36,1) .4s both}
+.hero-l1{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.0s both}
+.hero-l2{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.12s both}
+.hero-l3{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.24s both}
+.hero-l4{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.36s both}
+.hero-tag{animation:hero-tag-in .9s ease-out 1.75s both}
+.hero-desc{animation:hero-desc-in .7s ease-out 2.1s both}
+.hero-btn-anim{animation:hero-btn-in .6s ease-out 2.3s both}
+.hero-leaf{position:absolute;opacity:0;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-fill-mode:both}
 
 /* HEADER */
 .hdr{background:var(--h);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20}
 .hdr-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.hdr-logo span{font-family:var(--s);font-size:20px;font-style:italic;color:#fff;letter-spacing:0.07em}
-.nav a{font-family:var(--n);font-size:12px;font-weight:400;letter-spacing:0.08em;color:rgba(255,255,255,0.55);text-decoration:none;margin-left:20px;text-transform:uppercase;cursor:pointer;transition:color .15s}
+.hdr-logo span{font-family:'Fredoka One',cursive;font-size:20px;color:#B89870;letter-spacing:0.05em}
+.nav a{font-family:var(--n);font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;margin-left:20px;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;transition:color .15s}
 .nav a:hover,.nav a.on{color:#fff}
+.hdr-right{display:flex;align-items:center;gap:10px}
 .cart-btn{font-family:var(--n);background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .15s}
 .cart-btn:hover{background:rgba(255,255,255,0.2)}
 .cbadge{background:var(--a);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:600;display:none;align-items:center;justify-content:center}
+
+/* LANGUAGE DROPDOWN */
+.lang-wrap{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;cursor:pointer;transition:background .15s;user-select:none}
+.lang-btn:hover{background:rgba(255,255,255,0.2)}
+.lang-flag{font-size:16px;line-height:1}
+.lang-code{font-family:var(--n);font-size:11px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:0.06em}
+.lang-arrow{font-size:9px;color:rgba(255,255,255,0.6);transition:transform .2s}
+.lang-wrap.open .lang-arrow{transform:rotate(180deg)}
+.lang-drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.15);overflow:hidden;min-width:130px;z-index:25;border:1px solid var(--b)}
+.lang-wrap.open .lang-drop{display:block}
+.lang-option{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:background .15s;font-family:var(--n);font-size:13px;color:var(--t)}
+.lang-option:hover{background:var(--bg)}
+.lang-option.active{background:#F5EFE6;font-weight:500;color:var(--h)}
 
 /* TRUST BAR */
 .trust{background:#5A8A3A;padding:7px 24px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .trust span{font-family:var(--n);color:#fff;font-size:11px;font-weight:300;letter-spacing:0.06em}
 
 /* HERO */
-.hero{background:var(--h);min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(90,138,58,0.07)}
-.hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(90,138,58,0.05)}
+.hero{background:var(--h);min-height:360px;padding:3rem 2rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .htag{font-family:var(--n);color:#A8C47A;font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:16px}
-.hname{font-family:var(--s);font-size:clamp(3.5rem,10vw,6rem);font-weight:400;font-style:italic;color:#fff;letter-spacing:0.08em;display:inline-block;position:relative;z-index:1}
-.hmacron{position:relative;display:inline-block}
-.hmacron::after{content:'';position:absolute;bottom:calc(100% + 5px);left:50%;width:42%;height:5px;background:#A8C47A;border-radius:3px}
-.hdesc{font-family:var(--n);color:rgba(255,255,255,0.6);font-size:13px;font-weight:300;line-height:1.8;max-width:380px;margin:14px auto 0}
 
-/* CATEGORY TABS */
+/* TABS */
 .tabs-bar{background:var(--c);border-bottom:2px solid var(--b);padding:0 24px;position:sticky;top:60px;z-index:15;box-shadow:0 2px 8px rgba(107,58,42,0.08)}
 .tabs{display:flex;max-width:1100px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
@@ -56,22 +82,19 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .tab:hover{color:var(--t)}
 .tab.on{color:var(--h);border-bottom-color:var(--a);font-weight:600}
 
-/* SHOP GRID */
+/* GRID */
 .wrap{padding:24px;max-width:1100px;margin:0 auto}
 .shophead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
 .shophead h2{font-family:var(--s);font-size:24px;font-weight:400;color:var(--h)}
 .shophead p{font-family:var(--n);font-size:12px;font-weight:300;color:var(--m);margin-top:3px}
 .pcount{font-family:var(--n);font-size:12px;color:var(--m);background:var(--b);padding:4px 12px;border-radius:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-
-/* PRODUCT CARD */
 .card{background:#fff;border:1.5px solid #B8A080;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 10px rgba(107,58,42,0.10)}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(107,58,42,0.18)}
-.cimg{height:200px;position:relative;background:#F5EFE6;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #D4C4A8}
+.cimg{height:200px;position:relative;background:#F5EFE6;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #D4C4A8;cursor:zoom-in}
 .cimg img{width:100%;height:100%;object-fit:contain;padding:10px;display:block;transition:transform .3s}
 .card:hover .cimg img{transform:scale(1.04)}
-.cbadge2{position:absolute;top:8px;left:8px;font-family:var(--n);font-size:9px;font-weight:800;padding:4px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;z-index:2}
-.bo{background:#AAFF00;color:#1A2E08}
+.cbadge2{position:absolute;top:8px;left:8px;font-family:var(--n);font-size:9px;font-weight:800;padding:4px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;z-index:2;background:#AAFF00;color:#1A2E08}
 .cstock{position:absolute;top:8px;right:8px;font-family:var(--n);background:#FFF3E0;color:#E65100;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;z-index:2;border:1px solid #FFCC80}
 .cdel{position:absolute;bottom:7px;left:7px;background:rgba(44,74,26,0.92);color:#fff;font-family:var(--n);font-size:9px;padding:3px 8px;border-radius:3px;display:flex;align-items:center;gap:3px;z-index:2}
 .ddot{width:5px;height:5px;border-radius:50%;background:#A8C47A;display:inline-block}
@@ -107,13 +130,13 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .highlight-box{background:var(--c);border:1px solid var(--b);border-left:3px solid var(--a);border-radius:8px;padding:16px 20px;margin:16px 0}
 .highlight-box p{margin:0;font-size:13px;color:#3A2A1A}
 
-/* CONTACT FORM */
+/* CONTACT */
 .cf{display:flex;flex-direction:column;gap:14px}
-.cf-field label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:4px;text-transform:uppercase}
+.cf-field label{font-family:var(--n);font-size:10px;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:4px;text-transform:uppercase}
 .cf-field input,.cf-field textarea,.cf-field select{font-family:var(--n);width:100%;padding:10px 12px;border:1px solid var(--b);border-radius:8px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;resize:vertical;transition:border-color .15s}
 .cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:var(--a)}
 .cf-field textarea{min-height:110px}
-.cf-submit{font-family:var(--n);padding:12px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.cf-submit{font-family:var(--n);padding:12px;background:var(--h);color:#fff;border:none;border-radius:8px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
 .cf-submit:hover{background:var(--a)}
 .cf-submit:disabled{background:var(--m);cursor:wait}
 .cf-sent{display:none;text-align:center;padding:28px;background:var(--c);border:1px solid var(--b);border-radius:12px}
@@ -121,7 +144,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .cf-sent p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
 .cf-respuesta{background:#F5F0E8;border:1px solid var(--b);border-radius:8px;padding:14px 16px;margin-top:12px;font-family:var(--n);font-size:13px;font-weight:300;color:var(--h);line-height:1.7;white-space:pre-wrap;text-align:left}
 
-/* CART DRAWER */
+/* CART */
 #cover{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:30}
 #drawer{display:none;position:fixed;top:0;right:0;bottom:0;width:340px;background:#fff;border-left:1.5px solid var(--b);z-index:31;flex-direction:column;box-shadow:-4px 0 20px rgba(107,58,42,0.12)}
 .drh{padding:14px 16px;border-bottom:1.5px solid var(--b);display:flex;justify-content:space-between;align-items:center}
@@ -149,14 +172,14 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .cm{background:#fff;border-radius:12px;width:min(460px,100%);overflow:hidden;margin-top:8px}
 .cmh{background:var(--h);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
 .cmh h3{font-family:var(--s);color:#fff;font-size:17px;font-weight:400;font-style:italic}
-.cmh p{font-family:var(--n);color:rgba(255,255,255,0.55);font-size:11px;font-weight:300;margin-top:2px}
+.cmh p{font-family:var(--n);color:rgba(255,255,255,0.55);font-size:11px;margin-top:2px}
 .cmc{background:none;border:none;color:rgba(255,255,255,0.65);font-size:17px;cursor:pointer}
 .cmb{padding:20px}
 .prg{display:flex;gap:5px;margin-bottom:18px}
 .pb{flex:1;height:2px;border-radius:2px;background:var(--b)}
 .pb.on{background:var(--a)}
 .fi{margin-bottom:12px}
-.fi label{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:3px;text-transform:uppercase}
+.fi label{font-family:var(--n);font-size:10px;letter-spacing:0.1em;color:var(--m);display:block;margin-bottom:3px;text-transform:uppercase}
 .fi input{font-family:var(--n);width:100%;padding:9px 11px;border:1px solid var(--b);border-radius:7px;font-size:13px;font-weight:300;color:var(--t);background:#fff;outline:none;transition:border-color .15s}
 .fi input:focus{border-color:var(--a)}
 .r2{display:grid;grid-template-columns:2fr 1fr;gap:10px}
@@ -170,9 +193,76 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .cbtn{font-family:var(--n);width:100%;padding:10px;background:var(--a);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;margin-top:8px;transition:background .15s}
 .cbtn:hover{background:var(--h)}
 .br{display:flex;gap:8px}
-.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer}
-.bp{font-family:var(--n);flex:1;padding:10px;background:#635BFF;color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.bb{font-family:var(--n);padding:10px 14px;background:none;color:var(--h);border:1px solid var(--h);border-radius:7px;font-size:11px;text-transform:uppercase;cursor:pointer}
+.bp{font-family:var(--n);flex:1;padding:10px;background:#635BFF;color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .bp:disabled{background:var(--m);cursor:wait}
+.promo-row{display:flex;gap:8px;margin-bottom:12px}
+.promo-input{font-family:var(--n);flex:1;padding:9px 11px;border:1.5px solid var(--b);border-radius:7px;font-size:13px;font-weight:400;color:var(--t);background:#fff;outline:none;text-transform:uppercase;letter-spacing:0.06em;transition:border-color .15s}
+.promo-input:focus{border-color:var(--a)}
+.promo-btn{font-family:var(--n);padding:9px 14px;background:var(--h);color:#fff;border:none;border-radius:7px;font-size:12px;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .15s}
+.promo-btn:hover{background:var(--a)}
+.promo-ok{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:500;background:#F0FFF0;border:1px solid #90EE90;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none;align-items:center;gap:6px}
+.promo-err{font-family:var(--n);font-size:12px;color:#C0392B;background:#fdf0ef;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none}
+.discount-line{display:flex;justify-content:space-between;font-family:var(--n);font-size:12px;font-weight:400;margin-bottom:4px;color:#2D6B00}
+
+/* PRODUCT MODAL */
+#prod-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#prod-modal.open{display:flex}
+.pm-box{background:#fff;border-radius:16px;width:min(820px,100%);max-height:90vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:pm-in .3s cubic-bezier(.34,1.2,.64,1)}
+@keyframes pm-in{0%{opacity:0;transform:scale(0.92)}100%{opacity:1;transform:scale(1)}}
+.pm-gallery{position:relative;background:#F5EFE6;display:flex;flex-direction:column;border-right:1px solid #D4C4A8}
+.pm-main-img{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;min-height:280px}
+.pm-main-img img{max-width:100%;max-height:300px;object-fit:contain;border-radius:8px;transition:opacity .2s}
+.pm-thumbs{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #D4C4A8;background:#EDE8DF;overflow-x:auto;min-height:44px}
+.pm-thumb{width:56px;height:56px;flex-shrink:0;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;background:#fff}
+.pm-thumb:hover{border-color:#B89870}
+.pm-thumb.active{border-color:#6B3A2A}
+.pm-thumb img{width:100%;height:100%;object-fit:contain;padding:3px}
+.pm-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.12);z-index:2}
+.pm-arrow:hover{background:#fff}
+.pm-prev{left:10px}
+.pm-next{right:10px}
+.pm-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.12);border:none;border-radius:50%;width:32px;height:32px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pm-close:hover{background:rgba(0,0,0,0.3)}
+.pm-body{padding:28px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;position:relative}
+.pm-cat{font-family:var(--n);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--m)}
+.pm-name{font-family:var(--s);font-size:22px;font-weight:500;color:var(--h);line-height:1.2}
+.pm-stars{color:#D4920A;font-size:14px}
+.pm-stars span{font-family:var(--n);font-size:12px;color:var(--m);margin-left:4px}
+.pm-price-row{display:flex;align-items:baseline;gap:8px}
+.pm-price{font-family:var(--s);font-size:30px;font-weight:500;color:#3D1F0A}
+.pm-old{font-family:var(--n);font-size:14px;color:var(--m);text-decoration:line-through}
+.pm-pct{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:700;background:#AAFF00;padding:2px 8px;border-radius:4px}
+.pm-desc{font-family:var(--n);font-size:14px;font-weight:300;color:#3A2A1A;line-height:1.8}
+.pm-features{list-style:none;padding:0;display:flex;flex-direction:column;gap:5px}
+.pm-features li{font-family:var(--n);font-size:13px;font-weight:300;color:#3A2A1A;padding-left:18px;position:relative}
+.pm-features li::before{content:'✦';position:absolute;left:0;color:var(--a);font-size:9px;top:3px}
+.pm-del{font-family:var(--n);font-size:12px;color:#5A8A3A;font-weight:500;display:flex;align-items:center;gap:6px}
+.pm-add{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:13px;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-top:auto}
+.pm-add:hover{background:var(--a)}
+@media(max-width:600px){.pm-box{grid-template-columns:1fr}.pm-gallery{max-height:220px}}
+
+/* EMAIL POPUP */
+#email-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:60;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+#email-popup.open{display:flex}
+.ep-box{background:#fff;border-radius:18px;width:min(480px,100%);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.25);animation:pm-in .4s cubic-bezier(.34,1.2,.64,1)}
+.ep-top{background:var(--h);padding:32px 28px 24px;text-align:center;position:relative}
+.ep-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:28px;height:28px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ep-pct{font-family:'Fredoka One',cursive;font-size:52px;color:#B89870;line-height:1}
+.ep-title{font-family:var(--s);font-size:22px;font-style:italic;color:#fff;margin:6px 0 4px}
+.ep-sub{font-family:var(--n);font-size:13px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.6}
+.ep-body{padding:24px 28px 28px}
+.ep-form{display:flex;flex-direction:column;gap:12px}
+.ep-input{font-family:var(--n);width:100%;padding:12px 14px;border:1.5px solid var(--b);border-radius:10px;font-size:14px;color:var(--t);outline:none;transition:border-color .15s}
+.ep-input:focus{border-color:var(--a)}
+.ep-btn{font-family:var(--n);padding:13px;background:var(--h);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.ep-btn:hover{background:var(--a)}
+.ep-skip{font-family:var(--n);font-size:11px;color:var(--m);background:none;border:none;cursor:pointer;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
+.ep-success{display:none;text-align:center;padding:12px 0}
+.ep-success h3{font-family:var(--s);font-size:22px;font-style:italic;color:var(--h);margin:10px 0 6px}
+.ep-success p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
+.ep-code{font-family:'Fredoka One',cursive;font-size:28px;color:var(--a);letter-spacing:0.1em;background:#F5EFE6;padding:10px 24px;border-radius:8px;margin:12px 0;display:inline-block}
+.ep-fine{font-family:var(--n);font-size:10px;color:var(--m);margin-top:8px;text-align:center;line-height:1.5}
 
 /* SUCCESS */
 #succ{display:none;padding:4rem 24px;text-align:center;max-width:400px;margin:0 auto}
@@ -189,183 +279,15 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-links a{font-family:var(--n);font-size:11px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;margin-left:20px;cursor:pointer;transition:color .15s}
 .footer-links a:hover{color:#A8C47A}
-.footer-copy{font-family:var(--n);font-size:11px;font-weight:300;color:rgba(255,255,255,0.3);text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;max-width:1100px;margin:16px auto 0}
-#toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;font-weight:300;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid #A8C47A;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.footer-copy{font-family:var(--n);font-size:11px;color:rgba(255,255,255,0.3);text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;max-width:1100px;margin:16px auto 0}
+#toast{position:fixed;top:14px;right:14px;background:var(--h);color:#fff;padding:9px 14px;border-radius:8px;font-family:var(--n);font-size:12px;z-index:99;display:none;gap:6px;align-items:center;border-left:3px solid #A8C47A;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
 
-/* ── LOGO HOJAS ANIMADO ── */
-@keyframes fly-top{0%{transform:translate(0,-130px);opacity:0}65%{transform:translate(0,10px);opacity:1}82%{transform:translate(0,-4px)}100%{transform:translate(0,0);opacity:1}}
-@keyframes fly-left{0%{transform:translate(-112px,65px);opacity:0}65%{transform:translate(9px,-5px);opacity:1}82%{transform:translate(-3px,2px)}100%{transform:translate(0,0);opacity:1}}
-@keyframes fly-right{0%{transform:translate(112px,65px);opacity:0}65%{transform:translate(-9px,-5px);opacity:1}82%{transform:translate(3px,2px)}100%{transform:translate(0,0);opacity:1}}
-80%{filter:drop-shadow(0 0 12px rgba(168,196,122,0.4))}100%{filter:drop-shadow(0 0 0px rgba(168,196,122,0))}}
-.fly-t{animation:fly-top  .85s cubic-bezier(.22,1,.36,1) .15s both}
-.fly-l{animation:fly-left .85s cubic-bezier(.22,1,.36,1) .30s both}
-.fly-r{animation:fly-right .85s cubic-bezier(.22,1,.36,1) .45s both}
-.logo-svg-icon{animation:logo-glow 1.2s ease-out .9s both}
-
-/* ── BANNER HERO ANIMACIONES ── */
-@keyframes hero-letter-pop{0%{opacity:0;transform:translateY(32px) scale(0.5)}65%{opacity:1;transform:translateY(-7px) scale(1.1)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes hero-tag-in{0%{opacity:0;letter-spacing:0.6em}100%{opacity:0.75;letter-spacing:0.3em}}
-@keyframes hero-desc-in{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes hero-btn-in{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-
-.hero-l1{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.0s both}
-.hero-l2{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.12s both}
-.hero-l3{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.24s both}
-.hero-l4{animation:hero-letter-pop .45s cubic-bezier(.34,1.56,.64,1) 1.36s both}
-.hero-tag{animation:hero-tag-in .9s ease-out 1.75s both}
-.hero-desc{animation:hero-desc-in .7s ease-out 2.1s both}
-.hero-btn{animation:hero-btn-in .6s ease-out 2.3s both}
-
-/* Banner fly animations para hojas grandes */
-@keyframes bfly-top{0%{transform:translate(0,-180px);opacity:0}65%{transform:translate(0,14px);opacity:1}82%{transform:translate(0,-5px)}100%{transform:translate(0,0);opacity:1}}
-@keyframes bfly-left{0%{transform:translate(-155px,90px);opacity:0}65%{transform:translate(12px,-7px);opacity:1}82%{transform:translate(-4px,3px)}100%{transform:translate(0,0);opacity:1}}
-@keyframes bfly-right{0%{transform:translate(155px,90px);opacity:0}65%{transform:translate(-12px,-7px);opacity:1}82%{transform:translate(4px,3px)}100%{transform:translate(0,0);opacity:1}}
-80%{filter:drop-shadow(0 0 20px rgba(168,196,122,0.5))}100%{filter:drop-shadow(0 0 6px rgba(168,196,122,0.15))}}
-
-.bfly-t{animation:bfly-top  .9s cubic-bezier(.22,1,.36,1) .1s both}
-.bfly-l{animation:bfly-left .9s cubic-bezier(.22,1,.36,1) .25s both}
-.bfly-r{animation:bfly-right .9s cubic-bezier(.22,1,.36,1) .4s both}
-.blogo-icon{}
-
-
-/* ── ILUMINACIÓN / GLOW ── */
-
-  50%{
-    filter: drop-shadow(0 0 7px rgba(212,180,140,0.45)) drop-shadow(0 0 18px rgba(212,180,140,0.2));
-  }
-}
-
-  50%{
-    text-shadow: 0 0 9px rgba(220,190,150,0.55), 0 0 22px rgba(220,190,150,0.22);
-  }
-}
-.blogo-icon{
-  animation: blogo-glow 1.4s ease-out .85s both, glow-pulse 3s ease-in-out 2.3s infinite !important;
-}
-.hero-l1,.hero-l2,.hero-l3,.hero-l4{
-  animation-fill-mode: both;
-}
-.glow-text{
-  animation: text-glow-pulse 3s ease-in-out 2.3s infinite;
-  display: inline-block;
-}
-/* Glow en el header logo también */
-.logo-svg-icon{
-  animation: fly-top 0s, glow-pulse 3s ease-in-out 1s infinite !important;
-}
-.hdr-logo:hover .logo-svg-icon{
-  filter: drop-shadow(0 0 14px rgba(220,190,150,1)) drop-shadow(0 0 40px rgba(220,190,150,0.6));
-}
-
-
-
-  20%,75%{opacity:1;transform:scale(1)}
-}
-
-@keyframes leaf-float-1{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(12px,-18px) rotate(15deg)}50%{transform:translate(-8px,-35px) rotate(-10deg)}75%{transform:translate(15px,-52px) rotate(20deg)}100%{transform:translate(0,-70px) rotate(5deg);opacity:0}}
-@keyframes leaf-float-2{0%{transform:translate(0,0) rotate(0deg)}30%{transform:translate(-14px,-20px) rotate(-20deg)}60%{transform:translate(10px,-42px) rotate(12deg)}100%{transform:translate(-5px,-75px) rotate(-8deg);opacity:0}}
-@keyframes leaf-float-3{0%{transform:translate(0,0) rotate(0deg)}40%{transform:translate(18px,-25px) rotate(25deg)}70%{transform:translate(-6px,-50px) rotate(-15deg)}100%{transform:translate(8px,-80px) rotate(10deg);opacity:0}}
-.hero-leaf{position:absolute;opacity:0;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-fill-mode:both}
-
-/* ── MODAL PRODUCTO ── */
-#prod-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-#prod-modal.open{display:flex}
-.pm-box{background:#fff;border-radius:16px;width:min(820px,100%);max-height:90vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:pm-in .3s cubic-bezier(.34,1.2,.64,1)}
-@keyframes pm-in{0%{opacity:0;transform:scale(0.92)}100%{opacity:1;transform:scale(1)}}
-.pm-img{background:#F5EFE6;display:flex;align-items:center;justify-content:center;padding:24px;border-right:1px solid #D4C4A8;position:relative}
-.pm-img img{max-width:100%;max-height:360px;object-fit:contain;border-radius:8px}
-.pm-badge{position:absolute;top:14px;left:14px;font-family:var(--n);font-size:10px;font-weight:800;padding:4px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:0.1em;background:#AAFF00;color:#1A2E08}
-.pm-body{padding:28px;overflow-y:auto;display:flex;flex-direction:column;gap:14px}
-.pm-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.12);border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.pm-close:hover{background:rgba(0,0,0,0.3)}
-.pm-cat{font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--m)}
-.pm-name{font-family:var(--s);font-size:24px;font-weight:500;color:var(--h);line-height:1.2}
-.pm-stars{color:#D4920A;font-size:14px}
-.pm-stars span{font-family:var(--n);font-size:12px;color:var(--m);margin-left:4px}
-.pm-price-row{display:flex;align-items:baseline;gap:8px}
-.pm-price{font-family:var(--s);font-size:32px;font-weight:500;color:#3D1F0A}
-.pm-old{font-family:var(--n);font-size:14px;color:var(--m);text-decoration:line-through}
-.pm-pct{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:700;background:#AAFF00;padding:2px 8px;border-radius:4px}
-.pm-desc{font-family:var(--n);font-size:14px;font-weight:300;color:#3A2A1A;line-height:1.8}
-.pm-features{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
-.pm-features li{font-family:var(--n);font-size:13px;font-weight:300;color:#3A2A1A;padding-left:18px;position:relative}
-.pm-features li::before{content:'✦';position:absolute;left:0;color:var(--a);font-size:9px;top:3px}
-.pm-del{font-family:var(--n);font-size:12px;color:#5A8A3A;font-weight:500;display:flex;align-items:center;gap:6px}
-.pm-add{font-family:var(--n);background:var(--h);color:#fff;border:none;padding:14px;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s;margin-top:auto}
-.pm-add:hover{background:var(--a)}
-@media(max-width:600px){.pm-box{grid-template-columns:1fr}.pm-img{max-height:220px}}
-
-/* ── EMAIL POPUP ── */
-#email-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:60;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-#email-popup.open{display:flex}
-.ep-box{background:#fff;border-radius:18px;width:min(480px,100%);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.25);animation:ep-in .4s cubic-bezier(.34,1.2,.64,1)}
-@keyframes ep-in{0%{opacity:0;transform:scale(0.88) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}
-.ep-top{background:var(--h);padding:32px 28px 24px;text-align:center;position:relative}
-.ep-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:28px;height:28px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.ep-close:hover{background:rgba(255,255,255,0.3)}
-.ep-pct{font-family:'Fredoka One',cursive;font-size:52px;color:#B89870;line-height:1}
-.ep-title{font-family:var(--s);font-size:22px;font-style:italic;color:#fff;margin:6px 0 4px}
-.ep-sub{font-family:var(--n);font-size:13px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.6}
-.ep-body{padding:24px 28px 28px}
-.ep-form{display:flex;flex-direction:column;gap:12px}
-.ep-input{font-family:var(--n);width:100%;padding:12px 14px;border:1.5px solid var(--b);border-radius:10px;font-size:14px;color:var(--t);outline:none;transition:border-color .15s}
-.ep-input:focus{border-color:var(--a)}
-.ep-btn{font-family:var(--n);padding:13px;background:var(--h);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
-.ep-btn:hover{background:var(--a)}
-.ep-skip{font-family:var(--n);font-size:11px;color:var(--m);background:none;border:none;cursor:pointer;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
-.ep-success{text-align:center;padding:12px 0}
-.ep-success h3{font-family:var(--s);font-size:22px;font-style:italic;color:var(--h);margin:10px 0 6px}
-.ep-success p{font-family:var(--n);font-size:13px;font-weight:300;color:var(--m);line-height:1.6}
-.ep-code{font-family:'Fredoka One',cursive;font-size:28px;color:var(--a);letter-spacing:0.1em;background:#F5EFE6;padding:10px 24px;border-radius:8px;margin:12px 0;display:inline-block}
-.ep-fine{font-family:var(--n);font-size:10px;color:var(--m);margin-top:8px;text-align:center;line-height:1.5}
-
-/* ── LANGUAGE SWITCHER ── */
-.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;cursor:pointer;transition:background .15s}
-.lang-btn:hover{background:rgba(255,255,255,0.2)}
-.lang-flag{font-size:16px;line-height:1}
-.lang-code{font-family:var(--n);font-size:11px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.8);text-transform:uppercase}
-
-
-/* ── LANGUAGE DROPDOWN ── */
-.lang-wrap{position:relative}
-.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;cursor:pointer;transition:background .15s;user-select:none}
-.lang-btn:hover{background:rgba(255,255,255,0.2)}
-.lang-flag{font-size:16px;line-height:1}
-.lang-code{font-family:var(--n);font-size:11px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.85);text-transform:uppercase}
-.lang-arrow{font-size:9px;color:rgba(255,255,255,0.6);transition:transform .2s}
-.lang-wrap.open .lang-arrow{transform:rotate(180deg)}
-.lang-drop{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.15);overflow:hidden;min-width:130px;z-index:25;border:1px solid var(--b)}
-.lang-wrap.open .lang-drop{display:block}
-.lang-option{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:background .15s;font-family:var(--n);font-size:13px;font-weight:400;color:var(--t)}
-.lang-option:hover{background:var(--bg)}
-.lang-option.active{background:#F5EFE6;font-weight:500;color:var(--h)}
-.lang-option .flag{font-size:18px}
-.lang-option .name{font-size:13px}
-
-
-.promo-row{display:flex;gap:8px;margin-bottom:12px}
-.promo-input{font-family:var(--n);flex:1;padding:9px 11px;border:1.5px solid var(--b);border-radius:7px;font-size:13px;font-weight:400;color:var(--t);background:#fff;outline:none;text-transform:uppercase;letter-spacing:0.06em;transition:border-color .15s}
-.promo-input:focus{border-color:var(--a)}
-.promo-btn{font-family:var(--n);padding:9px 14px;background:var(--h);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .15s}
-.promo-btn:hover{background:var(--a)}
-.promo-ok{font-family:var(--n);font-size:12px;color:#2D6B00;font-weight:500;background:#F0FFF0;border:1px solid #90EE90;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none;align-items:center;gap:6px}
-.promo-err{font-family:var(--n);font-size:12px;color:#C0392B;background:#fdf0ef;border-radius:6px;padding:7px 10px;margin-bottom:10px;display:none}
-.discount-line{display:flex;justify-content:space-between;font-family:var(--n);font-size:12px;font-weight:400;margin-bottom:4px;color:#2D6B00}
-
-
-/* ── GALERÍA MODAL ── */
-.pm-gallery{position:relative;background:#F5EFE6;display:flex;flex-direction:column;border-right:1px solid #D4C4A8}
-.pm-main-img{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;min-height:280px}
-.pm-main-img img{max-width:100%;max-height:300px;object-fit:contain;border-radius:8px;transition:opacity .2s}
-.pm-thumbs{display:flex;gap:8px;padding:12px 14px;border-top:1px solid #D4C4A8;background:#EDE8DF;overflow-x:auto}
-.pm-thumb{width:56px;height:56px;flex-shrink:0;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .15s;background:#fff}
-.pm-thumb:hover{border-color:#B89870}
-.pm-thumb.active{border-color:#6B3A2A}
-.pm-thumb img{width:100%;height:100%;object-fit:contain;padding:3px}
-.pm-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:32px;height:32px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.12);transition:all .15s;z-index:2}
-.pm-arrow:hover{background:#fff;box-shadow:0 3px 12px rgba(0,0,0,0.2)}
-.pm-prev{left:10px}
-.pm-next{right:10px}
+/* CARD FORM */
+.card-form{background:#F9F6F2;border:1px solid var(--b);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.card-form-title{font-family:var(--n);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--m);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-brands{display:flex;gap:5px;margin-left:auto}
+.card-brand{font-family:var(--n);font-size:9px;border:1px solid var(--b);border-radius:3px;padding:2px 5px;color:var(--m);background:#fff}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 
 </style>
 </head>
@@ -373,12 +295,12 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 
 <header class="hdr">
   <div class="hdr-logo" onclick="goPage('tienda')">
-    <svg class="logo-svg-icon" width="36" height="36" viewBox="-65 -65 130 130" overflow="visible">
-          <g class="fly-t"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g>
-          <g class="fly-l"><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
-          <g class="fly-r"><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
-        </svg>
-    <span style="font-family:'Fredoka One',cursive;font-size:22px;color:#B89870;letter-spacing:0.05em">FURO</span>
+    <svg width="36" height="36" viewBox="-65 -65 130 130" overflow="visible">
+      <g class="fly-t"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g>
+      <g class="fly-l"><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
+      <g class="fly-r"><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
+    </svg>
+    <span>FURO</span>
   </div>
   <nav class="nav">
     <a id="nav-tienda" onclick="goPage('tienda')" class="on">Inicio</a>
@@ -386,7 +308,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
     <a id="nav-devoluciones" onclick="goPage('devoluciones')">Devoluciones</a>
     <a id="nav-contacto" onclick="goPage('contacto')">Contacto</a>
   </nav>
-  <div style="display:flex;align-items:center;gap:10px">
+  <div class="hdr-right">
     <div class="lang-wrap" id="lang-wrap">
       <div class="lang-btn" onclick="toggleDropdown()">
         <span class="lang-flag" id="lang-flag">🇪🇸</span>
@@ -394,12 +316,8 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
         <span class="lang-arrow">▼</span>
       </div>
       <div class="lang-drop">
-        <div class="lang-option active" id="opt-es" onclick="selectLang('es')">
-          <span class="flag">🇪🇸</span><span class="name">Español</span>
-        </div>
-        <div class="lang-option" id="opt-en" onclick="selectLang('en')">
-          <span class="flag">🇬🇧</span><span class="name">English</span>
-        </div>
+        <div class="lang-option active" id="opt-es" onclick="selectLang('es')"><span>🇪🇸</span><span>Español</span></div>
+        <div class="lang-option" id="opt-en" onclick="selectLang('en')"><span>🇬🇧</span><span>English</span></div>
       </div>
     </div>
     <button class="cart-btn" onclick="oC()">🛒 <span id="txt-cart">Carrito</span> <span class="cbadge" id="cb">0</span></button>
@@ -409,82 +327,26 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 <!-- TIENDA -->
 <div id="page-tienda">
   <div class="trust">
-    <span>🔒 Pago seguro</span><span>📦 Envío 24-48h España</span><span>↩️ Devolución 14 días</span><span>🏆 +5.000 clientes</span>
+    <span id="t1">🔒 Pago seguro</span><span id="t2">📦 Envío 24-48h España</span><span id="t3">↩️ Devolución 14 días</span><span id="t4">🏆 +5.000 clientes</span>
   </div>
-  <div class="hero" style="min-height:360px;padding:3rem 2rem;position:relative;overflow:hidden">
-    <!-- HOJAS FLOTANTES -->
-    <svg class="hero-leaf" style="left:51%;top:58%;width:13px;height:17px;opacity:0.19;animation-name:leaf-float-3;animation-duration:5.4s;animation-delay:1.6s" viewBox="-7 -19 14 21" overflow="visible"><path d="M0,0 C5.2,-5.9 5.2,-11.8 0,-16.9 C-5.2,-11.8 -5.2,-5.9 0,0" fill="#B89870" transform="rotate(-29)"/></svg>
-    <svg class="hero-leaf" style="left:87%;top:99%;width:18px;height:29px;opacity:0.18;animation-name:leaf-float-2;animation-duration:8.6s;animation-delay:2.4s" viewBox="-9 -31 18 33" overflow="visible"><path d="M0,0 C7.2,-10.2 7.2,-20.3 0,-29.0 C-7.2,-20.3 -7.2,-10.2 0,0" fill="#B89870" transform="rotate(2)"/></svg>
-    <svg class="hero-leaf" style="left:49%;top:97%;width:13px;height:21px;opacity:0.21;animation-name:leaf-float-3;animation-duration:6.7s;animation-delay:10.2s" viewBox="-7 -23 15 25" overflow="visible"><path d="M0,0 C5.3,-7.5 5.3,-15.0 0,-21.4 C-5.3,-15.0 -5.3,-7.5 0,0" fill="#B89870" transform="rotate(-38)"/></svg>
-    <svg class="hero-leaf" style="left:86%;top:21%;width:17px;height:20px;opacity:0.16;animation-name:leaf-float-3;animation-duration:7.1s;animation-delay:6.7s" viewBox="-9 -22 18 24" overflow="visible"><path d="M0,0 C6.8,-7.2 6.8,-14.3 0,-20.4 C-6.8,-14.3 -6.8,-7.2 0,0" fill="#B89870" transform="rotate(-26)"/></svg>
-    <svg class="hero-leaf" style="left:10%;top:69%;width:18px;height:17px;opacity:0.14;animation-name:leaf-float-3;animation-duration:6.8s;animation-delay:11.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.1,-6.0 7.1,-12.0 0,-17.2 C-7.1,-12.0 -7.1,-6.0 0,0" fill="#B89870" transform="rotate(-1)"/></svg>
-    <svg class="hero-leaf" style="left:20%;top:66%;width:19px;height:30px;opacity:0.13;animation-name:leaf-float-1;animation-duration:5.9s;animation-delay:6.0s" viewBox="-10 -32 19 34" overflow="visible"><path d="M0,0 C7.6,-10.4 7.6,-20.8 0,-29.7 C-7.6,-20.8 -7.6,-10.4 0,0" fill="#B89870" transform="rotate(60)"/></svg>
-    <svg class="hero-leaf" style="left:60%;top:97%;width:22px;height:15px;opacity:0.18;animation-name:leaf-float-2;animation-duration:5.7s;animation-delay:7.6s" viewBox="-11 -17 22 19" overflow="visible"><path d="M0,0 C8.9,-5.4 8.9,-10.7 0,-15.3 C-8.9,-10.7 -8.9,-5.4 0,0" fill="#B89870" transform="rotate(-6)"/></svg>
-    <svg class="hero-leaf" style="left:42%;top:27%;width:18px;height:17px;opacity:0.16;animation-name:leaf-float-3;animation-duration:8.2s;animation-delay:11.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.1,-6.0 7.1,-12.0 0,-17.2 C-7.1,-12.0 -7.1,-6.0 0,0" fill="#B89870" transform="rotate(40)"/></svg>
-    <svg class="hero-leaf" style="left:51%;top:26%;width:15px;height:25px;opacity:0.19;animation-name:leaf-float-3;animation-duration:8.7s;animation-delay:0.7s" viewBox="-8 -27 16 29" overflow="visible"><path d="M0,0 C6.1,-8.8 6.1,-17.6 0,-25.1 C-6.1,-17.6 -6.1,-8.8 0,0" fill="#B89870" transform="rotate(58)"/></svg>
-    <svg class="hero-leaf" style="left:19%;top:87%;width:24px;height:16px;opacity:0.14;animation-name:leaf-float-1;animation-duration:5.9s;animation-delay:1.7s" viewBox="-12 -18 23 20" overflow="visible"><path d="M0,0 C9.6,-5.6 9.6,-11.2 0,-16.0 C-9.6,-11.2 -9.6,-5.6 0,0" fill="#B89870" transform="rotate(-45)"/></svg>
-    <svg class="hero-leaf" style="left:26%;top:81%;width:15px;height:22px;opacity:0.2;animation-name:leaf-float-1;animation-duration:5.6s;animation-delay:10.2s" viewBox="-8 -24 16 26" overflow="visible"><path d="M0,0 C5.9,-7.7 5.9,-15.4 0,-22.0 C-5.9,-15.4 -5.9,-7.7 0,0" fill="#B89870" transform="rotate(-31)"/></svg>
-    <svg class="hero-leaf" style="left:86%;top:19%;width:18px;height:14px;opacity:0.16;animation-name:leaf-float-2;animation-duration:6.1s;animation-delay:0.6s" viewBox="-9 -16 18 18" overflow="visible"><path d="M0,0 C7.0,-5.0 7.0,-9.9 0,-14.2 C-7.0,-9.9 -7.0,-5.0 0,0" fill="#B89870" transform="rotate(46)"/></svg>
-    <svg class="hero-leaf" style="left:49%;top:63%;width:22px;height:23px;opacity:0.19;animation-name:leaf-float-2;animation-duration:9.6s;animation-delay:10.6s" viewBox="-11 -25 22 27" overflow="visible"><path d="M0,0 C8.9,-7.9 8.9,-15.8 0,-22.5 C-8.9,-15.8 -8.9,-7.9 0,0" fill="#B89870" transform="rotate(-37)"/></svg>
-    <svg class="hero-leaf" style="left:98%;top:66%;width:13px;height:28px;opacity:0.21;animation-name:leaf-float-3;animation-duration:6.6s;animation-delay:7.8s" viewBox="-7 -30 15 32" overflow="visible"><path d="M0,0 C5.4,-9.7 5.4,-19.4 0,-27.7 C-5.4,-19.4 -5.4,-9.7 0,0" fill="#B89870" transform="rotate(-32)"/></svg>
-    <svg class="hero-leaf" style="left:40%;top:37%;width:21px;height:25px;opacity:0.2;animation-name:leaf-float-1;animation-duration:6.5s;animation-delay:3.0s" viewBox="-11 -27 21 29" overflow="visible"><path d="M0,0 C8.6,-8.9 8.6,-17.8 0,-25.4 C-8.6,-17.8 -8.6,-8.9 0,0" fill="#B89870" transform="rotate(31)"/></svg>
-    <svg class="hero-leaf" style="left:56%;top:63%;width:24px;height:18px;opacity:0.15;animation-name:leaf-float-2;animation-duration:8.4s;animation-delay:3.5s" viewBox="-12 -20 24 22" overflow="visible"><path d="M0,0 C9.8,-6.3 9.8,-12.7 0,-18.1 C-9.8,-12.7 -9.8,-6.3 0,0" fill="#B89870" transform="rotate(4)"/></svg>
-    <svg class="hero-leaf" style="left:68%;top:26%;width:24px;height:18px;opacity:0.2;animation-name:leaf-float-1;animation-duration:9.8s;animation-delay:3.5s" viewBox="-12 -20 23 22" overflow="visible"><path d="M0,0 C9.6,-6.3 9.6,-12.7 0,-18.1 C-9.6,-12.7 -9.6,-6.3 0,0" fill="#B89870" transform="rotate(52)"/></svg>
-    <svg class="hero-leaf" style="left:36%;top:58%;width:20px;height:24px;opacity:0.16;animation-name:leaf-float-1;animation-duration:7.2s;animation-delay:8.0s" viewBox="-10 -26 20 28" overflow="visible"><path d="M0,0 C8.1,-8.3 8.1,-16.6 0,-23.7 C-8.1,-16.6 -8.1,-8.3 0,0" fill="#B89870" transform="rotate(19)"/></svg>
-    <svg class="hero-leaf" style="left:44%;top:10%;width:20px;height:25px;opacity:0.14;animation-name:leaf-float-3;animation-duration:8.3s;animation-delay:2.3s" viewBox="-10 -27 20 29" overflow="visible"><path d="M0,0 C8.0,-8.8 8.0,-17.6 0,-25.1 C-8.0,-17.6 -8.0,-8.8 0,0" fill="#B89870" transform="rotate(48)"/></svg>
-    <svg class="hero-leaf" style="left:33%;top:94%;width:16px;height:26px;opacity:0.15;animation-name:leaf-float-2;animation-duration:9.3s;animation-delay:2.8s" viewBox="-9 -28 17 30" overflow="visible"><path d="M0,0 C6.5,-9.1 6.5,-18.2 0,-26.0 C-6.5,-18.2 -6.5,-9.1 0,0" fill="#B89870" transform="rotate(30)"/></svg>
-    <svg class="hero-leaf" style="left:0%;top:24%;width:18px;height:17px;opacity:0.19;animation-name:leaf-float-1;animation-duration:8.4s;animation-delay:3.7s" viewBox="-9 -19 18 21" overflow="visible"><path d="M0,0 C7.0,-6.0 7.0,-12.1 0,-17.2 C-7.0,-12.1 -7.0,-6.0 0,0" fill="#B89870" transform="rotate(6)"/></svg>
-    <svg class="hero-leaf" style="left:65%;top:66%;width:24px;height:18px;opacity:0.17;animation-name:leaf-float-3;animation-duration:7.3s;animation-delay:8.9s" viewBox="-12 -20 23 22" overflow="visible"><path d="M0,0 C9.6,-6.4 9.6,-12.8 0,-18.2 C-9.6,-12.8 -9.6,-6.4 0,0" fill="#B89870" transform="rotate(48)"/></svg>
-    <svg class="hero-leaf" style="left:98%;top:90%;width:22px;height:24px;opacity:0.13;animation-name:leaf-float-2;animation-duration:5.1s;animation-delay:2.4s" viewBox="-11 -26 22 28" overflow="visible"><path d="M0,0 C9.0,-8.3 9.0,-16.6 0,-23.7 C-9.0,-16.6 -9.0,-8.3 0,0" fill="#B89870" transform="rotate(-24)"/></svg>
-    <svg class="hero-leaf" style="left:9%;top:84%;width:10px;height:15px;opacity:0.21;animation-name:leaf-float-3;animation-duration:7.8s;animation-delay:4.4s" viewBox="-6 -17 12 19" overflow="visible"><path d="M0,0 C4.2,-5.2 4.2,-10.5 0,-14.9 C-4.2,-10.5 -4.2,-5.2 0,0" fill="#B89870" transform="rotate(-22)"/></svg>
-    <svg class="hero-leaf" style="left:73%;top:47%;width:13px;height:16px;opacity:0.14;animation-name:leaf-float-2;animation-duration:7.0s;animation-delay:9.5s" viewBox="-7 -18 14 20" overflow="visible"><path d="M0,0 C5.2,-5.5 5.2,-10.9 0,-15.6 C-5.2,-10.9 -5.2,-5.5 0,0" fill="#B89870" transform="rotate(50)"/></svg>
-    <svg class="hero-leaf" style="left:42%;top:26%;width:23px;height:28px;opacity:0.16;animation-name:leaf-float-3;animation-duration:8.5s;animation-delay:10.2s" viewBox="-11 -30 23 32" overflow="visible"><path d="M0,0 C9.3,-9.9 9.3,-19.9 0,-28.4 C-9.3,-19.9 -9.3,-9.9 0,0" fill="#B89870" transform="rotate(51)"/></svg>
-    <svg class="hero-leaf" style="left:22%;top:56%;width:14px;height:18px;opacity:0.14;animation-name:leaf-float-2;animation-duration:8.5s;animation-delay:10.1s" viewBox="-8 -20 15 22" overflow="visible"><path d="M0,0 C5.5,-6.4 5.5,-12.9 0,-18.4 C-5.5,-12.9 -5.5,-6.4 0,0" fill="#B89870" transform="rotate(13)"/></svg>
-    <svg class="hero-leaf" style="left:73%;top:90%;width:23px;height:22px;opacity:0.22;animation-name:leaf-float-3;animation-duration:7.7s;animation-delay:11.8s" viewBox="-11 -24 23 26" overflow="visible"><path d="M0,0 C9.3,-7.6 9.3,-15.1 0,-21.6 C-9.3,-15.1 -9.3,-7.6 0,0" fill="#B89870" transform="rotate(-39)"/></svg>
-    <svg class="hero-leaf" style="left:1%;top:24%;width:15px;height:22px;opacity:0.19;animation-name:leaf-float-2;animation-duration:5.0s;animation-delay:7.9s" viewBox="-8 -24 16 26" overflow="visible"><path d="M0,0 C6.0,-7.7 6.0,-15.3 0,-21.9 C-6.0,-15.3 -6.0,-7.7 0,0" fill="#B89870" transform="rotate(-18)"/></svg>
-    <svg class="hero-leaf" style="left:81%;top:11%;width:19px;height:21px;opacity:0.16;animation-name:leaf-float-1;animation-duration:9.6s;animation-delay:1.6s" viewBox="-9 -23 19 25" overflow="visible"><path d="M0,0 C7.5,-7.2 7.5,-14.4 0,-20.6 C-7.5,-14.4 -7.5,-7.2 0,0" fill="#B89870" transform="rotate(-39)"/></svg>
-    <svg class="hero-leaf" style="left:43%;top:75%;width:13px;height:26px;opacity:0.2;animation-name:leaf-float-1;animation-duration:5.3s;animation-delay:10.1s" viewBox="-7 -28 15 30" overflow="visible"><path d="M0,0 C5.4,-9.1 5.4,-18.3 0,-26.1 C-5.4,-18.3 -5.4,-9.1 0,0" fill="#B89870" transform="rotate(-40)"/></svg>
-    <svg class="hero-leaf" style="left:24%;top:24%;width:17px;height:18px;opacity:0.14;animation-name:leaf-float-3;animation-duration:7.8s;animation-delay:4.4s" viewBox="-9 -20 18 22" overflow="visible"><path d="M0,0 C6.9,-6.4 6.9,-12.9 0,-18.4 C-6.9,-12.9 -6.9,-6.4 0,0" fill="#B89870" transform="rotate(24)"/></svg>
-    <svg class="hero-leaf" style="left:22%;top:99%;width:15px;height:29px;opacity:0.19;animation-name:leaf-float-1;animation-duration:8.4s;animation-delay:1.0s" viewBox="-8 -31 16 33" overflow="visible"><path d="M0,0 C6.1,-10.3 6.1,-20.6 0,-29.4 C-6.1,-20.6 -6.1,-10.3 0,0" fill="#B89870" transform="rotate(8)"/></svg>
-    <svg class="hero-leaf" style="left:19%;top:79%;width:11px;height:26px;opacity:0.2;animation-name:leaf-float-1;animation-duration:6.8s;animation-delay:4.6s" viewBox="-7 -28 13 30" overflow="visible"><path d="M0,0 C4.5,-9.2 4.5,-18.3 0,-26.1 C-4.5,-18.3 -4.5,-9.2 0,0" fill="#B89870" transform="rotate(22)"/></svg>
-    <svg class="hero-leaf" style="left:78%;top:87%;width:21px;height:24px;opacity:0.2;animation-name:leaf-float-2;animation-duration:9.5s;animation-delay:9.3s" viewBox="-11 -26 21 28" overflow="visible"><path d="M0,0 C8.6,-8.3 8.6,-16.6 0,-23.8 C-8.6,-16.6 -8.6,-8.3 0,0" fill="#B89870" transform="rotate(-17)"/></svg>
-    <svg class="hero-leaf" style="left:24%;top:49%;width:13px;height:16px;opacity:0.21;animation-name:leaf-float-1;animation-duration:7.6s;animation-delay:7.7s" viewBox="-7 -18 14 20" overflow="visible"><path d="M0,0 C5.1,-5.5 5.1,-11.0 0,-15.8 C-5.1,-11.0 -5.1,-5.5 0,0" fill="#B89870" transform="rotate(3)"/></svg>
-    <svg class="hero-leaf" style="left:48%;top:97%;width:22px;height:27px;opacity:0.18;animation-name:leaf-float-1;animation-duration:8.7s;animation-delay:6.8s" viewBox="-11 -29 22 31" overflow="visible"><path d="M0,0 C8.8,-9.3 8.8,-18.6 0,-26.5 C-8.8,-18.6 -8.8,-9.3 0,0" fill="#B89870" transform="rotate(-30)"/></svg>
-    <svg class="hero-leaf" style="left:20%;top:31%;width:22px;height:20px;opacity:0.12;animation-name:leaf-float-1;animation-duration:7.9s;animation-delay:7.1s" viewBox="-11 -22 21 24" overflow="visible"><path d="M0,0 C8.6,-7.0 8.6,-14.0 0,-20.0 C-8.6,-14.0 -8.6,-7.0 0,0" fill="#B89870" transform="rotate(-20)"/></svg>
-    <svg class="hero-leaf" style="left:16%;top:11%;width:23px;height:27px;opacity:0.2;animation-name:leaf-float-1;animation-duration:7.5s;animation-delay:3.5s" viewBox="-11 -29 23 31" overflow="visible"><path d="M0,0 C9.3,-9.4 9.3,-18.9 0,-27.0 C-9.3,-18.9 -9.3,-9.4 0,0" fill="#B89870" transform="rotate(-23)"/></svg>
-    <svg class="hero-leaf" style="left:45%;top:30%;width:19px;height:19px;opacity:0.22;animation-name:leaf-float-2;animation-duration:9.0s;animation-delay:8.0s" viewBox="-10 -21 19 23" overflow="visible"><path d="M0,0 C7.6,-6.7 7.6,-13.4 0,-19.1 C-7.6,-13.4 -7.6,-6.7 0,0" fill="#B89870" transform="rotate(-18)"/></svg>
-    <svg class="hero-leaf" style="left:34%;top:88%;width:13px;height:16px;opacity:0.15;animation-name:leaf-float-2;animation-duration:9.3s;animation-delay:0.2s" viewBox="-7 -18 15 20" overflow="visible"><path d="M0,0 C5.4,-5.7 5.4,-11.5 0,-16.4 C-5.4,-11.5 -5.4,-5.7 0,0" fill="#B89870" transform="rotate(26)"/></svg>
-    <svg class="hero-leaf" style="left:53%;top:75%;width:21px;height:26px;opacity:0.14;animation-name:leaf-float-3;animation-duration:10.0s;animation-delay:6.3s" viewBox="-10 -28 21 30" overflow="visible"><path d="M0,0 C8.3,-9.2 8.3,-18.5 0,-26.4 C-8.3,-18.5 -8.3,-9.2 0,0" fill="#B89870" transform="rotate(-38)"/></svg>
-    <svg class="hero-leaf" style="left:33%;top:30%;width:23px;height:16px;opacity:0.14;animation-name:leaf-float-1;animation-duration:5.1s;animation-delay:6.8s" viewBox="-11 -18 22 20" overflow="visible"><path d="M0,0 C9.1,-5.4 9.1,-10.9 0,-15.5 C-9.1,-10.9 -9.1,-5.4 0,0" fill="#B89870" transform="rotate(-60)"/></svg>
-    <svg class="hero-leaf" style="left:80%;top:48%;width:11px;height:28px;opacity:0.12;animation-name:leaf-float-3;animation-duration:7.2s;animation-delay:7.0s" viewBox="-6 -30 13 32" overflow="visible"><path d="M0,0 C4.4,-9.8 4.4,-19.7 0,-28.1 C-4.4,-19.7 -4.4,-9.8 0,0" fill="#B89870" transform="rotate(-37)"/></svg>
-    <svg class="hero-leaf" style="left:4%;top:74%;width:16px;height:30px;opacity:0.15;animation-name:leaf-float-1;animation-duration:7.9s;animation-delay:0.9s" viewBox="-8 -32 17 34" overflow="visible"><path d="M0,0 C6.4,-10.5 6.4,-20.9 0,-29.9 C-6.4,-20.9 -6.4,-10.5 0,0" fill="#B89870" transform="rotate(-3)"/></svg>
-
+  <div class="hero">
+    <!-- HOJAS FLOTANTES FONDO -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" id="paw-bg"></svg>
     <div style="position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0">
-
-      <!-- ICONO 3 HOJAS ANIMADO (grande) -->
-      <svg class="blogo-icon" width="110" height="110" viewBox="-65 -65 130 130" overflow="visible" style="margin-bottom:8px">
+      <svg width="110" height="110" viewBox="-65 -65 130 130" overflow="visible" style="margin-bottom:8px">
         <g class="bfly-t"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g>
         <g class="bfly-l"><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
         <g class="bfly-r"><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></g>
       </svg>
-
-      <!-- NOMBRE EN FREDOKA ONE GRANDE -->
       <div style="display:flex;align-items:baseline;gap:0;line-height:1;margin-bottom:10px">
         <span class="hero-l1" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">F</span>
         <span class="hero-l2" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">U</span>
         <span class="hero-l3" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">R</span>
         <span class="hero-l4" style="font-family:'Fredoka One',cursive;font-size:clamp(4rem,12vw,7rem);color:#B89870;display:inline-block;opacity:0">O</span>
       </div>
-
-      <!-- ESLOGAN con tipografía espaciada como en la foto -->
-      <p class="hero-tag" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.3em;margin-bottom:20px">Accesorios premium para mascotas</p>
-
-      <!-- DESCRIPCIÓN -->
-      <p class="hero-desc" style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.7;max-width:340px;margin-bottom:24px">Porque tu mejor amigo se merece lo mejor.<br>Envío rápido a toda España.</p>
-
-      <!-- CTA -->
-      <button class="hero-btn" onclick="document.getElementById('pg').scrollIntoView({behavior:'smooth'})" style="font-family:'Jost',sans-serif;background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:11px 28px;border-radius:30px;font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;opacity:0">Ver productos →</button>
-
+      <p class="hero-tag" id="hero-tag" style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.3em;margin-bottom:20px">Accesorios premium para mascotas</p>
+      <p class="hero-desc" id="hero-desc" style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.7;max-width:340px;margin-bottom:24px">Porque tu mejor amigo se merece lo mejor.<br>Envío rápido a toda España.</p>
+      <button class="hero-btn-anim" onclick="document.getElementById('pg').scrollIntoView({behavior:'smooth'})" style="font-family:'Jost',sans-serif;background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:11px 28px;border-radius:30px;font-size:12px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;opacity:0" id="hero-btn">Ver productos →</button>
     </div>
   </div>
   <div class="tabs-bar"><div class="tabs" id="tabs"></div></div>
@@ -500,117 +362,61 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 
 <!-- ENVÍOS -->
 <div id="page-envios" style="display:none">
-  <div class="page-hero">
-    <h1>Envíos</h1>
-    <p>Hacemos todo lo posible para que tu pedido llegue rápido y en perfecto estado.</p>
-  </div>
+  <div class="page-hero"><h1 id="ship-h">Envíos</h1><p id="ship-p">Hacemos todo lo posible para que tu pedido llegue rápido y en perfecto estado.</p></div>
   <div class="page-body">
-    <div class="section">
-      <h2>¿Cuándo llega mi pedido?</h2>
-      <p>Una vez confirmado el pago, preparamos y enviamos tu pedido en <strong>24 a 72 horas hábiles</strong>. El tiempo de entrega según tu zona:</p>
+    <div class="section"><h2>¿Cuándo llega mi pedido?</h2><p>Una vez confirmado el pago, preparamos y enviamos tu pedido en <strong>24 a 72 horas hábiles</strong>.</p>
       <div class="info-grid">
         <div class="info-card"><div class="ico">🏙️</div><h4>Península</h4><p>2 — 4 días hábiles</p></div>
         <div class="info-card"><div class="ico">🏝️</div><h4>Islas Canarias</h4><p>4 — 7 días hábiles</p></div>
         <div class="info-card"><div class="ico">🌍</div><h4>Europa</h4><p>5 — 10 días hábiles</p></div>
       </div>
     </div>
-    <div class="section">
-      <h2>Gastos de envío</h2>
-      <ul>
-        <li>Envío gratuito en pedidos superiores a <strong>€25</strong> dentro de la Península</li>
-        <li>Para pedidos inferiores, el coste se calcula al momento del checkout</li>
-        <li>Número de seguimiento incluido — te lo enviamos por email</li>
-      </ul>
-    </div>
-    <div class="section">
-      <h2>¿Qué pasa si no estoy en casa?</h2>
-      <p>El transportista intentará la entrega hasta dos veces. Si no te encuentra, dejará el paquete en un punto de recogida cercano.</p>
-    </div>
-    <div class="section">
-      <h2>¿Puedo cambiar la dirección de entrega?</h2>
-      <p>Si acabas de hacer el pedido escríbenos cuanto antes desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none;font-weight:500">Contacto</a>. Una vez en camino no siempre es posible modificarlo.</p>
-    </div>
+    <div class="section"><h2>Gastos de envío</h2><ul><li>Envío gratuito en pedidos superiores a <strong>€25</strong> dentro de la Península</li><li>Número de seguimiento incluido — te lo enviamos por email</li><li>Para destinos fuera de la Península, el coste se calcula en el checkout</li></ul></div>
+    <div class="section"><h2>¿Qué pasa si no estoy en casa?</h2><p>El transportista intentará la entrega hasta dos veces. Si no te encuentra, dejará el paquete en un punto de recogida cercano.</p></div>
+    <div class="section"><h2>¿Puedo cambiar la dirección?</h2><p>Escríbenos desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;font-weight:500">Contacto</a> cuanto antes. Una vez en camino no siempre es posible modificarlo.</p></div>
   </div>
   <div id="footer-envios"></div>
 </div>
 
 <!-- DEVOLUCIONES -->
 <div id="page-devoluciones" style="display:none">
-  <div class="page-hero">
-    <h1>Devoluciones</h1>
-    <p>Si algo no es lo que esperabas, lo solucionamos sin complicaciones.</p>
-  </div>
+  <div class="page-hero"><h1 id="ret-h">Devoluciones</h1><p id="ret-p">Si algo no es lo que esperabas, lo solucionamos sin complicaciones.</p></div>
   <div class="page-body">
-    <div class="section">
-      <h2>Política de devoluciones</h2>
-      <p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para devolver cualquier producto, sin dar explicaciones.</p>
-      <div class="highlight-box"><p>El producto debe estar sin usar, con su embalaje intacto y todos sus accesorios.</p></div>
-    </div>
-    <div class="section">
-      <h2>¿Cómo hago una devolución?</h2>
-      <ul>
-        <li>Escríbenos desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;text-decoration:none;font-weight:500">Contacto</a> con tu número de pedido y el motivo</li>
-        <li>Te enviamos las instrucciones para devolver el paquete</li>
-        <li>Procesamos el reembolso en <strong>5 a 10 días hábiles</strong> por el mismo método de pago</li>
-      </ul>
-    </div>
-    <div class="section">
-      <h2>¿Y si el producto llega defectuoso?</h2>
-      <p>Cubrimos los gastos de devolución y te enviamos un producto nuevo o te hacemos el reembolso completo — tú eliges.</p>
-    </div>
-    <div class="section">
-      <h2>Resumen rápido</h2>
-      <div class="info-grid">
-        <div class="info-card"><div class="ico">📅</div><h4>Plazo</h4><p>14 días desde la recepción</p></div>
-        <div class="info-card"><div class="ico">💳</div><h4>Reembolso</h4><p>En 5-10 días hábiles</p></div>
-        <div class="info-card"><div class="ico">🔧</div><h4>Defectuoso</h4><p>Devolución gratuita</p></div>
-        <div class="info-card"><div class="ico">🤝</div><h4>Sin preguntas</h4><p>Tu satisfacción primero</p></div>
-      </div>
-    </div>
+    <div class="section"><h2>Política de devoluciones</h2><p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para devolver cualquier producto, sin dar explicaciones.</p><div class="highlight-box"><p>El producto debe estar sin usar, con su embalaje intacto y todos sus accesorios.</p></div></div>
+    <div class="section"><h2>¿Cómo hago una devolución?</h2><ul><li>Escríbenos desde <a onclick="goPage('contacto')" style="color:var(--a);cursor:pointer;font-weight:500">Contacto</a> con tu número de pedido y el motivo</li><li>Te enviamos las instrucciones para devolver el paquete</li><li>Procesamos el reembolso en <strong>5 a 10 días hábiles</strong> por el mismo método de pago</li></ul></div>
+    <div class="section"><h2>¿Y si el producto llega defectuoso?</h2><p>Cubrimos los gastos de devolución y te enviamos un producto nuevo o te hacemos el reembolso completo — tú eliges.</p></div>
+    <div class="section"><div class="info-grid">
+      <div class="info-card"><div class="ico">📅</div><h4>Plazo</h4><p>14 días desde la recepción</p></div>
+      <div class="info-card"><div class="ico">💳</div><h4>Reembolso</h4><p>En 5-10 días hábiles</p></div>
+      <div class="info-card"><div class="ico">🔧</div><h4>Defectuoso</h4><p>Devolución gratuita</p></div>
+      <div class="info-card"><div class="ico">🤝</div><h4>Sin preguntas</h4><p>Tu satisfacción primero</p></div>
+    </div></div>
   </div>
   <div id="footer-devoluciones"></div>
 </div>
 
 <!-- CONTACTO -->
 <div id="page-contacto" style="display:none">
-  <div class="page-hero">
-    <h1>Hablemos</h1>
-    <p>¿Tienes una duda o una sugerencia? Estamos aquí para escucharte.</p>
-  </div>
+  <div class="page-hero"><h1 id="con-h">Hablemos</h1><p id="con-p">¿Tienes una duda o una sugerencia? Estamos aquí para escucharte.</p></div>
   <div class="page-body">
     <div class="info-grid" style="margin-bottom:32px">
       <div class="info-card"><div class="ico">📧</div><h4>Email</h4><p>Respondemos en menos de 24h</p></div>
       <div class="info-card"><div class="ico">⏰</div><h4>Horario</h4><p>Lunes a viernes<br>9:00 — 18:00h</p></div>
       <div class="info-card"><div class="ico">🤖</div><h4>Respuesta IA</h4><p>Respuesta automática inmediata</p></div>
     </div>
-    <div class="section">
-      <h2>Escríbenos</h2>
-      <p style="margin-bottom:20px">Rellena el formulario y recibirás una respuesta automática en segundos.</p>
+    <div class="section"><h2>Escríbenos</h2>
       <div id="cf-wrap">
         <div class="cf">
-          <div class="cf-field"><label>Tu nombre</label><input id="cf-nombre" placeholder="Ana García"></div>
+          <div class="cf-field"><label id="lbl-name">Tu nombre</label><input id="cf-nombre" placeholder="Ana García"></div>
           <div class="cf-field"><label>Email</label><input id="cf-email" type="email" placeholder="ana@ejemplo.com"></div>
-          <div class="cf-field">
-            <label>Motivo</label>
-            <select id="cf-motivo">
-              <option value="">Selecciona un motivo...</option>
-              <option>Consulta sobre un producto</option>
-              <option>Estado de mi pedido</option>
-              <option>Devolución o cambio</option>
-              <option>Problema con mi pedido</option>
-              <option>Otro</option>
-            </select>
+          <div class="cf-field"><label id="lbl-motivo">Motivo</label>
+            <select id="cf-motivo"><option value="" id="mot-default">Selecciona un motivo...</option><option>Consulta sobre un producto</option><option>Estado de mi pedido</option><option>Devolución o cambio</option><option>Problema con mi pedido</option><option>Otro</option></select>
           </div>
-          <div class="cf-field"><label>Mensaje</label><textarea id="cf-msg" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
+          <div class="cf-field"><label id="lbl-msg">Mensaje</label><textarea id="cf-msg" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
           <button class="cf-submit" id="cf-btn" onclick="enviarContacto()">Enviar mensaje</button>
         </div>
       </div>
-      <div class="cf-sent" id="cf-sent">
-        <div style="font-size:40px;margin-bottom:10px">💌</div>
-        <h3>¡Mensaje recibido!</h3>
-        <p>Hemos generado una respuesta automática para ti:</p>
-        <div class="cf-respuesta" id="cf-respuesta"></div>
-      </div>
+      <div class="cf-sent" id="cf-sent"><div style="font-size:40px;margin-bottom:10px">💌</div><h3>¡Mensaje recibido!</h3><p>Hemos generado una respuesta automática para ti:</p><div class="cf-respuesta" id="cf-respuesta"></div></div>
     </div>
   </div>
   <div id="footer-contacto"></div>
@@ -621,11 +427,7 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
   <div style="font-size:52px">🎉</div>
   <h2>¡Pedido confirmado!</h2>
   <p>Tu pedido está en camino. Entrega estimada: <strong>2-4 días hábiles.</strong></p>
-  <div class="sb">
-    <div class="si on"><span class="sico">📦</span>Preparando</div>
-    <div class="si"><span class="sico">🚚</span>En camino</div>
-    <div class="si"><span class="sico">✅</span>Entregado</div>
-  </div>
+  <div class="sb"><div class="si on"><span class="sico">📦</span>Preparando</div><div class="si"><span class="sico">🚚</span>En camino</div><div class="si"><span class="sico">✅</span>Entregado</div></div>
   <button class="rb" onclick="rS()">Seguir comprando</button>
 </div>
 
@@ -640,621 +442,16 @@ body{font-family:var(--n);background:var(--bg);color:var(--t)}
 <!-- CHECKOUT -->
 <div id="chk">
   <div class="cm">
-    <div class="cmh">
-      <div><h3 id="ct2">Datos de envío</h3><p id="cs">Paso 1 de 2</p></div>
-      <button class="cmc" onclick="cK()">✕</button>
-    </div>
-    <div class="cmb">
-      <div class="prg"><div class="pb on" id="p1"></div><div class="pb" id="p2"></div></div>
-      <div id="st1"></div><div id="st2" style="display:none"></div>
-    </div>
+    <div class="cmh"><div><h3 id="ct2">Datos de envío</h3><p id="cs">Paso 1 de 2</p></div><button class="cmc" onclick="cK()">✕</button></div>
+    <div class="cmb"><div class="prg"><div class="pb on" id="p1"></div><div class="pb" id="p2"></div></div><div id="st1"></div><div id="st2" style="display:none"></div></div>
   </div>
 </div>
 
-<div id="toast" style="display:none;align-items:center">✦ <span id="tm"></span></div>
-
-<script>
-const CDN="https://image.chewy.com/catalog/general/images/";
-const IMG={
-  cama:    CDN+"moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
-  feeder:  CDN+"petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
-  ball:    CDN+"moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
-  snack:   CDN+"brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
-  gps:     CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
-  cattoy:  CDN+"moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
-  fuente:  CDN+"moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
-  cueva:   CDN+"petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
-  arbol:   CDN+"yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
-  tunel:   CDN+"feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
-  arnes:   CDN+"frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
-  mochila: CDN+"petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
-  collar:  CDN+"illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
-  correa:  CDN+"frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
-  chaleco: CDN+"frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
-  cepillo: CDN+"furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
-  unas:    CDN+"pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
-  masaje:  CDN+"furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
-  patas:   CDN+"dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
-  champu:  CDN+"4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
-};
-
-const CATS=[
-  {id:'todos', lbl:'✦ Todos',          title:'Todos los productos',      desc:'Selección completa para perros y gatos'},
-  {id:'perros',lbl:'🐕 Perros',        title:'Accesorios para perros',   desc:'Todo lo que tu perro necesita'},
-  {id:'gatos', lbl:'🐈 Gatos',         title:'Accesorios para gatos',    desc:'Productos para los más independientes'},
-  {id:'paseo', lbl:'🦮 Paseo & Aventura',title:'Paseo & Aventura',       desc:'Para que cada salida sea especial'},
-  {id:'higiene',lbl:'✨ Higiene & Cuidado',title:'Higiene & Cuidado',    desc:'Siempre en su mejor versión'},
-];
-
-const P=[
-  {id:1, n:'Cama Ortopédica de Lujo',   p:43.19,o:null,  t:null,    c:'perros', i:IMG.cama,   d:'Espuma viscoelástica. Alivia articulaciones.', r:4.8,rv:312,st:8, s:'BB-2847',dl:'24-48h'},
-  {id:2, n:'Comedero Automático Smart', p:50.39,o:null,  t:null,    c:'perros', i:IMG.feeder, d:'App programmable. 6 comidas al día.',           r:4.7,rv:187,st:5, s:'BB-3391',dl:'24-48h'},
-  {id:3, n:'Pelota Interactiva Sensor', p:19.79,o:null,  t:null,    c:'perros', i:IMG.ball,   d:'Se mueve sola. Sensor automático.',             r:4.6,rv:98, st:15,s:'BB-4801',dl:'24-48h'},
-  {id:4, n:'Dispensador de Snacks',     p:26.99,o:null,  t:null,    c:'perros', i:IMG.snack,  d:'Puzzle antiaburrimiento. Premio por esfuerzo.', r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
-  {id:5, n:'GPS Localizador Collar',    p:44.99,o:null,  t:null,    c:'perros', i:IMG.gps,    d:'Seguimiento en tiempo real. App incluida.',     r:4.7,rv:224,st:7, s:'BB-5201',dl:'48h'},
-  {id:6, n:'Juguete Interactivo Gatos', p:20.69,o:null,  t:null,    c:'gatos',  i:IMG.cattoy, d:'Mariposa + pluma. Sensor de presencia.',        r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
-  {id:7, n:'Bebedero Fuente Silencioso',p:33.29,o:36.99, t:'Oferta',c:'gatos',  i:IMG.fuente, d:'Filtración triple. Motor <25dB. 2.5L.',         r:4.9,rv:456,st:9, s:'BB-7784',dl:'24-48h'},
-  {id:8, n:'Cama Cueva Sherpa',         p:31.49,o:null,  t:null,    c:'gatos',  i:IMG.cueva,  d:'Interior Sherpa. Cálida y acogedora.',          r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
-  {id:9, n:'Árbol Rascador Premium',    p:52.19,o:null,  t:null,    c:'gatos',  i:IMG.arbol,  d:'Sisal natural. 3 niveles + cama.',              r:4.7,rv:189,st:6, s:'BB-6310',dl:'48h'},
-  {id:10,n:'Túnel de Juego 3 en 1',    p:22.49,o:null,  t:null,    c:'gatos',  i:IMG.tunel,  d:'Plegable. Pelota interior incluida.',           r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
-  {id:11,n:'Arnés Antipull Premium',   p:28.79,o:null,  t:null,    c:'paseo',  i:IMG.arnes,  d:'Tallas XS-XL. Tejido reflectante.',             r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
-  {id:12,n:'Mochila Transportadora',   p:44.99,o:null,  t:null,    c:'paseo',  i:IMG.mochila,d:'Hasta 8kg. Aprobada cabina avión.',             r:4.8,rv:274,st:7, s:'BB-5519',dl:'48h'},
-  {id:13,n:'Collar LED Seguridad',     p:14.39,o:15.99, t:'Oferta',c:'paseo',  i:IMG.collar, d:'Visible 500m. USB recargable. 3 modos.',        r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
-  {id:14,n:'Correa Retráctil 5m',      p:16.19,o:null,  t:null,    c:'paseo',  i:IMG.correa, d:'Bloqueo instantáneo. Cinta reflectante.',       r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
-  {id:15,n:'Chaleco Salvavidas',       p:35.99,o:null,  t:null,    c:'paseo',  i:IMG.chaleco,d:'Flotabilidad alta. Asa de rescate. S-XL.',     r:4.6,rv:76, st:9, s:'BB-5890',dl:'48h'},
-  {id:16,n:'Cepillo Deslanador Pro',   p:17.99,o:null,  t:null,    c:'higiene',i:IMG.cepillo,d:'Reduce pelo suelto 90%. Auto-limpieza.',        r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
-  {id:17,n:'Cortaúñas LED Seguro',     p:10.79,o:null,  t:null,    c:'higiene',i:IMG.unas,   d:'Luz LED para ver el nervio. Sin errores.',      r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
-  {id:18,n:'Cepillo Masaje 2 en 1',   p:20.69,o:null,  t:null,    c:'higiene',i:IMG.masaje, d:'Limpieza y masaje en el baño.',                 r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
-  {id:19,n:'Limpiador de Patas',       p:11.69,o:null,  t:null,    c:'higiene',i:IMG.patas,  d:'Silicona suave. Limpia en segundos.',           r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
-  {id:20,n:'Champú Natural Premium',  p:13.49,o:null,  t:null,    c:'higiene',i:IMG.champu, d:'Fórmula orgánica. Sin sulfatos.',               r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'},
-];
-
-const FOOTER_HTML=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center;gap:10px"><svg width="28" height="28" viewBox="-65 -65 130 130" overflow="visible"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></svg><span style="font-family:'Fredoka One',cursive;font-size:20px;color:#B89870;letter-spacing:0.05em">FURO</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.5)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
-
-const PAGES=['tienda','envios','devoluciones','contacto'];
-PAGES.forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER_HTML;});
-
-let cart=[],aC='todos',stp=1,frm={},tT=null;
-const $=id=>document.getElementById(id);
-const stars=r=>"★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r));
-const pct=(p,o)=>Math.round((1-p/o)*100);
-
-function goPage(pg){
-  PAGES.forEach(p=>{
-    const el=$('page-'+p);
-    if(el)el.style.display=p===pg?'block':'none';
-    const nav=$('nav-'+p);
-    if(nav)nav.className=p===pg?'on':'';
-  });
-  $('succ').style.display='none';
-  window.scrollTo(0,0);
-  if(pg==='tienda'){rTabs();rGrid();}
-}
-
-function rTabs(){
-  $('tabs').innerHTML=CATS.map(c=>`<div class="tab${aC===c.id?' on':''}" onclick="sT('${c.id}')">${c.lbl}</div>`).join('');
-}
-function sT(id){
-  aC=id;
-  const c=CATS.find(x=>x.id===id);
-  $('ct').textContent=c.title;
-  $('cd').textContent=c.desc;
-  rTabs();rGrid();
-}
-function rGrid(){
-  const l=aC==='todos'?P:P.filter(x=>x.c===aC);
-  $('pc').textContent=l.length+' productos';
-  $('pg').innerHTML=l.map(p=>`<div class="card">
-    <div class="cimg" style="cursor:zoom-in" onclick="openPM(${p.id})">
-      <img src="${p.i}" alt="${p.n}" loading="lazy" onerror="this.style.display='none'">
-      ${p.t?`<div class="cbadge2 bo">${p.t}</div>`:''}
-      ${p.st<=8?`<div class="cstock">Últimas ${p.st}</div>`:''}
-      <div class="cdel"><span class="ddot"></span>${p.dl}</div>
-    </div>
-    <div class="cbody">
-      <div class="cname">${p.n}</div>
-      <div class="cdesc">${p.d}</div>
-      <div class="cstars">${stars(p.r)}<span>(${p.rv})</span></div>
-      <div class="cfoot">
-        <div><span class="pmain">€${p.p.toFixed(2)}</span>${p.o?`<span class="pold">€${p.o.toFixed(2)}</span><span class="ppct"> -${pct(p.p,p.o)}%</span>`:''}</div>
-        <button class="addbtn" onclick="aCart(${p.id})">Añadir</button>
-      </div>
-    </div>
-  </div>`).join('');
-}
-
-function aCart(id){
-  const p=P.find(x=>x.id===id),e=cart.find(x=>x.id===id);
-  if(e)e.qty++;else cart.push({...p,qty:1});
-  uB();shT('"'+p.n+'" añadido');
-}
-function uB(){const n=cart.reduce((s,i)=>s+i.qty,0),b=$('cb');b.textContent=n;b.style.display=n>0?'flex':'none';}
-function shT(m){clearTimeout(tT);$('tm').textContent=m;const t=$('toast');t.style.display='flex';tT=setTimeout(()=>t.style.display='none',2500);}
-function oC(){rD();$('drawer').style.display='flex';$('cover').style.display='block';}
-function cC(){$('drawer').style.display='none';$('cover').style.display='none';}
-function rD(){
-  const n=cart.reduce((s,i)=>s+i.qty,0);
-  $('dt').textContent='Tu carrito ('+n+')';
-  if(!cart.length){$('di').innerHTML='<div class="empty"><div style="font-size:32px;margin-bottom:8px">🛒</div><p>Tu carrito está vacío</p></div>';$('df').innerHTML='';return;}
-  $('di').innerHTML=cart.map(i=>`<div class="dit"><img src="${i.i}" onerror="this.style.display='none'"><div style="flex:1;min-width:0"><div class="din">${i.n}</div><div class="dip">€${i.p.toFixed(2)}</div></div><div class="qc"><button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button><span class="qn">${i.qty}</span><button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button><button class="db" onclick="cQ(${i.id},0)">Quitar</button></div></div>`).join('');
-  const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-  $('df').innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div><div class="drw"><span>Envío</span><span style="color:#5A8A3A;font-weight:600">Gratis</span></div><div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div><button class="gb" onclick="oK()">Finalizar compra →</button><p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
-}
-function cQ(id,q){if(q<=0)cart=cart.filter(i=>i.id!==id);else cart=cart.map(i=>i.id===id?{...i,qty:q}:i);uB();rD();}
-function oK(){cC();stp=1;frm={};rChk();$('chk').style.display='flex';}
-function cK(){$('chk').style.display='none';}
-function rChk(){
-  $('ct2').textContent=stp===1?'Datos de envío':'Confirmar pedido';
-  $('cs').textContent='Paso '+stp+' de 2';
-  $('p1').className='pb on';$('p2').className=stp===2?'pb on':'pb';
-  if(stp===1){
-    $('st1').style.display='block';$('st2').style.display='none';
-    $('st1').innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div><div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div><div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div><div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div><div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div><button class="cbtn" onclick="gS2()">Continuar al pago →</button>`;
-  }else{
-    $('st1').style.display='none';$('st2').style.display='block';
-    const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    // Reset descuento al abrir paso 2
-  const disc = appliedDiscount > 0 ? sub*(appliedDiscount/100) : 0;
-  const final = sub - disc;
-  const promoLabel = currentLang==='en' ? 'Promo code' : 'Código de descuento';
-  const promoPlaceholder = currentLang==='en' ? 'E.g. FURO15' : 'Ej. FURO15';
-  const applyLabel = currentLang==='en' ? 'Apply' : 'Aplicar';
-  const backLabel = currentLang==='en' ? '← Back' : '← Volver';
-  const payLabel = currentLang==='en' ? 'Pay by card' : 'Pagar con tarjeta';
-  $('st2').innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join('')}<div id="summary-discount"></div><div class="ostt"><span>Total</span><span id="summary-total">€${sub.toFixed(2)}</span></div></div>
-    <div style="margin-bottom:12px">
-      <div style="font-family:var(--n);font-size:10px;font-weight:400;letter-spacing:0.1em;color:var(--m);text-transform:uppercase;margin-bottom:6px">${promoLabel}</div>
-      <div class="promo-row">
-        <input class="promo-input" id="promo-input" placeholder="${promoPlaceholder}" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')applyPromo()">
-        <button class="promo-btn" id="promo-btn" onclick="applyPromo()">${applyLabel}</button>
-      </div>
-      <div class="promo-ok" id="promo-ok"></div>
-      <div class="promo-err" id="promo-err"></div>
-    </div>
-    <div id="em" class="em"></div>
-    <div class="br"><button class="bb" onclick="gS1()">${backLabel}</button><button class="bp" id="pbtn" data-base="${sub.toFixed(2)}" onclick="dPay()"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>${payLabel} €${final.toFixed(2)}</button></div>`;
-  }
-}
-function gS2(){frm={n:$('fn').value,e:$('fe').value,a:$('fa').value,c:$('fc').value,z:$('fz').value};stp=2;rChk();}
-function gS1(){stp=1;rChk();}
-async function dPay(){
-  const btn=$('pbtn'),em=$('em');
-  btn.disabled=true;btn.innerHTML='Redirigiendo...';em.style.display='none';
-  try{
-    const r=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,origin:window.location.origin})});
-    const d=await r.json();
-    if(d.url)window.location.href=d.url;else throw new Error(d.error||'Error');
-  }catch(e){
-    em.textContent='⚠️ Error al procesar el pago. Inténtalo de nuevo.';
-    em.style.display='block';
-    btn.disabled=false;
-    const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
-    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>Pagar con Stripe €'+sub.toFixed(2);
-  }
-}
-function rS(){$('succ').style.display='none';goPage('tienda');}
-
-async function enviarContacto(){
-  const btn=$('cf-btn');
-  const nombre=$('cf-nombre').value.trim();
-  const email=$('cf-email').value.trim();
-  const motivo=$('cf-motivo').value;
-  const msg=$('cf-msg').value.trim();
-  if(!nombre||!email||!motivo||!msg){alert('Por favor rellena todos los campos.');return;}
-  btn.disabled=true;btn.textContent='Enviando...';
-  try{
-    const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,email,motivo,mensaje:msg})});
-    const d=await r.json();
-    $('cf-wrap').style.display='none';
-    $('cf-sent').style.display='block';
-    $('cf-respuesta').textContent=d.respuesta||'Gracias por tu mensaje. Te responderemos pronto.';
-  }catch(e){
-    btn.disabled=false;btn.textContent='Enviar mensaje';
-    alert('Error al enviar. Inténtalo de nuevo.');
-  }
-}
-
-
-
-
-const FEATURES = {
-  1:['Espuma viscoelástica de alta densidad','Funda lavable a máquina','Disponible en 3 tamaños','Ideal para perros con artritis o displasia'],
-  2:['Programable desde la app para iOS y Android','Hasta 6 comidas al día con cantidades personalizadas','Capacidad 1.8kg de pienso','Wi-Fi 2.4GHz, sin necesidad de hub'],
-  3:['Sensor de movimiento por infrarrojos','Se activa al detectar al perro','Recargable por USB-C','Modo automático y manual'],
-  4:['Laberinto interior ajustable','Hace caer los snacks poco a poco','Estimulación mental y reducción de ansiedad','Apto para pienso y premios'],
-  5:['Seguimiento GPS en tiempo real','Radio ilimitado de cobertura','Historial de rutas y estadísticas','Resistente al agua IPX7'],
-  6:['Mariposa + pluma intercambiables','Sensor de presencia: se activa solo','Rotación 360° imprevisible','Recargable por USB'],
-  7:['Filtración en 3 etapas (carbón activo)','Motor silencioso <25 decibelios','Capacidad 2.5 litros','Apto para gatos y perros pequeños'],
-  8:['Interior de felpa tipo Sherpa extra suave','Borde elevado para mayor sensación de seguridad','Funda exterior lavable','Disponible en 3 colores'],
-  9:['Postes de sisal 100% natural','3 niveles + cama superior acolchada','Base estable antideslizante','Incluye juguete colgante'],
-  10:['3 entradas/salidas independientes','Se pliega en segundos','Pelota interior con cascabel','Material resistente a arañazos'],
-  11:['Sistema antipull en el pecho (no en el cuello)','Tejido reflectante para visibilidad nocturna','Doble argolla de enganche','Tallas XS a XL con guía de medidas'],
-  12:['Aprobada para cabina en las principales aerolíneas','Capacidad hasta 8kg','Ventilación lateral con malla','Bolsillo frontal para accesorios'],
-  13:['3 modos: fijo, parpadeo y pulso','Visible hasta 500m de distancia','Carga USB completa en 1 hora','Disponible en 8 colores'],
-  14:['Cinta de nylon resistente','Bloqueo instantáneo con un botón','Indicador de tensión de la correa','Apta para perros hasta 25kg'],
-  15:['Alta flotabilidad con relleno de espuma','Asa superior de rescate resistente','Cierre rápido con hebillas','Tallas S a XL con tabla de pesos'],
-  16:['Reduce el pelo suelto hasta un 90%','Botón de autolimpieza instantánea','Cuchilla de acero inoxidable','Apta para pelo corto y largo'],
-  17:['Luz LED ilumina el nervio (la vena del uñero)','Nunca más un corte accidental','Cuchilla ultrafina de acero','Apta para perros, gatos y conejos'],
-  18:['Un lado suave para el baño','Otro lado masajeador con púas de silicona','Mejora la circulación y reduce el estrés','Apta para usar con o sin champú'],
-  19:['Cerdas de silicona suave 360°','Limpia en segundos al volver del paseo','Sin necesidad de toallas','Apta para todas las razas'],
-  20:['Fórmula 100% orgánica y vegana','Sin sulfatos, parabenos ni colorantes','pH equilibrado para piel sensible','Aroma natural de lavanda y avena'],
-};
-const CAT_NAMES = {perros:'🐕 Perros', gatos:'🐈 Gatos', paseo:'🦮 Paseo & Aventura', higiene:'✨ Higiene & Cuidado'};
-let currentPM = null;
-
-let appliedDiscount = 0; // porcentaje aplicado (0-100)
-let discountCode = '';
-const VALID_CODES = { 'FURO15': 15, 'FURO10': 10 };
-
-
-
-
-function applyPromo(){
-  const code = ($('promo-input').value || '').trim().toUpperCase();
-  const pct = VALID_CODES[code];
-  if(pct){
-    appliedDiscount = pct;
-    discountCode = code;
-    $('promo-ok').style.display='flex';
-    $('promo-ok').textContent = '✓ Código aplicado — ' + pct + '% de descuento';
-    $('promo-err').style.display='none';
-    $('promo-btn').textContent='✓';
-    $('promo-btn').style.background='#2D6B00';
-    updateOrderSummary();
-  } else {
-    $('promo-err').style.display='block';
-    $('promo-err').textContent = currentLang==='en' ? 'Invalid code. Try FURO15.' : 'Código no válido. Prueba FURO15.';
-    $('promo-ok').style.display='none';
-    appliedDiscount = 0;
-    updateOrderSummary();
-  }
-}
-function updateOrderSummary(){
-  const sub = cart.reduce((s,i)=>s+i.p*i.qty,0);
-  const disc = appliedDiscount > 0 ? sub * (appliedDiscount/100) : 0;
-  const final = sub - disc;
-  const discLine = appliedDiscount > 0
-    ? `<div class="discount-line"><span>🎉 Descuento ${appliedDiscount}% (${discountCode})</span><span>-€${disc.toFixed(2)}</span></div>`
-    : '';
-  const totalEl = $('summary-total');
-  const discEl = $('summary-discount');
-  const payEl = $('pbtn');
-  if(totalEl) totalEl.textContent = '€' + sub.toFixed(2);
-  if(discEl) discEl.innerHTML = discLine;
-  if(payEl && payEl.dataset.base) {
-    const label = currentLang==='en' ? 'Pay with Stripe' : 'Pagar con Stripe';
-    payEl.innerHTML = '💳 '+label+' €'+final.toFixed(2);
-  }
-}
-
-
-const EXTRA_IMGS = {
-  1: ['https://image.chewy.com/catalog/general/images/moe/0692f215-10ba-7373-8000-650f1c89fc81._AC_SX500_SY400_QL75_V1_.jpg'],
-  5: ['https://image.chewy.com/catalog/general/images/tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-white/img-571119._AC_SX500_SY400_QL75_V1_.jpg'],
-  11:['https://image.chewy.com/catalog/general/images/frisco-padded-reflective-harness-red-medium/img-637836._AC_SX500_SY400_QL75_V1_.jpg'],
-};
-
-let pmImgs = [];
-let pmImgIdx = 0;
-
-function showPMImg(idx){
-  pmImgIdx = idx;
-  const img = $('pm-photo');
-  img.style.opacity='0';
-  setTimeout(()=>{ img.src=pmImgs[idx]; img.style.opacity='1'; },150);
-  document.querySelectorAll('.pm-thumb').forEach((t,i)=>t.className='pm-thumb'+(i===idx?' active':''));
-}
-
-function pmPrev(){ if(pmImgIdx>0) showPMImg(pmImgIdx-1); }
-function pmNext(){ if(pmImgIdx<pmImgs.length-1) showPMImg(pmImgIdx+1); }
-
-
-function renderThumbs(){
-  const thumbs = $('pm-thumbs');
-  if(!thumbs) return;
-  thumbs.innerHTML = pmImgs.length > 1 ? pmImgs.map((url,i)=>
-    `<div class="pm-thumb${i===pmImgIdx?' active':''}" onclick="showPMImg(${i})"><img src="${url}" alt="Vista ${i+1}" loading="lazy"></div>`
-  ).join('') : '';
-  const arrows = document.querySelectorAll('.pm-arrow');
-  arrows.forEach(a=>a.style.display=pmImgs.length>1?'flex':'none');
-}
-
-async function openPM(id){
-  const p = P.find(x=>x.id===id);
-  if(!p) return;
-  currentPM = p;
-  // Mostrar modal inmediatamente con imagen principal
-  pmImgs = [p.i];
-  pmImgIdx = 0;
-  $('pm-photo').src = p.i;
-  $('pm-photo').alt = p.n;
-  renderThumbs();
-  $('prod-modal').classList.add('open');
-  document.body.style.overflow='hidden';
-  // Cargar imágenes extra de BigBuy en segundo plano
-  try {
-    const r = await fetch('/api/product-images?sku='+encodeURIComponent(p.s));
-    const data = await r.json();
-    if(data.images && data.images.length > 0){
-      // Combinar: imagen principal + extras de BigBuy (sin duplicar)
-      const extras = data.images.filter(u=>u && u!==p.i);
-      pmImgs = [p.i, ...extras, ...(EXTRA_IMGS[id]||[]).filter(u=>!extras.includes(u))];
-    } else {
-      pmImgs = [p.i, ...(EXTRA_IMGS[id]||[])];
-    }
-  } catch(e){
-    pmImgs = [p.i, ...(EXTRA_IMGS[id]||[])];
-  }
-  renderThumbs();
-  // Show/hide arrows
-  const arrows = document.querySelectorAll('.pm-arrow');
-  arrows.forEach(a=>a.style.display=pmImgs.length>1?'flex':'none');
-  $('pm-cat').textContent = CAT_NAMES[p.c] || p.c;
-  $('pm-name').textContent = p.n;
-  $('pm-stars').innerHTML = '★'.repeat(Math.floor(p.r))+'☆'.repeat(5-Math.floor(p.r))+`<span>(${p.rv} valoraciones)</span>`;
-  $('pm-price').textContent = '€'+p.p.toFixed(2);
-  if(p.o){ $('pm-old').textContent='€'+p.o.toFixed(2); $('pm-old').style.display='inline'; $('pm-pct').textContent='-'+Math.round((1-p.p/p.o)*100)+'%'; $('pm-pct').style.display='inline'; }
-  else { $('pm-old').style.display='none'; $('pm-pct').style.display='none'; }
-  if(p.t){ $('pm-badge-img').textContent=p.t; $('pm-badge-img').style.display='block'; }
-  else { $('pm-badge-img').style.display='none'; }
-  $('pm-desc').textContent = p.d;
-  const feats = FEATURES[id] || [];
-  $('pm-feats').innerHTML = feats.map(f=>`<li>${f}</li>`).join('');
-  $('pm-del').innerHTML = `<span style="font-size:16px">📦</span> Envío ${p.dl} · Stock disponible`;
-  $('pm-add').textContent = 'Añadir al carrito';
-  // modal ya abierto en openPM
-}
-function closePM(){
-  $('prod-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function pmAddCart(){
-  if(currentPM){ aCart(currentPM.id); $('pm-add').textContent='✓ Añadido'; setTimeout(()=>{ $('pm-add').textContent='Añadir al carrito'; },1500); }
-}
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePM(); });
-
-
-// ── IDIOMA ──
-let currentLang = localStorage.getItem('furo-lang') || 'es';
-
-const TRANS = {
-  es: {
-    cart:'Carrito', navHome:'Inicio', navShip:'Envíos', navRet:'Devoluciones', navContact:'Contacto',
-    trust:['🔒 Pago seguro','📦 Envío 24-48h España','↩️ Devolución 14 días','🏆 +5.000 clientes'],
-    heroTag:'Accesorios premium para mascotas',
-    heroDesc:'Porque tu mejor amigo se merece lo mejor. Envío rápido a toda España.',
-    heroBtn:'Ver productos →',
-    cats:['✦ Todos','🐕 Perros','🐈 Gatos','🦮 Paseo & Aventura','✨ Higiene & Cuidado'],
-    catTitles:['Todos los productos','Accesorios para perros','Accesorios para gatos','Paseo & Aventura','Higiene & Cuidado'],
-    catDescs:['Selección completa para perros y gatos','Todo lo que tu perro necesita','Productos para los más independientes','Para que cada salida sea especial','Siempre en su mejor versión'],
-    addBtn:'Añadir', addedBtn:'✓ Añadido',
-    cartTitle:'Tu carrito', emptyCart:'Tu carrito está vacío',
-    subtotal:'Subtotal', shipping:'Envío', free:'Gratis', total:'Total',
-    checkout:'Finalizar compra →',
-    secNote:'🔒 Pago seguro · Devolución 14 días',
-    step1:'Datos de envío', step2:'Confirmar pedido', stepOf:'Paso {n} de 2',
-    name:'Nombre', email:'Email', address:'Dirección', city:'Ciudad', zip:'C. Postal',
-    continue:'Continuar →', back:'← Volver', pay:'Pagar con Stripe',
-    successTitle:'¡Pedido confirmado!', successDesc:'Tu pedido está en camino. Entrega estimada: 2-4 días hábiles.',
-    keepShopping:'Seguir comprando',
-    ship1:'Preparando', ship2:'En camino', ship3:'Entregado',
-    // POPUP
-    popPct:'15%', popTitle:'de descuento en tu primer pedido',
-    popSub:'Únete a más de 5.000 amantes de los animales.<br>Solo necesitamos tu email.',
-    popBtn:'Quiero mi 15% de descuento', popSkip:'No, gracias',
-    popSuccessTitle:'¡Genial! Aquí tienes tu código',
-    popSuccessDesc:'Aplícalo en el checkout y tendrás un 15% de descuento en tu primer pedido.',
-    popFine:'Sin spam. Puedes darte de baja cuando quieras.',
-    // PAGES
-    shipPageTitle:'Envíos', shipPageSub:'Hacemos todo lo posible para que tu pedido llegue rápido.',
-    retPageTitle:'Devoluciones', retPageSub:'Si algo no es lo que esperabas, lo solucionamos.',
-    contactPageTitle:'Hablemos', contactPageSub:'¿Tienes una duda? Estamos aquí para escucharte.',
-    sendBtn:'Enviar mensaje', motivos:['Consulta sobre un producto','Estado de mi pedido','Devolución o cambio','Problema con mi pedido','Otro'],
-    motivoLabel:'Selecciona un motivo...',
-    // PRODUCT MODAL
-    pmAddCart:'Añadir al carrito', pmAdded:'✓ Añadido',
-  },
-  en: {
-    cart:'Cart', navHome:'Home', navShip:'Shipping', navRet:'Returns', navContact:'Contact',
-    trust:['🔒 Secure payment','📦 Shipping 24-48h Spain','↩️ 14-day returns','🏆 +5,000 customers'],
-    heroTag:'Premium pet accessories',
-    heroDesc:'Because your best friend deserves the best. Fast delivery across Spain.',
-    heroBtn:'Shop now →',
-    cats:['✦ All','🐕 Dogs','🐈 Cats','🦮 Walk & Adventure','✨ Hygiene & Care'],
-    catTitles:['All products','Dog accessories','Cat accessories','Walk & Adventure','Hygiene & Care'],
-    catDescs:['Complete selection for dogs and cats','Everything your dog needs','Products for the most independent','Make every outing special','Always at their best'],
-    addBtn:'Add', addedBtn:'✓ Added',
-    cartTitle:'Your cart', emptyCart:'Your cart is empty',
-    subtotal:'Subtotal', shipping:'Shipping', free:'Free', total:'Total',
-    checkout:'Checkout →',
-    secNote:'🔒 Secure payment · 14-day returns',
-    step1:'Shipping details', step2:'Confirm order', stepOf:'Step {n} of 2',
-    name:'Name', email:'Email', address:'Address', city:'City', zip:'Postcode',
-    continue:'Continue →', back:'← Back', pay:'Pay with Stripe',
-    successTitle:'Order confirmed!', successDesc:'Your order is on its way. Estimated delivery: 2-4 business days.',
-    keepShopping:'Keep shopping',
-    ship1:'Preparing', ship2:'On its way', ship3:'Delivered',
-    // POPUP
-    popPct:'15%', popTitle:'off your first order',
-    popSub:'Join over 5,000 pet lovers.<br>We just need your email.',
-    popBtn:'Get my 15% discount', popSkip:'No, thanks',
-    popSuccessTitle:'Great! Here is your code',
-    popSuccessDesc:'Apply it at checkout and get 15% off your first order.',
-    popFine:'No spam. Unsubscribe any time.',
-    // PAGES
-    shipPageTitle:'Shipping', shipPageSub:'We do our best to get your order there fast.',
-    retPageTitle:'Returns', retPageSub:'If something is not what you expected, we will sort it.',
-    contactPageTitle:'Get in touch', contactPageSub:'Got a question? We are here for you.',
-    sendBtn:'Send message', motivos:['Product enquiry','Order status','Return or exchange','Problem with my order','Other'],
-    motivoLabel:'Select a reason...',
-    // PRODUCT MODAL
-    pmAddCart:'Add to cart', pmAdded:'✓ Added',
-  }
-};
-
-// Nombres y descripciones de productos en inglés
-const P_EN = {
-  1:{n:'Luxury Orthopaedic Bed',d:'Memory foam. Relieves joints.'},
-  2:{n:'Smart Automatic Feeder',d:'App programmable. 6 meals/day.'},
-  3:{n:'Sensor Interactive Ball',d:'Moves on its own. Auto sensor.'},
-  4:{n:'Snack Dispenser',d:'Anti-boredom puzzle. Reward play.'},
-  5:{n:'GPS Collar Tracker',d:'Real-time tracking. App included.'},
-  6:{n:'Interactive Cat Toy',d:'Butterfly & feather. Motion sensor.'},
-  7:{n:'Silent Water Fountain',d:'Triple filter. Motor <25dB. 2.5L.'},
-  8:{n:'Sherpa Cave Bed',d:'Sherpa interior. Warm & cosy.'},
-  9:{n:'Premium Cat Tree',d:'Natural sisal. 3 levels + bed.'},
-  10:{n:'3-in-1 Play Tunnel',d:'Foldable. Ball included.'},
-  11:{n:'No-Pull Premium Harness',d:'XS-XL sizes. Reflective fabric.'},
-  12:{n:'Pet Carrier Backpack',d:'Up to 8kg. Cabin approved.'},
-  13:{n:'LED Safety Collar',d:'Visible 500m. USB rechargeable.'},
-  14:{n:'5m Retractable Lead',d:'Instant lock. Reflective tape.'},
-  15:{n:'Dog Life Jacket',d:'High buoyancy. Rescue handle. S-XL.'},
-  16:{n:'Pro Deshedding Brush',d:'Reduces loose fur 90%. Self-clean.'},
-  17:{n:'LED Safe Nail Clippers',d:'LED light to see the vein.'},
-  18:{n:'2-in-1 Massage Brush',d:'Clean and massage in the bath.'},
-  19:{n:'Paw Cleaner',d:'Soft silicone. Cleans in seconds.'},
-  20:{n:'Premium Natural Shampoo',d:'Organic formula. Sulphate-free.'},
-};
-
-function applyLang(lang) {
-  const t = TRANS[lang];
-  const isEN = lang === 'en';
-
-  // Header
-  document.getElementById('txt-cart').textContent = t.cart;
-  // Mostrar idioma ACTIVO en el botón
-  document.getElementById('lang-flag').textContent = isEN ? '🇬🇧' : '🇪🇸';
-  document.getElementById('lang-code').textContent = isEN ? 'EN' : 'ES';
-  // Marcar opción activa en el desplegable
-  document.getElementById('opt-es').className = 'lang-option' + (!isEN ? ' active' : '');
-  document.getElementById('opt-en').className = 'lang-option' + (isEN ? ' active' : '');
-  ['tienda','envios','devoluciones','contacto'].forEach((p,i)=>{
-    const el = document.getElementById('nav-'+p);
-    if(el) el.textContent = [t.navHome, t.navShip, t.navRet, t.navContact][i];
-  });
-
-  // Trust bar
-  const trustEls = document.querySelectorAll('.trust span');
-  trustEls.forEach((el,i)=>{ if(t.trust[i]) el.textContent = t.trust[i]; });
-
-  // Hero
-  const heroTag = document.querySelector('.htag');
-  if(heroTag) heroTag.textContent = t.heroTag;
-  const heroDesc = document.querySelector('.hero-desc');
-  if(heroDesc) heroDesc.textContent = t.heroDesc;
-  const heroBtn = document.querySelector('.hero-btn');
-  if(heroBtn) heroBtn.textContent = t.heroBtn;
-
-  // Tabs
-  CATS.forEach((c,i)=>{
-    c.lbl = t.cats[i];
-    c.title = t.catTitles[i];
-    c.desc = t.catDescs[i];
-  });
-
-  // Products names/desc
-  if(isEN) {
-    P.forEach(p=>{ if(P_EN[p.id]){ p._n=p.n; p._d=p.d; p.n=P_EN[p.id].n; p.d=P_EN[p.id].d; } });
-  } else {
-    P.forEach(p=>{ if(p._n){ p.n=p._n; p.d=p._d; delete p._n; delete p._d; } });
-  }
-
-  // Popup
-  const epPct = document.getElementById('ep-pct-txt');
-  const epTitle = document.getElementById('ep-title');
-  const epSub = document.getElementById('ep-sub');
-  const epBtn = document.getElementById('ep-btn-txt');
-  const epSkip = document.querySelector('.ep-skip span');
-  if(epPct) epPct.textContent = t.popPct;
-  if(epTitle) epTitle.textContent = t.popTitle;
-  if(epSub) epSub.innerHTML = t.popSub;
-  if(epBtn) epBtn.textContent = t.popBtn;
-  if(epSkip) epSkip.textContent = t.popSkip;
-
-  // Pages titles
-  const shipH = document.querySelector('#page-envios .page-hero h1');
-  const shipP = document.querySelector('#page-envios .page-hero p');
-  if(shipH) shipH.textContent = t.shipPageTitle;
-  if(shipP) shipP.textContent = t.shipPageSub;
-
-  const retH = document.querySelector('#page-devoluciones .page-hero h1');
-  const retP = document.querySelector('#page-devoluciones .page-hero p');
-  if(retH) retH.textContent = t.retPageTitle;
-  if(retP) retP.textContent = t.retPageSub;
-
-  const conH = document.querySelector('#page-contacto .page-hero h1');
-  const conP = document.querySelector('#page-contacto .page-hero p');
-  if(conH) conH.textContent = t.contactPageTitle;
-  if(conP) conP.textContent = t.contactPageSub;
-
-  // Contact form
-  const sendBtn = document.querySelector('.cf-submit');
-  if(sendBtn) sendBtn.textContent = t.sendBtn;
-
-  // Re-render grid and tabs with new language
-  rTabs(); rGrid();
-}
-
-function toggleDropdown(){
-  document.getElementById('lang-wrap').classList.toggle('open');
-}
-function selectLang(lang){
-  currentLang = lang;
-  localStorage.setItem('furo-lang', lang);
-  applyLang(lang);
-  document.getElementById('lang-wrap').classList.remove('open');
-}
-// Cerrar al hacer click fuera
-document.addEventListener('click', function(e){
-  const wrap = document.getElementById('lang-wrap');
-  if(wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
-});
-function toggleLang(){ toggleDropdown(); }
-
-// ── EMAIL POPUP ──
-function openPopup() {
-  if(localStorage.getItem('furo-subscribed')) return;
-  document.getElementById('email-popup').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closePopup() {
-  document.getElementById('email-popup').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function submitPopup() {
-  const email = document.getElementById('ep-email').value.trim();
-  const t = TRANS[currentLang];
-  if(!email || !email.includes('@')) {
-    document.getElementById('ep-email').style.borderColor='#C0392B';
-    return;
-  }
-  localStorage.setItem('furo-subscribed', email);
-  document.getElementById('ep-form-wrap').style.display='none';
-  document.getElementById('ep-success').style.display='block';
-  const sTitle = document.getElementById('ep-success-title');
-  const sDesc = document.querySelector('#ep-success p');
-  if(sTitle) sTitle.textContent = t.popSuccessTitle;
-  if(sDesc) sDesc.textContent = t.popSuccessDesc;
-  setTimeout(closePopup, 4000);
-}
-document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closePM(); closePopup(); } });
-// Show popup after 2.5s
-setTimeout(openPopup, 2500);
-
-// Init
-rTabs();
-rGrid();
-applyLang(currentLang);
-</script>
-
-<!-- MODAL PRODUCTO -->
+<!-- PRODUCT MODAL -->
 <div id="prod-modal" onclick="if(event.target===this)closePM()">
-  <div class="pm-box" id="pm-box">
-    <div class="pm-gallery" id="pm-img">
-      <div class="pm-main-img">
-        <img id="pm-photo" src="" alt="" style="transition:opacity .2s">
-        <div id="pm-badge-img" class="pm-badge" style="display:none"></div>
-      </div>
+  <div class="pm-box">
+    <div class="pm-gallery">
+      <div class="pm-main-img"><img id="pm-photo" src="" alt=""></div>
       <button class="pm-arrow pm-prev" onclick="pmPrev()">‹</button>
       <button class="pm-arrow pm-next" onclick="pmNext()">›</button>
       <div class="pm-thumbs" id="pm-thumbs"></div>
@@ -1264,11 +461,8 @@ applyLang(currentLang);
       <div class="pm-cat" id="pm-cat"></div>
       <div class="pm-name" id="pm-name"></div>
       <div class="pm-stars" id="pm-stars"></div>
-      <div class="pm-price-row">
-        <span class="pm-price" id="pm-price"></span>
-        <span class="pm-old" id="pm-old" style="display:none"></span>
-        <span class="pm-pct" id="pm-pct" style="display:none"></span>
-      </div>
+      <div class="pm-price-row"><span class="pm-price" id="pm-price"></span><span class="pm-old" id="pm-old" style="display:none"></span><span class="pm-pct" id="pm-pct" style="display:none"></span></div>
+      <div id="pm-badge-img" style="display:none"></div>
       <p class="pm-desc" id="pm-desc"></p>
       <ul class="pm-features" id="pm-feats"></ul>
       <div class="pm-del" id="pm-del"></div>
@@ -1290,12 +484,12 @@ applyLang(currentLang);
       <div id="ep-form-wrap">
         <div class="ep-form">
           <input class="ep-input" id="ep-email" type="email" placeholder="tu@email.com">
-          <button class="ep-btn" id="ep-submit-btn" onclick="submitPopup()"><span id="ep-btn-txt">Quiero mi 15% de descuento</span></button>
+          <button class="ep-btn" onclick="submitPopup()"><span id="ep-btn-txt">Quiero mi 15% de descuento</span></button>
           <button class="ep-skip" onclick="closePopup()"><span id="ep-skip-txt">No, gracias</span></button>
         </div>
       </div>
-      <div id="ep-success" class="ep-success" style="display:none">
-        <div style="font-size:40px">🎉</div>
+      <div id="ep-success" class="ep-success">
+        <div style="font-size:40px;margin-bottom:10px">🎉</div>
         <h3 id="ep-success-title">¡Genial! Aquí tienes tu código</h3>
         <div class="ep-code">FURO15</div>
         <p id="ep-success-desc">Aplícalo en el checkout y tendrás un 15% de descuento en tu primer pedido.</p>
@@ -1305,5 +499,358 @@ applyLang(currentLang);
   </div>
 </div>
 
+<div id="toast" style="display:none;align-items:center">✦ <span id="tm"></span></div>
+
+<script>
+const CDN="https://image.chewy.com/catalog/general/images/";
+const IMG={
+  cama:CDN+"moe/0691e250-2d64-7173-8000-763cdaef5e6f._AC_SX500_SY400_QL75_V1_.jpg",
+  feeder:CDN+"petsafe-smart-feed-2-0-wifi-enabled-automatic-dog-cat-feeder-blue/img-458821._AC_SX500_SY400_QL75_V1_.jpg",
+  ball:CDN+"moe/068a37f6-5f43-79df-8000-cf81684352f0._AC_SX500_SY400_QL75_V1_.jpg",
+  snack:CDN+"brightkins-dj-doggo-puzzle-feeder-dog-toy/img-125761._AC_SX500_SY400_QL75_V1_.jpg",
+  gps:CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-beige/img-670868._AC_SX500_SY400_QL75_V1_.jpg",
+  cattoy:CDN+"moe/0687aa6b-6bc7-7ca4-8000-0a79479da22d._AC_SX500_SY400_QL75_V1_.jpg",
+  fuente:CDN+"moe/0699472d-7383-7cfd-8000-75b4b2ed96b7._AC_SX500_SY400_QL75_V1_.jpg",
+  cueva:CDN+"petami-donut-cat-dog-bed-dusty-blue-medium/img-351596._AC_SX500_SY400_QL75_V1_.jpg",
+  arbol:CDN+"yaheetech-54-5-h-multilevel-indoor-cat-tree-condo-navy-blue/img-652066._AC_SX500_SY400_QL75_V1_.jpg",
+  tunel:CDN+"feline-ruff-12-premium-3-way-collapsible-tunnel-cat-toy-animal-print/img-239887._AC_SX500_SY400_QL75_V1_.jpg",
+  arnes:CDN+"frisco-padded-reflective-no-pull-harness-grayblack-xl/img-452182._AC_SX500_SY400_QL75_V1_.jpg",
+  mochila:CDN+"petami-airline-approved-backpack-dog-cat-carrier-purple/img-549601._AC_SX500_SY400_QL75_V1_.jpg",
+  collar:CDN+"illumiseen-led-usb-rechargeable-nylon-dog-collar-blue-x-small-9-to-13-7in-neck/img-721512._AC_SX500_SY400_QL75_V1_.jpg",
+  correa:CDN+"frisco-retractable-dog-leash-black-small-16ft-long-38in-wide-1-count/img-478777._AC_SX500_SY400_QL75_V1_.jpg",
+  chaleco:CDN+"frisco-ripstop-dog-life-jacket-orange-large/img-689335._AC_SX500_SY400_QL75_V1_.jpg",
+  cepillo:CDN+"furminator-short-hair-dog-deshedding-tool-blue-large/img-365278._AC_SX500_SY400_QL75_V1_.jpg",
+  unas:CDN+"pawshelf-2in-1-dog-cat-nail-grinders-clippers/img-736010._AC_SX500_SY400_QL75_V1_.jpg",
+  masaje:CDN+"furemover-duo-dual-sided-grooming-hair-removal-dog-cat-brush-color-varies/img-244033._AC_SX500_SY400_QL75_V1_.jpg",
+  patas:CDN+"dexas-popware-for-pets-dexas-mudbuster-portable-dog-paw-cleaner-pro-blue-medium/img-668829._AC_SX500_SY400_QL75_V1_.jpg",
+  champu:CDN+"4-legger-organic-hypo-allergenic-lemongrass-aloe-dog-shampoo-16fl-oz-bottle/img-149501._AC_SX500_SY400_QL75_V1_.jpg"
+};
+
+// Imágenes extra confirmadas (variantes de color/tamaño)
+const EXTRA_IMGS={
+  1:[CDN+"moe/0692f215-10ba-7373-8000-650f1c89fc81._AC_SX500_SY400_QL75_V1_.jpg"],
+  5:[CDN+"tractive-dog-gps-tracker-with-activity-monitoring-fits-any-collar-white/img-571119._AC_SX500_SY400_QL75_V1_.jpg"],
+  11:[CDN+"frisco-padded-reflective-harness-red-medium/img-637836._AC_SX500_SY400_QL75_V1_.jpg"]
+};
+
+const FEATS={
+  1:['Espuma viscoelástica de alta densidad','Funda lavable a máquina','Disponible en 3 tamaños','Ideal para perros con artritis o displasia'],
+  2:['Programable desde app iOS y Android','Hasta 6 comidas al día con cantidades personalizadas','Capacidad 1.8kg de pienso','Wi-Fi 2.4GHz, sin hub'],
+  3:['Sensor de movimiento por infrarrojos','Se activa al detectar al perro','Recargable por USB-C','Modo automático y manual'],
+  4:['Laberinto interior ajustable','Hace caer los snacks poco a poco','Estimulación mental y reducción de ansiedad','Apto para pienso y premios'],
+  5:['Seguimiento GPS en tiempo real','Radio ilimitado de cobertura','Historial de rutas y estadísticas','Resistente al agua IPX7'],
+  6:['Mariposa + pluma intercambiables','Sensor de presencia: se activa solo','Rotación 360° imprevisible','Recargable por USB'],
+  7:['Filtración en 3 etapas (carbón activo)','Motor silencioso <25 decibelios','Capacidad 2.5 litros','Apto para gatos y perros pequeños'],
+  8:['Interior de felpa tipo Sherpa extra suave','Borde elevado para mayor sensación de seguridad','Funda exterior lavable','Disponible en 3 colores'],
+  9:['Postes de sisal 100% natural','3 niveles + cama superior acolchada','Base estable antideslizante','Incluye juguete colgante'],
+  10:['3 entradas/salidas independientes','Se pliega en segundos','Pelota interior con cascabel','Material resistente a arañazos'],
+  11:['Sistema antipull en el pecho','Tejido reflectante para visibilidad nocturna','Doble argolla de enganche','Tallas XS a XL'],
+  12:['Aprobada para cabina en las principales aerolíneas','Capacidad hasta 8kg','Ventilación lateral con malla','Bolsillo frontal para accesorios'],
+  13:['3 modos: fijo, parpadeo y pulso','Visible hasta 500m de distancia','Carga USB completa en 1 hora','Disponible en 8 colores'],
+  14:['Cinta de nylon resistente','Bloqueo instantáneo con un botón','Indicador de tensión de la correa','Apta para perros hasta 25kg'],
+  15:['Alta flotabilidad con relleno de espuma','Asa superior de rescate resistente','Cierre rápido con hebillas','Tallas S a XL con tabla de pesos'],
+  16:['Reduce el pelo suelto hasta un 90%','Botón de autolimpieza instantánea','Cuchilla de acero inoxidable','Apta para pelo corto y largo'],
+  17:['Luz LED ilumina el nervio vascular','Nunca más un corte accidental','Cuchilla ultrafina de acero','Apta para perros, gatos y conejos'],
+  18:['Un lado suave para el baño','Otro lado masajeador con púas de silicona','Mejora la circulación y reduce el estrés','Apta para usar con o sin champú'],
+  19:['Cerdas de silicona suave 360°','Limpia en segundos al volver del paseo','Sin necesidad de toallas','Apta para todas las razas'],
+  20:['Fórmula 100% orgánica y vegana','Sin sulfatos, parabenos ni colorantes','pH equilibrado para piel sensible','Aroma natural de lavanda y avena']
+};
+const CAT_NAMES={perros:'🐕 Perros',gatos:'🐈 Gatos',paseo:'🦮 Paseo & Aventura',higiene:'✨ Higiene & Cuidado'};
+
+const CATS=[
+  {id:'todos',lbl:'✦ Todos',title:'Todos los productos',desc:'Selección completa para perros y gatos'},
+  {id:'perros',lbl:'🐕 Perros',title:'Accesorios para perros',desc:'Todo lo que tu perro necesita'},
+  {id:'gatos',lbl:'🐈 Gatos',title:'Accesorios para gatos',desc:'Productos para los más independientes'},
+  {id:'paseo',lbl:'🦮 Paseo & Aventura',title:'Paseo & Aventura',desc:'Para que cada salida sea especial'},
+  {id:'higiene',lbl:'✨ Higiene & Cuidado',title:'Higiene & Cuidado',desc:'Siempre en su mejor versión'}
+];
+
+const P=[
+  {id:1,n:'Cama Ortopédica de Lujo',p:43.19,o:null,t:null,c:'perros',i:IMG.cama,d:'Espuma viscoelástica. Alivia articulaciones.',r:4.8,rv:312,st:8,s:'BB-2847',dl:'24-48h'},
+  {id:2,n:'Comedero Automático Smart',p:50.39,o:null,t:null,c:'perros',i:IMG.feeder,d:'App programmable. 6 comidas al día.',r:4.7,rv:187,st:5,s:'BB-3391',dl:'24-48h'},
+  {id:3,n:'Pelota Interactiva Sensor',p:19.79,o:null,t:null,c:'perros',i:IMG.ball,d:'Se mueve sola. Sensor automático.',r:4.6,rv:98,st:15,s:'BB-4801',dl:'24-48h'},
+  {id:4,n:'Dispensador de Snacks',p:26.99,o:null,t:null,c:'perros',i:IMG.snack,d:'Puzzle antiaburrimiento. Premio por esfuerzo.',r:4.5,rv:143,st:18,s:'BB-4920',dl:'48h'},
+  {id:5,n:'GPS Localizador Collar',p:44.99,o:null,t:null,c:'perros',i:IMG.gps,d:'Seguimiento en tiempo real. App incluida.',r:4.7,rv:224,st:7,s:'BB-5201',dl:'48h'},
+  {id:6,n:'Juguete Interactivo Gatos',p:20.69,o:null,t:null,c:'gatos',i:IMG.cattoy,d:'Mariposa + pluma. Sensor de presencia.',r:4.6,rv:143,st:12,s:'BB-4402',dl:'24-48h'},
+  {id:7,n:'Bebedero Fuente Silencioso',p:33.29,o:36.99,t:'Oferta',c:'gatos',i:IMG.fuente,d:'Filtración triple. Motor <25dB. 2.5L.',r:4.9,rv:456,st:9,s:'BB-7784',dl:'24-48h'},
+  {id:8,n:'Cama Cueva Sherpa',p:31.49,o:null,t:null,c:'gatos',i:IMG.cueva,d:'Interior Sherpa. Cálida y acogedora.',r:4.8,rv:267,st:10,s:'BB-6102',dl:'24-48h'},
+  {id:9,n:'Árbol Rascador Premium',p:52.19,o:null,t:null,c:'gatos',i:IMG.arbol,d:'Sisal natural. 3 niveles + cama.',r:4.7,rv:189,st:6,s:'BB-6310',dl:'48h'},
+  {id:10,n:'Túnel de Juego 3 en 1',p:22.49,o:null,t:null,c:'gatos',i:IMG.tunel,d:'Plegable. Pelota interior incluida.',r:4.5,rv:112,st:14,s:'BB-6455',dl:'24h'},
+  {id:11,n:'Arnés Antipull Premium',p:28.79,o:null,t:null,c:'paseo',i:IMG.arnes,d:'Tallas XS-XL. Tejido reflectante.',r:4.7,rv:398,st:15,s:'BB-6673',dl:'24-48h'},
+  {id:12,n:'Mochila Transportadora',p:44.99,o:null,t:null,c:'paseo',i:IMG.mochila,d:'Hasta 8kg. Aprobada cabina avión.',r:4.8,rv:274,st:7,s:'BB-5519',dl:'48h'},
+  {id:13,n:'Collar LED Seguridad',p:14.39,o:15.99,t:'Oferta',c:'paseo',i:IMG.collar,d:'Visible 500m. USB recargable. 3 modos.',r:4.9,rv:521,st:20,s:'BB-1156',dl:'24h'},
+  {id:14,n:'Correa Retráctil 5m',p:16.19,o:null,t:null,c:'paseo',i:IMG.correa,d:'Bloqueo instantáneo. Cinta reflectante.',r:4.5,rv:334,st:22,s:'BB-5780',dl:'24h'},
+  {id:15,n:'Chaleco Salvavidas',p:35.99,o:null,t:null,c:'paseo',i:IMG.chaleco,d:'Flotabilidad alta. Asa de rescate. S-XL.',r:4.6,rv:76,st:9,s:'BB-5890',dl:'48h'},
+  {id:16,n:'Cepillo Deslanador Pro',p:17.99,o:null,t:null,c:'higiene',i:IMG.cepillo,d:'Reduce pelo suelto 90%. Auto-limpieza.',r:4.6,rv:289,st:18,s:'BB-8821',dl:'24h'},
+  {id:17,n:'Cortaúñas LED Seguro',p:10.79,o:null,t:null,c:'higiene',i:IMG.unas,d:'Luz LED para ver el nervio. Sin errores.',r:4.7,rv:412,st:25,s:'BB-8901',dl:'24h'},
+  {id:18,n:'Cepillo Masaje 2 en 1',p:20.69,o:null,t:null,c:'higiene',i:IMG.masaje,d:'Limpieza y masaje en el baño.',r:4.8,rv:198,st:13,s:'BB-9010',dl:'24-48h'},
+  {id:19,n:'Limpiador de Patas',p:11.69,o:null,t:null,c:'higiene',i:IMG.patas,d:'Silicona suave. Limpia en segundos.',r:4.5,rv:167,st:20,s:'BB-9120',dl:'24h'},
+  {id:20,n:'Champú Natural Premium',p:13.49,o:null,t:null,c:'higiene',i:IMG.champu,d:'Fórmula orgánica. Sin sulfatos.',r:4.6,rv:143,st:30,s:'BB-9230',dl:'24h'}
+];
+
+// ── FOOTER ──
+const FOOTER_HTML=`<footer class="footer"><div class="footer-inner"><div style="display:flex;align-items:center;gap:10px"><svg width="28" height="28" viewBox="-65 -65 130 130" overflow="visible"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/><g transform="rotate(-120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g><g transform="rotate(120)"><path d="M0,0 C20,-20 20,-48 0,-62 C-20,-48 -20,-20 0,0Z" fill="#B89870"/></g></svg><span style="font-family:'Fredoka One',cursive;font-size:18px;color:#B89870;letter-spacing:0.05em">FURO</span></div><div class="footer-links"><a onclick="goPage('tienda')">Tienda</a><a onclick="goPage('envios')">Envíos</a><a onclick="goPage('devoluciones')">Devoluciones</a><a onclick="goPage('contacto')">Contacto</a></div><div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,0.5)">📧 hola@furo.es</div></div><p class="footer-copy">© 2025 Furō · Accesorios premium para mascotas</p></footer>`;
+['tienda','envios','devoluciones','contacto'].forEach(p=>{const el=document.getElementById('footer-'+p);if(el)el.innerHTML=FOOTER_HTML;});
+
+// ── NAVEGACIÓN ──
+const PAGES=['tienda','envios','devoluciones','contacto'];
+function goPage(pg){
+  PAGES.forEach(p=>{
+    const el=document.getElementById('page-'+p);
+    if(el)el.style.display=p===pg?'block':'none';
+    const nav=document.getElementById('nav-'+p);
+    if(nav)nav.className=p===pg?'on':'';
+  });
+  document.getElementById('succ').style.display='none';
+  window.scrollTo(0,0);
+  if(pg==='tienda'){rTabs();rGrid();}
+}
+
+// ── IDIOMA ──
+let currentLang=localStorage.getItem('furo-lang')||'es';
+const TRANS={
+  es:{cart:'Carrito',trust:['🔒 Pago seguro','📦 Envío 24-48h España','↩️ Devolución 14 días','🏆 +5.000 clientes'],heroTag:'Accesorios premium para mascotas',heroDesc:'Porque tu mejor amigo se merece lo mejor.\nEnvío rápido a toda España.',heroBtn:'Ver productos →',addBtn:'Añadir',pmAdd:'Añadir al carrito',pmAdded:'✓ Añadido',cartTitle:'Tu carrito',emptyCart:'Tu carrito está vacío',free:'Gratis',checkout:'Finalizar compra →',popTitle:'de descuento en tu primer pedido',popSub:'Únete a más de 5.000 amantes de los animales.<br>Solo necesitamos tu email.',popBtn:'Quiero mi 15% de descuento',popSkip:'No, gracias',popSuccessTitle:'¡Genial! Aquí tienes tu código',popSuccessDesc:'Aplícalo en el checkout y tendrás un 15% de descuento.',sendBtn:'Enviar mensaje'},
+  en:{cart:'Cart',trust:['🔒 Secure payment','📦 Shipping 24-48h Spain','↩️ 14-day returns','🏆 +5,000 customers'],heroTag:'Premium pet accessories',heroDesc:'Because your best friend deserves the best.\nFast delivery across Spain.',heroBtn:'Shop now →',addBtn:'Add',pmAdd:'Add to cart',pmAdded:'✓ Added',cartTitle:'Your cart',emptyCart:'Your cart is empty',free:'Free',checkout:'Checkout →',popTitle:'off your first order',popSub:'Join over 5,000 pet lovers.<br>We just need your email.',popBtn:'Get my 15% discount',popSkip:'No, thanks',popSuccessTitle:'Great! Here is your code',popSuccessDesc:'Apply it at checkout and get 15% off your first order.',sendBtn:'Send message'}
+};
+const P_EN={1:{n:'Luxury Orthopaedic Bed',d:'Memory foam. Relieves joints.'},2:{n:'Smart Automatic Feeder',d:'App programmable. 6 meals/day.'},3:{n:'Sensor Interactive Ball',d:'Moves on its own. Auto sensor.'},4:{n:'Snack Dispenser',d:'Anti-boredom puzzle. Reward play.'},5:{n:'GPS Collar Tracker',d:'Real-time tracking. App included.'},6:{n:'Interactive Cat Toy',d:'Butterfly & feather. Motion sensor.'},7:{n:'Silent Water Fountain',d:'Triple filter. Motor <25dB. 2.5L.'},8:{n:'Sherpa Cave Bed',d:'Sherpa interior. Warm & cosy.'},9:{n:'Premium Cat Tree',d:'Natural sisal. 3 levels + bed.'},10:{n:'3-in-1 Play Tunnel',d:'Foldable. Ball included.'},11:{n:'No-Pull Premium Harness',d:'XS-XL sizes. Reflective fabric.'},12:{n:'Pet Carrier Backpack',d:'Up to 8kg. Cabin approved.'},13:{n:'LED Safety Collar',d:'Visible 500m. USB rechargeable.'},14:{n:'5m Retractable Lead',d:'Instant lock. Reflective tape.'},15:{n:'Dog Life Jacket',d:'High buoyancy. Rescue handle. S-XL.'},16:{n:'Pro Deshedding Brush',d:'Reduces loose fur 90%.'},17:{n:'LED Safe Nail Clippers',d:'LED light to see the vein.'},18:{n:'2-in-1 Massage Brush',d:'Clean and massage in the bath.'},19:{n:'Paw Cleaner',d:'Soft silicone. Cleans in seconds.'},20:{n:'Premium Natural Shampoo',d:'Organic formula. Sulphate-free.'}};
+
+function applyLang(lang){
+  const t=TRANS[lang],isEN=lang==='en';
+  document.getElementById('txt-cart').textContent=t.cart;
+  document.getElementById('lang-flag').textContent=isEN?'🇬🇧':'🇪🇸';
+  document.getElementById('lang-code').textContent=isEN?'EN':'ES';
+  document.getElementById('opt-es').className='lang-option'+(isEN?'':' active');
+  document.getElementById('opt-en').className='lang-option'+(isEN?' active':'');
+  ['t1','t2','t3','t4'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=t.trust[i];});
+  const htag=document.getElementById('hero-tag');if(htag)htag.textContent=t.heroTag;
+  const hdesc=document.getElementById('hero-desc');if(hdesc)hdesc.innerHTML=t.heroDesc.replace('\n','<br>');
+  const hbtn=document.getElementById('hero-btn');if(hbtn)hbtn.textContent=t.heroBtn;
+  if(isEN){P.forEach(p=>{if(P_EN[p.id]){p._n=p._n||p.n;p._d=p._d||p.d;p.n=P_EN[p.id].n;p.d=P_EN[p.id].d;}});}
+  else{P.forEach(p=>{if(p._n){p.n=p._n;p.d=p._d;delete p._n;delete p._d;}});}
+  const epTitle=document.getElementById('ep-title');if(epTitle)epTitle.textContent=t.popTitle;
+  const epSub=document.getElementById('ep-sub');if(epSub)epSub.innerHTML=t.popSub;
+  const epBtn=document.getElementById('ep-btn-txt');if(epBtn)epBtn.textContent=t.popBtn;
+  const epSkip=document.querySelector('.ep-skip span');if(epSkip)epSkip.textContent=t.popSkip;
+  const cfBtn=document.getElementById('cf-btn');if(cfBtn)cfBtn.textContent=t.sendBtn;
+  rTabs();rGrid();
+}
+function toggleDropdown(){document.getElementById('lang-wrap').classList.toggle('open');}
+function selectLang(lang){currentLang=lang;localStorage.setItem('furo-lang',lang);applyLang(lang);document.getElementById('lang-wrap').classList.remove('open');}
+document.addEventListener('click',e=>{const w=document.getElementById('lang-wrap');if(w&&!w.contains(e.target))w.classList.remove('open');});
+
+// ── TIENDA ──
+let cart=[],aC='todos',stp=1,frm={},tT=null;
+const $=id=>document.getElementById(id);
+const stars=r=>"★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r));
+const pct=(p,o)=>Math.round((1-p/o)*100);
+
+function rTabs(){$('tabs').innerHTML=CATS.map(c=>`<div class="tab${aC===c.id?' on':''}" onclick="sT('${c.id}')">${c.lbl}</div>`).join('');}
+function sT(id){aC=id;const c=CATS.find(x=>x.id===id);$('ct').textContent=c.title;$('cd').textContent=c.desc;rTabs();rGrid();}
+function rGrid(){
+  const l=aC==='todos'?P:P.filter(x=>x.c===aC);
+  $('pc').textContent=l.length+' productos';
+  $('pg').innerHTML=l.map(p=>`<div class="card">
+    <div class="cimg" onclick="openPM(${p.id})">
+      <img src="${p.i}" alt="${p.n}" loading="lazy" onerror="this.style.display='none'">
+      ${p.t?`<div class="cbadge2">${p.t}</div>`:''}
+      ${p.st<=8?`<div class="cstock">Últimas ${p.st}</div>`:''}
+      <div class="cdel"><span class="ddot"></span>${p.dl}</div>
+    </div>
+    <div class="cbody">
+      <div class="cname">${p.n}</div>
+      <div class="cdesc">${p.d}</div>
+      <div class="cstars">${stars(p.r)}<span>(${p.rv})</span></div>
+      <div class="cfoot">
+        <div><span class="pmain">€${p.p.toFixed(2)}</span>${p.o?`<span class="pold">€${p.o.toFixed(2)}</span><span class="ppct"> -${pct(p.p,p.o)}%</span>`:''}</div>
+        <button class="addbtn" onclick="event.stopPropagation();aCart(${p.id})">${TRANS[currentLang].addBtn}</button>
+      </div>
+    </div>
+  </div>`).join('');
+}
+
+function aCart(id){const p=P.find(x=>x.id===id),e=cart.find(x=>x.id===id);if(e)e.qty++;else cart.push({...p,qty:1});uB();shT('"'+p.n+'" añadido');}
+function uB(){const n=cart.reduce((s,i)=>s+i.qty,0),b=$('cb');b.textContent=n;b.style.display=n>0?'flex':'none';}
+function shT(m){clearTimeout(tT);$('tm').textContent=m;const t=$('toast');t.style.display='flex';tT=setTimeout(()=>t.style.display='none',2500);}
+function oC(){rD();$('drawer').style.display='flex';$('cover').style.display='block';}
+function cC(){$('drawer').style.display='none';$('cover').style.display='none';}
+function rD(){
+  const t=TRANS[currentLang];
+  $('dt').textContent=t.cartTitle+' ('+cart.reduce((s,i)=>s+i.qty,0)+')';
+  if(!cart.length){$('di').innerHTML=`<div class="empty"><div style="font-size:32px;margin-bottom:8px">🛒</div><p>${t.emptyCart}</p></div>`;$('df').innerHTML='';return;}
+  $('di').innerHTML=cart.map(i=>`<div class="dit"><img src="${i.i}" onerror="this.style.display='none'"><div style="flex:1;min-width:0"><div class="din">${i.n}</div><div class="dip">€${i.p.toFixed(2)}</div></div><div class="qc"><button class="qb" onclick="cQ(${i.id},${i.qty-1})">−</button><span class="qn">${i.qty}</span><button class="qb" onclick="cQ(${i.id},${i.qty+1})">+</button><button class="db" onclick="cQ(${i.id},0)">Quitar</button></div></div>`).join('');
+  const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
+  $('df').innerHTML=`<div class="drw"><span>Subtotal</span><span>€${sub.toFixed(2)}</span></div><div class="drw"><span>Envío</span><span style="color:#5A8A3A;font-weight:600">${t.free}</span></div><div class="drt"><span>Total</span><span>€${sub.toFixed(2)}</span></div><button class="gb" onclick="oK()">${t.checkout}</button><p class="sn">🔒 Pago seguro · Devolución 14 días</p>`;
+}
+function cQ(id,q){if(q<=0)cart=cart.filter(i=>i.id!==id);else cart=cart.map(i=>i.id===id?{...i,qty:q}:i);uB();rD();}
+function oK(){cC();stp=1;frm={};appliedDiscount=0;discountCode='';rChk();$('chk').style.display='flex';}
+function cK(){$('chk').style.display='none';}
+
+// ── CHECKOUT ──
+let appliedDiscount=0,discountCode='';
+const VALID_CODES={'FURO15':15,'FURO10':10};
+function rChk(){
+  $('ct2').textContent=stp===1?'Datos de envío':'Confirmar pedido';
+  $('cs').textContent='Paso '+stp+' de 2';
+  $('p1').className='pb on';$('p2').className=stp===2?'pb on':'pb';
+  if(stp===1){
+    $('st1').style.display='block';$('st2').style.display='none';
+    $('st1').innerHTML=`<div class="fi"><label>Nombre</label><input id="fn" placeholder="Ana García" value="${frm.n||''}"></div><div class="fi"><label>Email</label><input id="fe" type="email" placeholder="ana@ejemplo.com" value="${frm.e||''}"></div><div class="fi"><label>Dirección</label><input id="fa" placeholder="Calle Mayor 12, 3ºB" value="${frm.a||''}"></div><div class="r2"><div class="fi"><label>Ciudad</label><input id="fc" placeholder="Madrid" value="${frm.c||''}"></div><div class="fi"><label>C. Postal</label><input id="fz" placeholder="28001" value="${frm.z||''}"></div></div><button class="cbtn" onclick="gS2()">Continuar →</button>`;
+  }else{
+    $('st1').style.display='none';$('st2').style.display='block';
+    const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
+    const disc=appliedDiscount>0?sub*(appliedDiscount/100):0;
+    const final=sub-disc;
+    $('st2').innerHTML=`<div class="os"><div class="ost">Resumen del pedido</div>${cart.map(i=>`<div class="osl"><span>${i.n} ×${i.qty}</span><span>€${(i.p*i.qty).toFixed(2)}</span></div>`).join('')}${appliedDiscount>0?`<div class="discount-line"><span>🎉 Descuento ${appliedDiscount}% (${discountCode})</span><span>-€${disc.toFixed(2)}</span></div>`:''}<div class="ostt"><span>Total</span><span>€${final.toFixed(2)}</span></div></div>
+    <div style="margin-bottom:12px"><div style="font-family:var(--n);font-size:10px;letter-spacing:0.1em;color:var(--m);text-transform:uppercase;margin-bottom:6px">Código de descuento</div><div class="promo-row"><input class="promo-input" id="promo-input" placeholder="Ej. FURO15" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')applyPromo()" value="${discountCode}"><button class="promo-btn" id="promo-btn" onclick="applyPromo()">Aplicar</button></div><div class="promo-ok" id="promo-ok" style="${appliedDiscount>0?'display:flex':'display:none'}">✓ Código aplicado — ${appliedDiscount>0?appliedDiscount+'% de descuento':''}</div><div class="promo-err" id="promo-err"></div></div>
+    <div class="card-form">
+      <div class="card-form-title">🔒 Datos de tarjeta <div class="card-brands"><span class="card-brand">VISA</span><span class="card-brand">MC</span><span class="card-brand">AMEX</span></div></div>
+      <div class="fi"><label>Número de tarjeta</label><input id="card-num" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)" inputmode="numeric"></div>
+      <div class="card-row">
+        <div class="fi"><label>Caducidad</label><input id="card-exp" placeholder="MM/AA" maxlength="5" oninput="fmtExp(this)" inputmode="numeric"></div>
+        <div class="fi"><label>CVV</label><input id="card-cvv" placeholder="123" maxlength="4" type="password" inputmode="numeric"></div>
+      </div>
+    </div>
+    <div id="em" class="em"></div><div class="br"><button class="bb" onclick="gS1()">← Volver</button><button class="bp" id="pbtn" onclick="dPay()">🔒 Pagar €${final.toFixed(2)}</button></div>`;
+  }
+}
+function applyPromo(){
+  const code=($('promo-input').value||'').trim().toUpperCase();
+  const p=VALID_CODES[code];
+  if(p){appliedDiscount=p;discountCode=code;rChk();}
+  else{$('promo-err').textContent='Código no válido. Prueba FURO15.';$('promo-err').style.display='block';appliedDiscount=0;discountCode='';}
+}
+function gS2(){frm={n:$('fn').value,e:$('fe').value,a:$('fa').value,c:$('fc').value,z:$('fz').value};stp=2;rChk();}
+function gS1(){stp=1;rChk();}
+async function dPay(){
+  const btn=$('pbtn'),em=$('em');
+  btn.disabled=true;btn.innerHTML='Redirigiendo...';em.style.display='none';
+  const sub=cart.reduce((s,i)=>s+i.p*i.qty,0);
+  const final=appliedDiscount>0?sub*(1-appliedDiscount/100):sub;
+  try{
+    const r=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,origin:window.location.origin,discount:appliedDiscount})});
+    const d=await r.json();
+    if(d.url)window.location.href=d.url;else throw new Error(d.error||'Error');
+  }catch(e){
+    em.textContent='⚠️ Error al procesar el pago. Inténtalo de nuevo.';
+    em.style.display='block';btn.disabled=false;
+    btn.innerHTML='💳 Pagar con tarjeta €'+final.toFixed(2);
+  }
+}
+function rS(){$('succ').style.display='none';goPage('tienda');}
+
+// ── PRODUCT MODAL ──
+let pmImgs=[],pmImgIdx=0,currentPM=null;
+function showPMImg(idx){
+  pmImgIdx=idx;
+  const img=$('pm-photo');
+  img.style.opacity='0';
+  setTimeout(()=>{img.src=pmImgs[idx];img.style.opacity='1';},150);
+  document.querySelectorAll('.pm-thumb').forEach((t,i)=>t.className='pm-thumb'+(i===idx?' active':''));
+}
+function pmPrev(){if(pmImgIdx>0)showPMImg(pmImgIdx-1);}
+function pmNext(){if(pmImgIdx<pmImgs.length-1)showPMImg(pmImgIdx+1);}
+function renderThumbs(){
+  const thumbs=$('pm-thumbs');if(!thumbs)return;
+  thumbs.innerHTML=pmImgs.length>1?pmImgs.map((url,i)=>`<div class="pm-thumb${i===pmImgIdx?' active':''}" onclick="showPMImg(${i})"><img src="${url}" alt="Vista ${i+1}" loading="lazy"></div>`).join(''):'';
+  document.querySelectorAll('.pm-arrow').forEach(a=>a.style.display=pmImgs.length>1?'flex':'none');
+}
+function openPM(id){
+  const p=P.find(x=>x.id===id);if(!p)return;
+  currentPM=p;
+  pmImgs=[p.i,...(EXTRA_IMGS[id]||[])];
+  pmImgIdx=0;
+  $('pm-photo').src=p.i;
+  $('pm-photo').alt=p.n;
+  $('pm-photo').style.opacity='1';
+  renderThumbs();
+  $('pm-cat').textContent=CAT_NAMES[p.c]||p.c;
+  $('pm-name').textContent=p.n;
+  $('pm-stars').innerHTML=stars(p.r)+`<span>(${p.rv} valoraciones)</span>`;
+  $('pm-price').textContent='€'+p.p.toFixed(2);
+  if(p.o){$('pm-old').textContent='€'+p.o.toFixed(2);$('pm-old').style.display='inline';$('pm-pct').textContent='-'+pct(p.p,p.o)+'%';$('pm-pct').style.display='inline';}
+  else{$('pm-old').style.display='none';$('pm-pct').style.display='none';}
+  $('pm-desc').textContent=p.d;
+  $('pm-feats').innerHTML=(FEATS[id]||[]).map(f=>`<li>${f}</li>`).join('');
+  $('pm-del').innerHTML=`<span style="font-size:16px">📦</span> Envío ${p.dl} · Stock disponible`;
+  $('pm-add').textContent=TRANS[currentLang].pmAdd;
+  $('prod-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  fetch('/api/product-images?sku='+encodeURIComponent(p.s))
+    .then(r=>r.json())
+    .then(data=>{
+      if(data.images&&data.images.length>0){
+        const extras=data.images.filter(u=>u&&u!==p.i);
+        if(extras.length>0){pmImgs=[p.i,...extras,...(EXTRA_IMGS[id]||[]).filter(u=>!extras.includes(u))];renderThumbs();}
+      }
+    }).catch(()=>{});
+}
+function closePM(){$('prod-modal').classList.remove('open');document.body.style.overflow='';}
+function pmAddCart(){if(currentPM){aCart(currentPM.id);$('pm-add').textContent=TRANS[currentLang].pmAdded;setTimeout(()=>{$('pm-add').textContent=TRANS[currentLang].pmAdd;},1500);}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePM();closePopup();}});
+
+// EMAIL POPUP
+function openPopup(){if(localStorage.getItem('furo-subscribed'))return;$('email-popup').classList.add('open');document.body.style.overflow='hidden';}
+function closePopup(){$('email-popup').classList.remove('open');document.body.style.overflow='';}
+function submitPopup(){
+  const email=$('ep-email').value.trim();
+  if(!email||!email.includes('@')){$('ep-email').style.borderColor='#C0392B';return;}
+  localStorage.setItem('furo-subscribed',email);
+  $('ep-form-wrap').style.display='none';
+  $('ep-success').style.display='block';
+  setTimeout(closePopup,4000);
+}
+
+// CONTACTO
+async function enviarContacto(){
+  const btn=$('cf-btn');
+  const nombre=$('cf-nombre').value.trim(),email=$('cf-email').value.trim(),motivo=$('cf-motivo').value,msg=$('cf-msg').value.trim();
+  if(!nombre||!email||!motivo||!msg){alert('Por favor rellena todos los campos.');return;}
+  btn.disabled=true;btn.textContent='Enviando...';
+  try{
+    const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,email,motivo,mensaje:msg})});
+    const d=await r.json();
+    $('cf-wrap').style.display='none';$('cf-sent').style.display='block';
+    $('cf-respuesta').textContent=d.respuesta||'Gracias por tu mensaje. Te responderemos pronto.';
+  }catch(e){btn.disabled=false;btn.textContent=TRANS[currentLang].sendBtn;alert('Error al enviar.');}
+}
+
+// HUELLAS ANIMADAS
+(function(){
+  function dogPaw(x,y,s,angle,op){return `<g transform="translate(${x|0},${y|0}) rotate(${angle})" opacity="${op}"><ellipse cx="0" cy="0" rx="${s.toFixed(1)}" ry="${(s*1.1).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(-s*1.3).toFixed(1)}" cy="${(-s*1.3).toFixed(1)}" rx="${(s*0.6).toFixed(1)}" ry="${(s*0.7).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(-s*0.3).toFixed(1)}" cy="${(-s*1.75).toFixed(1)}" rx="${(s*0.6).toFixed(1)}" ry="${(s*0.7).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(s*0.8).toFixed(1)}" cy="${(-s*1.6).toFixed(1)}" rx="${(s*0.6).toFixed(1)}" ry="${(s*0.7).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(s*1.45).toFixed(1)}" cy="${(-s*0.7).toFixed(1)}" rx="${(s*0.6).toFixed(1)}" ry="${(s*0.7).toFixed(1)}" fill="#C8A882"/></g>`;}
+  function catPaw(x,y,s,angle,op){return `<g transform="translate(${x|0},${y|0}) rotate(${angle})" opacity="${op}"><ellipse cx="0" cy="0" rx="${(s*0.9).toFixed(1)}" ry="${s.toFixed(1)}" fill="#C8A882"/><ellipse cx="${(-s*0.9).toFixed(1)}" cy="${(-s*1.2).toFixed(1)}" rx="${(s*0.55).toFixed(1)}" ry="${(s*0.55).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(-s*0.15).toFixed(1)}" cy="${(-s*1.5).toFixed(1)}" rx="${(s*0.55).toFixed(1)}" ry="${(s*0.55).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(s*0.65).toFixed(1)}" cy="${(-s*1.35).toFixed(1)}" rx="${(s*0.55).toFixed(1)}" ry="${(s*0.55).toFixed(1)}" fill="#C8A882"/><ellipse cx="${(s*1.1).toFixed(1)}" cy="${(-s*0.55).toFixed(1)}" rx="${(s*0.55).toFixed(1)}" ry="${(s*0.55).toFixed(1)}" fill="#C8A882"/></g>`;}
+  let seed=42;function rand(){seed=(seed*1664525+1013904223)&0xffffffff;return(seed>>>0)/0xffffffff;}
+  const bg=document.getElementById('paw-bg');if(!bg)return;
+  let paws=[];
+  function makePaws(){
+    paws=[];
+    for(let col=0;col<14;col++)for(let row=0;row<6;row++){
+      paws.push({x:col*90+(rand()*50-25),y:row*65+(rand()*36-18),s:4+rand()*3,angle:(rand()-0.5)*100,isDog:rand()>0.5,delay:(rand()*12).toFixed(1),dur:(3.5+rand()*3.5).toFixed(1)});
+    }
+    bg.innerHTML=paws.map(p=>{
+      const fn=p.isDog?dogPaw:catPaw;
+      return fn(p.x,p.y,p.s,p.angle,1).replace('<g transform=',`<g style="animation:paw-fade ${p.dur}s ease-in-out ${p.delay}s infinite;opacity:0" transform=`);
+    }).join('');
+  }
+  makePaws();
+})();
+
+
+// CARD FORMATTING
+function fmtCard(el){
+  let v=el.value.replace(/\D/g,'').substring(0,16);
+  el.value=v.replace(/(\d{4})(?=\d)/g,'$1 ');
+}
+function fmtExp(el){
+  let v=el.value.replace(/\D/g,'').substring(0,4);
+  if(v.length>=2)v=v.substring(0,2)+'/'+v.substring(2);
+  el.value=v;
+}
+
+// INIT
+rTabs();
+rGrid();
+applyLang(currentLang);
+setTimeout(openPopup,2500);
+</script>
 </body>
 </html>
